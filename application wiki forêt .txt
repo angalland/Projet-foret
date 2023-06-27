@@ -1,0 +1,29 @@
+application wiki forêt : 
+
+- l'utilisateur a accès : - list des forêts
+			  - list des faunes et flores
+			  - details forêts 
+			  - detail faunes et flores
+			  - "liker" une forêt
+		          - "liker" une faune_flore
+			  - commenter une forêt
+			  - commenter une faune et flore
+			  - list des randonnées
+			  - detail randonnées	
+	
+
+- l'administrateur peut : - ajouter une forêt
+			  - ajouter une faune et flore
+			  - ajouter une classe
+			  - ajouter un ordre
+		          - ajouter une famille
+			  - ajouter une espece
+			  - modifier ces éléments
+			  - supprimer ces élèments
+			  - peut supprimer un utilisateur
+			  - peut supprimer un message d'un utilisateur
+			  - peut créer une randonné
+
+
+
+leafet
