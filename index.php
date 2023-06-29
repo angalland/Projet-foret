@@ -1,6 +1,7 @@
 <?php
 
 use Controller\ForetController;
+use Controller\UtilisateurController;
 
 spl_autoload_register(function ($class_name){
     include $class_name . '.php';
@@ -13,7 +14,7 @@ if(isset($_GET['action'])){
     switch ($_GET['action']) {
 
         // controller utilisateur
-        case 'acceuille' : $ctrlForet->viewAccueille();
+        case 'accueille' : $ctrlUtilisateur->viewAccueille();
         break;
 
         // crontoller foret

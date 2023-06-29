@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Accueille */
+#navAccueille {
+    background-color: #28634F;
+    display: flex;
+    justify-content: center;
+}
+
+#imgAccueille {
+    width: 250px;
+    height: 250px;
+}
+
+#background-video {
+    height: 75vh;
+    width: 100vw;
+    object-fit: cover;
+}
