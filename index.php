@@ -7,6 +7,7 @@ spl_autoload_register(function ($class_name){
 });
 
 $ctrlForet = new ForetController();
+$ctrlUtilisateur = new UtilisateurController();
 
 if(isset($_GET['action'])){
     switch ($_GET['action']) {
