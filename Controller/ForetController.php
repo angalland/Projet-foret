@@ -19,6 +19,18 @@ class ForetController {
 
     // affiche detail film 
     public function detailFilm($id) {
+
+        $id_foret = filter_var($id);
+
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+            SELECT *
+            FROM foret
+            WHERE id_foret = :id
+        ");
+        $requete->bindparam("id", $id_foret);
+        $requete->execute();
+
         require "view/foret/detailForet.php";
     }
 }
