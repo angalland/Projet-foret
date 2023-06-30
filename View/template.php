@@ -7,6 +7,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             
             <link rel="stylesheet" href="public/css/style/style.css" />
+            <link rel="stylesheet" href="public/css/style/templateStyle.css" />
 
             <title><?= $titre ?></title>
         </head>
@@ -27,14 +28,21 @@
                             <li><a href="index.php?action=utilisateur">Mon Compte</a></li>
                             <?php 
                         } else {?>
-                            <li><a href="index.php?action=connexion">Connexion</a></li>
+                            <li><a href="index.php?action=connexion"><img class="logoConnexion" src="public/logo/user-regular.svg" /></a></li>
                             <?php
                         }?>
                     </ul>
                 </div>
             </nav>
 
-            <header></header>
-            <div><?= $contenu ?></div>
+            <header>
+                    <form id="formRecherche" action="#" method="POST">
+                        <button id="barreRecherche" type="text" name="recherche">
+                            <img id="loupe_recherche" src="public/logo/loupe_recherche.svg" />
+                            Recherche
+                        </button>
+                    </form>
+            </header>
+            <main><?= $contenu ?></main>
         </body>
     </html>
