@@ -35,7 +35,7 @@ ob_start();?>
             map.on('click',clicSurCarte);
             function clicSurCarte(event){
                 var latlong=event.latlng
-                alert("Vous avez cliqué sur la carte à la position : "+latlong);
+                alert("Longitude - Latitude : "+latlong);
             }
             <?php
         }?>

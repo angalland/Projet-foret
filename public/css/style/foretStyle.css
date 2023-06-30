@@ -78,6 +78,7 @@
     width: 60%;
     height: 500px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 /* leafet */
