@@ -31,6 +31,14 @@ class ForetController {
         $requete->bindparam("id", $id_foret);
         $requete->execute();
 
+        $requeteRandonnee = $pdo->prepare("
+            SELECT *
+            FROM randonnee
+            WHERE id_foret = :id
+        ");
+        $requeteRandonnee->bindparam("id", $id_foret);
+        $requeteRandonnee->execute();
+
         require "view/foret/detailForet.php";
     }
 }
