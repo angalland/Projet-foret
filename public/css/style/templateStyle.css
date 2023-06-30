@@ -1,11 +1,14 @@
 /* template */
 body {
     background-color: #28634F;
+    display: flex;
+    flex-direction: column;
 }
-header {
-    width: 100vw;
-    background-size: cover;
+
+.contenu {
+    flex: 1 0 auto;
 }
+
 
 /* navBar */
 .navbar {
@@ -75,7 +78,7 @@ header {
 
 /* main */
 main {
-    margin: 0 40px;
+    margin: 20px 40px;
     border: 2px solid white;
     border-radius: 10px;
     display: flex;
@@ -83,4 +86,26 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+}
+
+/* footer */
+footer {
+    flex-shrink: 0;
+    background-color: #0D463E;
+    min-height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-services {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.list-services a {
+    color:white;
+    font-size: 1em;
 }
