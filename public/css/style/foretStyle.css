@@ -42,6 +42,11 @@
 
 /* detail foret */
 
+#divDetailForet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /* article */
 .articleDetailForet {
     width: 100%;
@@ -50,6 +55,8 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
 }
 
@@ -78,5 +85,9 @@
     margin: 30px;
     width: 400px;
     height: 400px; 
+}
+
+#h2detailForet {
+    color:white;
 }
 
