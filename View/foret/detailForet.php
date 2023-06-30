@@ -16,9 +16,9 @@ ob_start();?>
         <?php
         // boucle pour lire la table randonnee
         foreach ($requeteRandonnee as $randonnee){?>
-            // initialisation de la carte leaflet
-            var map = L.map('map').setView([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>], 13);
-            // gestion des tuiles et zoom
+            // initialisation de la carte leaflet et du zoom
+            var map = L.map('map').setView([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>], 14);
+            // gestion des tuiles
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
