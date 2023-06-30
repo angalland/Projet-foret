@@ -10,6 +10,8 @@ spl_autoload_register(function ($class_name){
 $ctrlForet = new ForetController();
 $ctrlUtilisateur = new UtilisateurController();
 
+$id = (isset($_GET["id"])) ? $_GET["id"] : null;
+
 if(isset($_GET['action'])){
     switch ($_GET['action']) {
 
@@ -21,7 +23,7 @@ if(isset($_GET['action'])){
         case 'listForet' : $ctrlForet->listForet();
         break;
 
-        case 'detailForet' : $ctrlForet->detailFilm();
+        case 'detailForet' : $ctrlForet->detailFilm($id);
         break;
 
     }

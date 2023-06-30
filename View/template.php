@@ -45,5 +45,8 @@
                     </form>
             </header>
             <main><?= $contenu ?></main>
+            <footer>
+                
+            </footer>
         </body>
     </html>

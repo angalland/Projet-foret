@@ -16,4 +16,9 @@ class ForetController {
         
         require "view/foret/listForet.php";
     }
+
+    // affiche detail film 
+    public function detailFilm($id) {
+        require "view/foret/detailForet.php";
+    }
 }
