@@ -8,6 +8,7 @@
             
             <link rel="stylesheet" href="public/css/style/style.css" />
             <link rel="stylesheet" href="public/css/style/templateStyle.css" />
+            <link rel="stylesheet" href="public/css/style/foretStyle.css" />
 
             <title><?= $titre ?></title>
         </head>

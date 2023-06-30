@@ -72,3 +72,15 @@ header {
     width: 25px;
     height: 25px;
 }
+
+/* main */
+main {
+    margin: 0 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
