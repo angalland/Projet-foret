@@ -1,7 +1,7 @@
 <?php
 ob_start();?>
 
-<p>Test</p>
+<div id="map"></div>
 
 <?php
 $titre = 'Detail forêt';
