@@ -4,6 +4,7 @@ use Controller\ForetController;
 use Controller\UtilisateurController;
 use Controller\ArbreController;
 use Controller\PlanteController;
+use Controller\AnimauxController;
 
 spl_autoload_register(function ($class_name){
     include $class_name . '.php';
@@ -13,6 +14,7 @@ $ctrlForet = new ForetController();
 $ctrlUtilisateur = new UtilisateurController();
 $ctrlArbre = new ArbreController();
 $ctrlPlante = new PlanteController();
+$ctrlAnimal = new AnimauxController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
@@ -36,6 +38,10 @@ if(isset($_GET['action'])){
 
         // controller plante 
         case 'listPlante' : $ctrlPlante->listPlante();
+        break;
+
+        // controller animaux
+        case 'listAnimaux' : $ctrlAnimal->listAnimaux();
         break;
 
     }
