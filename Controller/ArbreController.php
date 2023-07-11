@@ -12,9 +12,10 @@ class ArbreController {
         $requete = $pdo->prepare("
             SELECT *
             FROM etre_vivant
+            WHERE id_classe = 1;
         ");
         $requete->execute();
         
-        require "view/foret/listAbre.php";
+        require "View/arbre/listArbre.php";
     }
 }
