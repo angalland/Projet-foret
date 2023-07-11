@@ -37,16 +37,7 @@ ob_start();?>
                 var latlong=event.latlng
                 alert("Longitude - Latitude : "+latlong);
             }
-
-            // On active la gestion des itinéraire
-            L.Routing.control({
-                geocoder: L.Control.Geocoder.nominatim(),
-
-                router: new L.Routing.osrmv1({
-                    language: "fr",
-                    profil: "foot"
-                })
-            }).addTo(map);
+           
             <?php
         }?>
     </script><?php
