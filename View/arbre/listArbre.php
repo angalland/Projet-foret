@@ -2,9 +2,9 @@
 ob_start();
 
 foreach ($requete->fetchAll() as $arbre){?>
-    <article id="articleListForet">
+    <article id="articleListArbre">
         <a href="">
-            <img class="imgListForet" src="<?= $arbre['photo']?>" />
+            <img class="imgListArbre" src="<?= $arbre['photo']?>" />
             <div class="content">
                 <p class="hoverForet nom"><?= $arbre['nom_courant']?></p>
                 <p class="hoverForet ville"><?= $arbre['nom_latin']?></p>
