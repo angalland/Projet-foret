@@ -88,7 +88,7 @@ class UserController {
                 OR pseudo = :pseudo
                 ");
                 $requete->bindparam("email", $email);
-                $requete>bindparam("pseudo", $pseudo);
+                $requete->bindparam("pseudo", $pseudo);
                 $requete->execute();
                 $existeEmail = $requete->fetch(\PDO::FETCH_ASSOC);
 
@@ -106,9 +106,8 @@ class UserController {
                     $pdo = Connect::seConnecter();
                     $requete = $pdo->prepare("
                     INSERT INTO utilisateur
-                    (role, pseudo, email, password)
-                    VALUES (user,
-                            :pseudo,
+                    (pseudo, email, password)
+                    VALUES (:pseudo,
                             :email,
                             :password)        
                     ");

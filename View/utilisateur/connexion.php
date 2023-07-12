@@ -1,21 +1,22 @@
 <?php
 ob_start();
 
-// affiche un message de succes si il y en a un 
-if (isset($_SESSION['messageSucces'])) {?>
-    <p><?= $_SESSION['messageSucces'];?></p><?php
-    unset($_SESSION['messageSucces']);
-};
-// affiche un message d'alerte si il y en a un
-if (isset($_SESSION['messageAlert'])) {
-    foreach ($_SESSION['messageAlert'] as $alert){?>
-        <div><?= $alert ?></div><?php
-        unset($_SESSION['messageAlert']);
-    }
-};
 ?>
 
 <div id="login">
+    <?php
+    // affiche un message de succes si il y en a un 
+    if (isset($_SESSION['messageSucces'])) {?>
+        <p><?= $_SESSION['messageSucces'];?></p><?php
+        unset($_SESSION['messageSucces']);
+    };
+    // affiche un message d'alerte si il y en a un
+    if (isset($_SESSION['messageAlert'])) {
+        foreach ($_SESSION['messageAlert'] as $alert){?>
+            <div><?= $alert ?></div><?php
+            unset($_SESSION['messageAlert']);
+        }
+    };?>
 <!-- Modal caché d'inscription -->
 <div class="modal-container">
     <div class="overlay modal-trigger">
