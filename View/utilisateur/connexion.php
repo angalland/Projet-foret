@@ -13,7 +13,7 @@ ob_start();
     // affiche un message d'alerte si il y en a un
     if (isset($_SESSION['messageAlert'])) {
         foreach ($_SESSION['messageAlert'] as $alert){?>
-            <div><?= $alert ?></div><?php
+            <p><?= $alert ?></p><?php
             unset($_SESSION['messageAlert']);
         }
     };?>

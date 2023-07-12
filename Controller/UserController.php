@@ -128,4 +128,39 @@ class UserController {
             require "view/utilisateur/connexion.php";            
     }
 
+    // affiche la page deconnexion
+    public function viewLogout() {
+        require "view/utilisateur/deconnexion.php";
+    }
+
+     // deconnexion
+     public function logout(){
+        // verifie qu'une session user est bien présente
+        if (isset($_SESSION['user'])){
+            // si on a appuyer sur oui
+            if (!empty($_POST['deconnexion'])){
+                // filtre les donné envoyé par le formulaire
+                $deconnexion = htmlspecialchars($_POST['deconnexion'], ENT_QUOTES);
+
+                // lorque le filtre a bien fonctionné 
+                // on a appuyé sur oui
+                if ($deconnexion == 'true') {
+                    // on supprime la session user 
+                    unset($_SESSION['user']);
+                    // on affiche un message de déconnexion
+                    $_SESSION['messageSucces'] = 'Vous avez bien été déconnecté !';
+                    // on renvoie ver la page de connexion
+                    require "view/utilisateur/connexion.php";
+
+                // on a appuye sur non
+                } elseif ($deconnexion == 'false') {
+                    $_SESSION['deconnexion'] = 'Vous restez connecté';
+                    require "view/utilisateur/deconnexion.php";
+                }
+            }
+        } else {
+            require "view/utilisateur/connexion.php";
+        }
+    }
+
 }

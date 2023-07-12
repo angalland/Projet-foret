@@ -58,5 +58,11 @@ if(isset($_GET['action'])){
         case 'inscription' : $ctrlUser->inscription();
         break;
 
+        case 'deconnexion' : $ctrlUser->viewLogout();
+        break;
+
+        case 'logout' : $ctrlUser->logout();
+        break;
+
     }
 }
