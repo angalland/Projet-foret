@@ -1,5 +1,19 @@
 <?php
-ob_start();?>
+ob_start();
+
+// affiche un message de succes si il y en a un 
+if (isset($_SESSION['messageSucces'])) {?>
+    <p><?= $_SESSION['messageSucces'];?></p><?php
+    unset($_SESSION['messageSucces']);
+};
+// affiche un message d'alerte si il y en a un
+if (isset($_SESSION['messageAlert'])) {
+    foreach ($_SESSION['messageAlert'] as $alert){?>
+        <div><?= $alert ?></div><?php
+        unset($_SESSION['messageAlert']);
+    }
+};
+?>
 
 <div id="login">
 <!-- Modal caché d'inscription -->

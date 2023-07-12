@@ -71,27 +71,31 @@ class UserController {
         // filtre les donnees envoyé par $_POST
         if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword'])) {
 
+            $pseudo = htmlspecialchars($_POST['pseudo'], ENT_QUOTES);
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
             $password = htmlspecialchars($_POST['password'], ENT_QUOTES);
             $confirmPassword = htmlspecialchars($_POST['confirmPassword'], ENT_QUOTES);
 
-            // si $email est vrai
-            if (isset($email) && isset($password) && isset($confirmPassword)) {
+            // si les filtres sont vrai
+            if (isset($pseudo) && isset($email) && isset($password) && isset($confirmPassword)) {
 
                 // cherche dans la base de donnée si l'email est deja utilise
                 $pdo = Connect::seConnecter();
                 $requete = $pdo->prepare("
                 SELECT *
-                FROM user
-                WHERE pseudo = :email
+                FROM utilisateur
+                WHERE email = :email
+                OR pseudo = :pseudo
                 ");
                 $requete->bindparam("email", $email);
+                $requete>bindparam("pseudo", $pseudo);
                 $requete->execute();
-                $existe = $requete->fetch(\PDO::FETCH_ASSOC);
+                $existeEmail = $requete->fetch(\PDO::FETCH_ASSOC);
 
                 // si $existe est vrai alors envoie un message d'erreure
-                if (($existe)){
-                    $_SESSION['messageAlert'] [] = 'Cette email est déja utilisé';
+                if ($existeEmail){
+                    $_SESSION['messageAlert'] [] = 'Cette email ou ce pseudo est déja utilisé';
+               
 
                 // sinon verifie que les 2 champs de mot passes soient identiques
                 } elseif ($password == $confirmPassword) {
@@ -101,11 +105,14 @@ class UserController {
                     // crée un nouvel utilisateur
                     $pdo = Connect::seConnecter();
                     $requete = $pdo->prepare("
-                    INSERT INTO user
-                    (pseudo, name_password)
-                    VALUES (:email,
+                    INSERT INTO utilisateur
+                    (role, pseudo, email, password)
+                    VALUES (user,
+                            :pseudo,
+                            :email,
                             :password)        
                     ");
+                    $requete->bindparam("pseudo", $pseudo);
                     $requete->bindparam("email", $email);
                     $requete->bindparam("password", $passwordProtected);
                     $requete->execute();
@@ -119,7 +126,7 @@ class UserController {
         }  else {
             $_SESSION['messageAlert'] [] = 'Inscription incorrecte';
         }        
-            require "view/Autentification/user.php";            
+            require "view/utilisateur/connexion.php";            
     }
 
 }

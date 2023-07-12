@@ -53,7 +53,7 @@ if(isset($_GET['action'])){
         case 'login' : $ctrlUser->login();
         break;
 
-        case 'inscription' : $ctrlUtilisateur->inscription();
+        case 'inscription' : $ctrlUser->inscription();
         break;
 
     }
