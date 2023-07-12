@@ -50,5 +50,8 @@ if(isset($_GET['action'])){
         case 'connexion' : $ctrlUser->connexion();
         break;
 
+        case 'login' : $ctrlUser->login();
+        break;
+
     }
 }

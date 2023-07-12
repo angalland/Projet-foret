@@ -1,3 +1,4 @@
+/* formulaire de connexion */
 #formConnexion {
    margin : 30px;
    display: flex;
@@ -6,17 +7,20 @@
    justify-content: center;
 }
 
+/* titre du formulaire */
 .formH3 {
     font-size: 2em;
     color: white;
 }
 
+/* différentes partie du formulaire */
 .inputConnexion {
     margin: 30px;
     width: 300px;
     height: 40px;
 }
 
+/* bouton du site */
 .button {
     width: 150px;
     height: 30px;
