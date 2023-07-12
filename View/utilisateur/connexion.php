@@ -2,18 +2,18 @@
 ob_start();?>
 
 <form id="formConnexion" method="POST" action="index.php?action=login">
-    <h3>Connexion</h3>
+    <h3 class="formH3">Connexion</h3>
     <div>
-        <input type="text" placeholder="Pseudo" name="pseudo">
+        <input class="inputConnexion" type="text" placeholder="Pseudo" name="pseudo">
     </div>
     <div>
-        <input type="email" placeholder="email" name="email">
+        <input class="inputConnexion" type="email" placeholder="email" name="email">
     </div>
     <div>
-        <input type="password" placeholder="Mot de passe" name="password">
+        <input class="inputConnexion" type="password" placeholder="Mot de passe" name="password">
     </div>
     <div>
-        <input type="submit" value='connexion'>
+        <input class="button" type="submit" value='connexion'>
     </div>
 </form>
 
