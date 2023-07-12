@@ -5,6 +5,7 @@ use Controller\UtilisateurController;
 use Controller\ArbreController;
 use Controller\PlanteController;
 use Controller\AnimauxController;
+use Controller\UserController;
 
 spl_autoload_register(function ($class_name){
     include $class_name . '.php';
@@ -15,6 +16,7 @@ $ctrlUtilisateur = new UtilisateurController();
 $ctrlArbre = new ArbreController();
 $ctrlPlante = new PlanteController();
 $ctrlAnimal = new AnimauxController();
+$ctrlUser = new UserController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
@@ -42,6 +44,10 @@ if(isset($_GET['action'])){
 
         // controller animaux
         case 'listAnimaux' : $ctrlAnimal->listAnimaux();
+        break;
+
+        // controller connexion
+        case 'connexion' : $ctrlUser->connexion();
         break;
 
     }
