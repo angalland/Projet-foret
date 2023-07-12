@@ -74,5 +74,6 @@
             </footer>
             
             <script src="public/javascript/leafetJs.js"></script>
+            <script src="public/javascript/main.js"></script>
         </body>
     </html>

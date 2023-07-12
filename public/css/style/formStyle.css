@@ -1,3 +1,10 @@
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* formulaire de connexion */
 #formConnexion {
    margin : 30px;
@@ -30,4 +37,69 @@
     border-radius: 10px;
     border: none;
     cursor: pointer;
+}
+
+/* formulaire d'inscription */
+.modal-container {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    transition: visibility 0.4s;
+}
+
+.modal-container.active {
+    visibility: visible;
+}
+
+.overlay {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333333d3;
+    z-index: 2;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+
+.modal-container.active .overlay{
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+
+.modal {
+    opacity: 0;
+    width: 95%;
+    max-width: 500px;
+    background-color: #28634F;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 50px));
+    z-index: 3;
+    transition: opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+
+.modal-container.active .modal {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}
+
+.close-modal {
+    width: auto;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #ff365e;
+    color: #fff;
 }

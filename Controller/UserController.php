@@ -64,4 +64,62 @@ class UserController {
             require "view/utilisateur/connexion.php"; 
         } 
     }
+
+    // incription
+    public function inscription(){
+
+        // filtre les donnees envoyé par $_POST
+        if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword'])) {
+
+            $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+            $password = htmlspecialchars($_POST['password'], ENT_QUOTES);
+            $confirmPassword = htmlspecialchars($_POST['confirmPassword'], ENT_QUOTES);
+
+            // si $email est vrai
+            if (isset($email) && isset($password) && isset($confirmPassword)) {
+
+                // cherche dans la base de donnée si l'email est deja utilise
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                SELECT *
+                FROM user
+                WHERE pseudo = :email
+                ");
+                $requete->bindparam("email", $email);
+                $requete->execute();
+                $existe = $requete->fetch(\PDO::FETCH_ASSOC);
+
+                // si $existe est vrai alors envoie un message d'erreure
+                if (($existe)){
+                    $_SESSION['messageAlert'] [] = 'Cette email est déja utilisé';
+
+                // sinon verifie que les 2 champs de mot passes soient identiques
+                } elseif ($password == $confirmPassword) {
+
+                    // crypte le mot de passe pour qu'il n'apparaissent pas dans la bbd
+                    $passwordProtected = password_hash($password, PASSWORD_DEFAULT);
+                    // crée un nouvel utilisateur
+                    $pdo = Connect::seConnecter();
+                    $requete = $pdo->prepare("
+                    INSERT INTO user
+                    (pseudo, name_password)
+                    VALUES (:email,
+                            :password)        
+                    ");
+                    $requete->bindparam("email", $email);
+                    $requete->bindparam("password", $passwordProtected);
+                    $requete->execute();
+        
+                    $_SESSION['messageSucces'] = 'Votre inscription est réussi';
+        
+                } else {               
+                    $_SESSION['messageAlert'] [] = 'Vos mot de passes ne sont pas identique';
+                }
+            } 
+        }  else {
+            $_SESSION['messageAlert'] [] = 'Inscription incorrecte';
+        }        
+            require "view/Autentification/user.php";            
+    }
+
 }
