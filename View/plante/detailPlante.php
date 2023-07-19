@@ -11,7 +11,7 @@ ob_start();?>
             <p class="detail">Espece : <?=$plante['nom_espece']?></p>
             <?php
             if (isset($plante['taille'])){?>
-            <p class="detail">Taille : <?=$plante['taille']?> Mètre</p><?php
+            <p class="detail">Taille : <?=$plante['taille']?> Cm</p><?php
             }
             if (isset($plante['poids'])){?>
             <p class="detail">Poids : <?=$plante['poids']?> KG</p><?php
