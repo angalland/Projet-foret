@@ -3,7 +3,7 @@ ob_start();
 
 foreach ($requete->fetchAll() as $animaux){?>
     <article id="articleListArbre">
-        <a href="">
+        <a href="index.php?action=detailAnimaux&id=<?=$animaux['id_etre_vivant']?>">
             <img class="imgListArbre" src="<?= $animaux['photo']?>" />
             <div class="content">
                 <p class="hoverForet nom"><?= $animaux['nom_courant']?></p>

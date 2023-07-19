@@ -54,6 +54,9 @@ if(isset($_GET['action'])){
         case 'listAnimaux' : $ctrlAnimal->listAnimaux();
         break;
 
+        case 'detailAnimaux' : $ctrlAnimal->detailAnimaux($id);
+        break;
+
         // controller connexion
         case 'connexion' : $ctrlUser->connexion();
         break;
