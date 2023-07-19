@@ -47,6 +47,9 @@ if(isset($_GET['action'])){
         case 'listPlante' : $ctrlPlante->listPlante();
         break;
 
+        case 'detailPlante' : $ctrlPlante->detailPlante($id);
+        break;
+
         // controller animaux
         case 'listAnimaux' : $ctrlAnimal->listAnimaux();
         break;
