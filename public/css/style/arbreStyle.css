@@ -32,9 +32,9 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    width: 600px;
+    width: 700px;
     height: 300px;
-    gap: 10px
+    gap: 20px
 }
 .articleDetailArbre h1 {
     color: white;

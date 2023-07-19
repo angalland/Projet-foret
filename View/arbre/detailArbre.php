@@ -9,6 +9,13 @@ ob_start();?>
             <p class="detail">Ordre : <?=$arbre['nom_ordre']?></p>
             <p class="detail">Famille : <?=$arbre['nom_famille']?></p>
             <p class="detail">Espece : <?=$arbre['nom_espece']?></p>
+            <?php
+            if (isset($arbre['taille'])){?>
+            <p class="detail">Taille : <?=$arbre['taille']?> Mètre</p><?php
+            }
+            if (isset($arbre['poids'])){?>
+            <p class="detail">Poids : <?=$arbre['poids']?> KG</p><?php
+            }?>
             <img class="repartition" src="<?=$arbre['photo_repartition']?>"/>
             </div>
             <?php
