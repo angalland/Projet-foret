@@ -47,12 +47,16 @@ ob_start();?>
         <h2>Commentaire :</h2>
         <?php
         foreach ($requeteCommentaire as $commentaire){?>
-            <p><?= $commentaire['commentaire']?></p><?php
+            <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
         }
         if (isset($_SESSION['user'])){
 
         } else {?>
-            <p> Vous devez être connecter pour poster un commentaire</p><?php
+            <div id="commentaireConnexion">
+            <p> Vous devez être connecter pour poster un commentaire</p>
+            <button class="button"><a href="index.php?action=connexion">Se connecter</a></button>
+            </div>
+            <?php
         }?>  
     </article>
 </div>

@@ -1,0 +1,34 @@
+.commentaire {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 30px;
+}
+
+.commentaire h2 {
+    color: white;
+    font-size: 2em;
+}
+
+.commentaire p {
+    width: 100%;
+    background-color: #B3A88C;
+    font-size: 25px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.commentaire a {
+    color:white;
+}
+
+#commentaireConnexion {
+    position: relative;
+}
+
+#commentaireConnexion button {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}

@@ -42,6 +42,8 @@ class ForetController {
         $requeteCommentaire = $pdo->prepare("
             SELECT * 
             FROM commentaire_foret
+            INNER JOIN utilisateur
+                ON commentaire_foret.id_utilisateur = utilisateur.id_utilisateur
         ");
         $requeteCommentaire->execute();
 
