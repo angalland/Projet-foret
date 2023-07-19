@@ -1,21 +1,21 @@
 <?php
 ob_start();?>
-<div id="divDetailForet">
-    <article class="articleDetailForet">
+    <article class="articleDetailArbre">
         <?php foreach ($requete as $arbre){?>
             <h1><?=$arbre['nom_courant']?></h1>
-            <p>Caractéristique : <?=$arbre['nom_categorie']?></p>
-            <p>Classe : <?=$arbre['nom_classe']?></p>
-            <p>Ordre : <?=$arbre['nom_ordre']?></p>
-            <p>Famille : <?=$arbre['nom_famille']?></p>
-            <p>Espece : <?=$arbre['nom_espece']?></p>
+            <div class="caracteristique">
+            <p class="detail">Caractéristique : <?=$arbre['nom_categorie']?></p>
+            <p class="detail">Classe : <?=$arbre['nom_classe']?></p>
+            <p class="detail">Ordre : <?=$arbre['nom_ordre']?></p>
+            <p class="detail">Famille : <?=$arbre['nom_famille']?></p>
+            <p class="detail">Espece : <?=$arbre['nom_espece']?></p>
             <img src="<?=$arbre['photo_repartition']?>"/>
-            <img class="imgDetailForet" src="<?=$arbre['photo']?>"/>
-            <p>Descriptif : </p>
-            <p><?=$arbre['descriptif']?></p>
+            </div>
+            <p class="detail">Descriptif : </p>
+            <p class="detail"><?=$arbre['descriptif']?></p>
+            <img class="imgDetailArbre" src="<?=$arbre['photo']?>"/>
     </article><?php
     }?>
-</div>
 
 <?php
 $titre = 'Detail Arbre';
