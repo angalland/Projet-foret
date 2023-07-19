@@ -36,6 +36,9 @@ if(isset($_GET['action'])){
         case 'detailForet' : $ctrlForet->detailForet($id);
         break;
 
+        case 'posterCommentaire' : $ctrlForet->posterCommentaire($id);
+        break;
+
         // controller arbre
         case 'listArbre' : $ctrlArbre->listArbre();
         break;
@@ -72,6 +75,7 @@ if(isset($_GET['action'])){
 
         case 'logout' : $ctrlUser->logout();
         break;
+
 
     }
 }

@@ -49,8 +49,11 @@ ob_start();?>
         foreach ($requeteCommentaire as $commentaire){?>
             <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
         }
-        if (isset($_SESSION['user'])){
-
+        if (isset($_SESSION['user'])){?>           
+            <form action="index.php?action=posterCommentaire&id=<?=$_SESSION['user']['id_utilisateur']?>" method="POST">
+                <input class="inputConnexion" type="text" name="commentaire" placeholder="Votre commentaire">
+                <input class="button" type="submit" name="submit_commentaire" value="poster">
+            </form><?php
         } else {?>
             <div id="commentaireConnexion">
             <p> Vous devez être connecter pour poster un commentaire</p>

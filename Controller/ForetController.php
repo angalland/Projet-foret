@@ -49,4 +49,30 @@ class ForetController {
 
         require "view/foret/detailForet.php";
     }
+
+    public function posterCommentaire($id) {
+
+        if (isset($_POST['submit_commentaire'])){
+
+            $id_utilisateur = htmlspecialchars($id);
+            $commentaire = htmlspecialchars($_POST['commentaire']);
+
+            if ($id_utilisateur && $commentaire){
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    INSERT INTO commentaire_foret
+                    (id_utilisateur, commentaire)
+                    VALUES (:id_utilisateur,
+                            :commentaire)
+                ");
+                $requete->bindparam("id_utilisateur", $id_utilisateur);
+                $requete->bindparam("commentaire", $commentaire);
+                $requete->execute();
+
+                require "index.php?action=detailForet";
+            }
+        }
+    
+
+    }
 }
