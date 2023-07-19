@@ -17,8 +17,8 @@ class ForetController {
         require "view/foret/listForet.php";
     }
 
-    // affiche detail film 
-    public function detailFilm($id) {
+    // affiche detail foret 
+    public function detailForet($id) {
 
         $id_foret = filter_var($id);
 
@@ -38,6 +38,12 @@ class ForetController {
         ");
         $requeteRandonnee->bindparam("id", $id_foret);
         $requeteRandonnee->execute();
+
+        $requeteCommentaire = $pdo->prepare("
+            SELECT * 
+            FROM commentaire_foret
+        ");
+        $requeteCommentaire->execute();
 
         require "view/foret/detailForet.php";
     }

@@ -42,6 +42,19 @@ ob_start();?>
         }?>
     </script><?php
     }?>
+
+    <article  class="commentaire">
+        <h2>Commentaire :</h2>
+        <?php
+        foreach ($requeteCommentaire as $commentaire){?>
+            <p><?= $commentaire['commentaire']?></p><?php
+        }
+        if (isset($_SESSION['user'])){
+
+        } else {?>
+            <p> Vous devez être connecter pour poster un commentaire</p><?php
+        }?>  
+    </article>
 </div>
 
 <?php

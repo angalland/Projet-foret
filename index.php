@@ -33,7 +33,7 @@ if(isset($_GET['action'])){
         case 'listForet' : $ctrlForet->listForet();
         break;
 
-        case 'detailForet' : $ctrlForet->detailFilm($id);
+        case 'detailForet' : $ctrlForet->detailForet($id);
         break;
 
         // controller arbre
