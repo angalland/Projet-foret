@@ -21,6 +21,7 @@ $ctrlAnimal = new AnimauxController();
 $ctrlUser = new UserController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
+$id_foret = (isset($_GET["id_foret"])) ? $_GET["id_foret"] : null;
 
 if(isset($_GET['action'])){
     switch ($_GET['action']) {
@@ -36,7 +37,7 @@ if(isset($_GET['action'])){
         case 'detailForet' : $ctrlForet->detailForet($id);
         break;
 
-        case 'posterCommentaire' : $ctrlForet->posterCommentaire($id);
+        case 'posterCommentaire' : $ctrlForet->posterCommentaire($id, $id_foret);
         break;
 
         // controller arbre

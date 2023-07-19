@@ -2,7 +2,8 @@
 ob_start();?>
 <div id="divDetailForet">
     <article class="articleDetailForet">
-        <?php foreach ($requete as $foret){?>
+        <?php foreach ($requete as $foret){
+            $id_foret = $foret['id_foret']?>
             <h1><?=$foret['nom_foret']?></h1>
             <p><?=$foret['descriptif']?></p>
             <img class="imgDetailForet" src="<?=$foret['photo']?>"/><?php
@@ -50,7 +51,7 @@ ob_start();?>
             <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
         }
         if (isset($_SESSION['user'])){?>           
-            <form action="index.php?action=posterCommentaire&id=<?=$_SESSION['user']['id_utilisateur']?>" method="POST">
+            <form action="index.php?action=posterCommentaire&id=<?=$_SESSION['user']['id_utilisateur']?>&id_foret=<?=$id_foret?>" method="POST">
                 <input class="inputConnexion" type="text" name="commentaire" placeholder="Votre commentaire">
                 <input class="button" type="submit" name="submit_commentaire" value="poster">
             </form><?php

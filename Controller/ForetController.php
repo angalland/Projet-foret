@@ -44,32 +44,37 @@ class ForetController {
             FROM commentaire_foret
             INNER JOIN utilisateur
                 ON commentaire_foret.id_utilisateur = utilisateur.id_utilisateur
+            WHERE id_foret = :id
         ");
+        $requeteCommentaire->bindparam("id", $id_foret);
         $requeteCommentaire->execute();
 
         require "view/foret/detailForet.php";
     }
 
-    public function posterCommentaire($id) {
+    public function posterCommentaire($id, $id_foret) {
 
         if (isset($_POST['submit_commentaire'])){
 
-            $id_utilisateur = htmlspecialchars($id);
+            $id_utilisateur = filter_var($id);
             $commentaire = htmlspecialchars($_POST['commentaire']);
+            $id_foret = filter_var($id_foret);
 
-            if ($id_utilisateur && $commentaire){
+            if ($id_utilisateur && $commentaire && $id_foret){
                 $pdo = Connect::seConnecter();
                 $requete = $pdo->prepare("
                     INSERT INTO commentaire_foret
-                    (id_utilisateur, commentaire)
+                    (id_utilisateur, commentaire, id_foret)
                     VALUES (:id_utilisateur,
-                            :commentaire)
+                            :commentaire,
+                            :id_foret)
                 ");
                 $requete->bindparam("id_utilisateur", $id_utilisateur);
                 $requete->bindparam("commentaire", $commentaire);
+                $requete->bindparam("id_foret", $id_foret);
                 $requete->execute();
 
-                require "index.php?action=detailForet";
+                require "view/foret/detailForet.php";
             }
         }
     
