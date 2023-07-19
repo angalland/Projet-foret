@@ -9,10 +9,13 @@ ob_start();?>
             <p class="detail">Ordre : <?=$arbre['nom_ordre']?></p>
             <p class="detail">Famille : <?=$arbre['nom_famille']?></p>
             <p class="detail">Espece : <?=$arbre['nom_espece']?></p>
-            <img src="<?=$arbre['photo_repartition']?>"/>
+            <img class="repartition" src="<?=$arbre['photo_repartition']?>"/>
             </div>
+            <?php
+            if (isset($arbre['descriptif'])){?>
             <p class="detail">Descriptif : </p>
-            <p class="detail"><?=$arbre['descriptif']?></p>
+            <p class="detail"><?=$arbre['descriptif']?></p><?php
+            }?>
             <img class="imgDetailArbre" src="<?=$arbre['photo']?>"/>
     </article><?php
     }?>
