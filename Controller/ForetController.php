@@ -52,6 +52,7 @@ class ForetController {
         require "view/foret/detailForet.php";
     }
 
+    // poster un commentaire sur la page detail foret
     public function posterCommentaire($id, $id_foret) {
 
         if (isset($_POST['submit_commentaire'])){
@@ -77,7 +78,10 @@ class ForetController {
                 require "view/foret/detailForet.php";
             }
         }
-    
+    }
 
+    // modifier un commentaire sur la page foret
+    public function modifierCommentaireForet($id) {
+        
     }
 }

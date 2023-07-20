@@ -40,6 +40,9 @@ if(isset($_GET['action'])){
         case 'posterCommentaire' : $ctrlForet->posterCommentaire($id, $id_foret);
         break;
 
+        case 'modifierCommentaireForet' : $ctrlForet->modifierCommentaireForet($id);
+        break;
+
         // controller arbre
         case 'listArbre' : $ctrlArbre->listArbre();
         break;
