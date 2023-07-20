@@ -75,15 +75,16 @@ class ForetController {
                 $requete->bindparam("id_foret", $id_foret);
                 $requete->execute();
 
-                require "view/foret/detailForet.php";
+                header ("Location:index.php?action=detailForet&id=$id_foret");
             }
         }
     }
 
     // supprimer un commentaire de la page detail foret
-    public function supprimerCommentaireForet($id) {
+    public function supprimerCommentaireForet($id, $id_foret) {
 
         $id_commentaire_foret = filter_var($id);
+        $id_foret = filter_var($id_foret);
 
         if ($id_commentaire_foret){
             $pdo = Connect::seConnecter();
@@ -94,7 +95,7 @@ class ForetController {
             $requete->bindparam("id", $id_commentaire_foret);
             $requete->execute();
 
-            require "view/foret/detailForet.php";
+            header ("Location:index.php?action=detailForet&id=$id_foret");
         }
     }
 }

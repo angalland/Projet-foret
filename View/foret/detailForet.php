@@ -52,7 +52,7 @@ ob_start();?>
                 <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
                 if ($commentaire['id_utilisateur'] == $_SESSION['user']['id_utilisateur']){?>
                     <button class="modifier button"><a href="">Modifier</a></button>
-                    <button class="supprimer button"><a href="index.php?action=supprimerCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>">Supprimer</a></button><?php
+                    <button class="supprimer button"><a href="index.php?action=supprimerCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>&id_foret=<?=$commentaire['id_foret']?>">Supprimer</a></button><?php
                 }?>
             </div><?php
         }
