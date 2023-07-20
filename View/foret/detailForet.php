@@ -51,11 +51,19 @@ ob_start();?>
             <div id="commentaireModification">
                 <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
                 if ($commentaire['id_utilisateur'] == $_SESSION['user']['id_utilisateur']){?>
-                    <button class="modifier button"><a href="">Modifier</a></button>
-                    <button class="supprimer button"><a href="index.php?action=supprimerCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>&id_foret=<?=$commentaire['id_foret']?>">Supprimer</a></button><?php
-                }?>
-            </div><?php
+                    <button class="modifier button">Modifier</button>
+                    <button class="supprimer button"><a href="index.php?action=supprimerCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>&id_foret=<?=$commentaire['id_foret']?>">Supprimer</a></button>
+            </div>
+
+                    <div class="formulaireModiffier">
+                        <form action="" method="POST">
+                            <input type="text" name="modifierCommentaire" placeholder="<?= $commentaire['commentaire']?>"/>
+                            <input class="button" type="submit" name="submit_update_commentaire" value="Modifier">
+                        </form>
+                    </div><?php
+                }
         }
+
         if (isset($_SESSION['user'])){?>           
             <form action="index.php?action=posterCommentaire&id=<?=$_SESSION['user']['id_utilisateur']?>&id_foret=<?=$id_foret?>" method="POST">
                 <input class="inputConnexion" type="text" name="commentaire" placeholder="Votre commentaire">

@@ -38,6 +38,9 @@
 /* moddifier ou supprimer un commentaire */
 
 #commentaireModification {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     position: relative;
 }
 
@@ -51,4 +54,12 @@
     position: absolute;
     top:50px;
     right: 25px;
+}
+
+.formulaireModiffier {
+    display: none;
+}
+
+.formulaireModiffier.active {
+    display: flex;
 }

@@ -8,3 +8,13 @@ modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
 function toggleModal() {
     modalContainer.classList.toggle("active")
 };
+
+// modiffier un commentaire
+const modalCommentaire = document.querySelector(".formulaireModiffier");
+const modalButton = document.querySelectorAll(".modifier button");
+
+modalButton.addEventListener("click", modiffier);
+
+function modiffier() {
+    modalCommentaire.classList.add("active")
+};
