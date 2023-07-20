@@ -84,4 +84,29 @@ class ArbreController {
                 }
             }
         }
+
+    // modifie un commentaire de la page detail arbre
+    public function modifierCommentaire($id, $id_etre_vivant) {
+
+        if (isset($_POST['submit_update_commentaire'])){
+
+            $id_commentaire_arbre = filter_var($id);
+            $commentaire = htmlspecialchars($_POST['modifierCommentaire']);
+            $id_etre_vivant = filter_var($id_etre_vivant);
+
+            if ($id_commentaire_arbre && $commentaire && $id_etre_vivant){
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    UPDATE commentaire_arbre
+                    SET commentaire = :commentaire
+                    WHERE id_commentaire_arbre = :id
+                ");
+                $requete->bindparam("commentaire", $commentaire);
+                $requete->bindparam("id", $id_commentaire_arbre);
+                $requete->execute();
+
+                header ("Location:index.php?action=detailArbre&id=$id_etre_vivant");
+            }
+        }
+    }
 }

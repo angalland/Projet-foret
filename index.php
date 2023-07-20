@@ -57,6 +57,9 @@ if(isset($_GET['action'])){
         case'posterCommentaireArbre' : $ctrlArbre->posterCommentaire($id, $id_etre_vivant);
         break;
 
+        case 'modifierCommentaireArbre' : $ctrlArbre->modifierCommentaire($id, $id_etre_vivant);
+        break;
+
         // controller plante 
         case 'listPlante' : $ctrlPlante->listPlante();
         break;
