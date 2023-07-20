@@ -81,8 +81,28 @@ class ForetController {
     }
 
     // modifie un commentaire de la page detail foret
-    public function modifierCommentaire($id) {
-        
+    public function modifierCommentaire($id, $id_foret) {
+
+        if (isset($POST['submit_update_commentaire'])){
+
+            $id_commentaire_foret = filter_var($id);
+            $commentaire = htmlspecialchars($POST['modifierCommentaire']);
+            $id_foret = filter_var($id_foret);
+
+            if ($id_commentaire_foret && $commentaire && $id_foret){
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    UPDATE commentaire_foret
+                    SET commentaire = :commentaire
+                    WHERE id_commentaire_foret = :id
+                ");
+                $requete->bindparam("commentaire", $commentaire);
+                $requete->bindparam("id", $id_commentaire_foret);
+                $requete->execute();
+
+                header ("Location:index.php?action=detailForet&id=$id_foret");
+            }
+        }
     }
 
     // supprimer un commentaire de la page detail foret

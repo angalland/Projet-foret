@@ -56,7 +56,7 @@ ob_start();?>
             </div>
 
                     <div class="formulaireModiffier">
-                        <form action="index.php?action=modifierCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>" method="POST">
+                        <form action="index.php?action=modifierCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>&id_foret=<?=$commentaire['id_foret']?>" method="POST">
                             <input class="inputConnexion" type="text" name="modifierCommentaire" placeholder="<?= $commentaire['commentaire']?>"/>
                             <input class="button" type="submit" name="submit_update_commentaire" value="Modifier">
                         </form>

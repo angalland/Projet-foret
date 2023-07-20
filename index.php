@@ -40,7 +40,7 @@ if(isset($_GET['action'])){
         case 'posterCommentaire' : $ctrlForet->posterCommentaire($id, $id_foret);
         break;
 
-        case 'modifierCommentaireForet' : $ctrlForet->modifierCommentaire($id);
+        case 'modifierCommentaireForet' : $ctrlForet->modifierCommentaire($id, $id_foret);
         break;
 
         case 'supprimerCommentaireForet' : $ctrlForet->supprimerCommentaireForet($id, $id_foret);
