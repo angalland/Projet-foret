@@ -38,7 +38,7 @@ ob_start();?>
                 if (isset($_SESSION['user'])){
                     if ($commentaire['id_utilisateur'] == $_SESSION['user']['id_utilisateur']){?>
                         <button class="modifier button">Modifier</button>
-                        <button class="supprimer button"><a href="index.php?action=supprimerCommentaireForet&id=<?=$commentaire['id_commentaire_arbre']?>&id_foret=<?=$commentaire['id_etre_vivant']?>">Supprimer</a></button>
+                        <button class="supprimer button"><a href="index.php?action=supprimerCommentaireArbre&id=<?=$commentaire['id_commentaire_arbre']?>&id_etre_vivant=<?=$commentaire['id_etre_vivant']?>">Supprimer</a></button>
                 </div>
 
                         <div class="formulaireModiffier">

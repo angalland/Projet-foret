@@ -109,4 +109,23 @@ class ArbreController {
             }
         }
     }
+
+    // supprimer un commentaire de la page detail arbre
+    public function supprimerCommentaireArbre($id, $id_etre_vivant) {
+
+        $id_commentaire_arbre = filter_var($id);
+        $id_etre_vivant = filter_var($id_etre_vivant);
+
+        if ($id_commentaire_arbre && $id_etre_vivant){
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM commentaire_arbre
+                WHERE id_commentaire_arbre = :id
+            ");
+            $requete->bindparam("id", $id_commentaire_arbre);
+            $requete->execute();
+
+            header ("Location:index.php?action=detailArbre&id=$id_etre_vivant");
+        }
+    }
 }

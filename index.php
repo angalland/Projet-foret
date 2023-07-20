@@ -60,6 +60,9 @@ if(isset($_GET['action'])){
         case 'modifierCommentaireArbre' : $ctrlArbre->modifierCommentaire($id, $id_etre_vivant);
         break;
 
+        case 'supprimerCommentaireArbre' : $ctrlArbre->supprimerCommentaireArbre($id, $id_etre_vivant);
+        break;
+
         // controller plante 
         case 'listPlante' : $ctrlPlante->listPlante();
         break;
