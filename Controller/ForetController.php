@@ -80,8 +80,8 @@ class ForetController {
         }
     }
 
-    // modifier un commentaire sur la page foret
-    public function modifierCommentaireForet($id) {
+    // supprimer un commentaire de la page detail foret
+    public function supprimerCommentaireForet($id) {
         
     }
 }
