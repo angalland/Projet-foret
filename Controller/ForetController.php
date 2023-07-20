@@ -82,6 +82,19 @@ class ForetController {
 
     // supprimer un commentaire de la page detail foret
     public function supprimerCommentaireForet($id) {
-        
+
+        $id_commentaire_foret = filter_var($id);
+
+        if ($id_commentaire_foret){
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM commentaire_foret
+                WHERE id_commentaire_foret = :id
+            ");
+            $requete->bindparam("id", $id_commentaire_foret);
+            $requete->execute();
+
+            require "view/foret/detailForet.php";
+        }
     }
 }
