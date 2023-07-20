@@ -48,7 +48,13 @@ ob_start();?>
         <h2>Commentaire :</h2>
         <?php
         foreach ($requeteCommentaire as $commentaire){?>
-            <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
+            <div>
+                <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
+                if ($commentaire['id_utilisateur'] == $_SESSION['user']['id_utilisateur']){?>
+                    <button class="button"><a href="index.php?action=connexion">Modifier</a></button>
+                    <button class="button"><a href="index.php?action=connexion">Supprimer</a></button><?php
+                }?>
+            </div><?php
         }
         if (isset($_SESSION['user'])){?>           
             <form action="index.php?action=posterCommentaire&id=<?=$_SESSION['user']['id_utilisateur']?>&id_foret=<?=$id_foret?>" method="POST">
