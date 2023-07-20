@@ -50,17 +50,19 @@ ob_start();?>
         foreach ($requeteCommentaire as $commentaire){?>
             <div id="commentaireModification">
                 <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
-                if ($commentaire['id_utilisateur'] == $_SESSION['user']['id_utilisateur']){?>
-                    <button class="modifier button">Modifier</button>
-                    <button class="supprimer button"><a href="index.php?action=supprimerCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>&id_foret=<?=$commentaire['id_foret']?>">Supprimer</a></button>
-            </div>
+                if (isset($_SESSION['user'])){
+                    if ($commentaire['id_utilisateur'] == $_SESSION['user']['id_utilisateur']){?>
+                        <button class="modifier button">Modifier</button>
+                        <button class="supprimer button"><a href="index.php?action=supprimerCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>&id_foret=<?=$commentaire['id_foret']?>">Supprimer</a></button>
+                </div>
 
-                    <div class="formulaireModiffier">
-                        <form action="index.php?action=modifierCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>&id_foret=<?=$commentaire['id_foret']?>" method="POST">
-                            <input class="inputConnexion" type="text" name="modifierCommentaire" placeholder="<?= $commentaire['commentaire']?>"/>
-                            <input class="button" type="submit" name="submit_update_commentaire" value="Modifier">
-                        </form>
-                    </div><?php
+                        <div class="formulaireModiffier">
+                            <form action="index.php?action=modifierCommentaireForet&id=<?=$commentaire['id_commentaire_foret']?>&id_foret=<?=$commentaire['id_foret']?>" method="POST">
+                                <input class="inputConnexion" type="text" name="modifierCommentaire" placeholder="<?= $commentaire['commentaire']?>"/>
+                                <input class="button" type="submit" name="submit_update_commentaire" value="Modifier">
+                            </form>
+                        </div><?php
+                    }
                 }
         }
 
