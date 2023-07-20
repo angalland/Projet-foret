@@ -22,6 +22,7 @@ $ctrlUser = new UserController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 $id_foret = (isset($_GET["id_foret"])) ? $_GET["id_foret"] : null;
+$id_etre_vivant = (isset($_GET["id_etre_vivant"])) ? $_GET["id_etre_vivant"] : null;
 
 if(isset($_GET['action'])){
     switch ($_GET['action']) {
@@ -51,6 +52,9 @@ if(isset($_GET['action'])){
         break;
 
         case 'detailArbre' : $ctrlArbre->detailArbre($id);
+        break;
+
+        case'posterCommentaireArbre' : $ctrlArbre->posterCommentaire($id, $id_etre_vivant);
         break;
 
         // controller plante 

@@ -1,7 +1,9 @@
 <?php
 ob_start();?>
     <article class="articleDetailArbre">
-        <?php foreach ($requete as $arbre){?>
+        <?php foreach ($requete as $arbre){
+            $id_etre_vivant = $arbre['id_etre_vivant'];
+            ?>
             <h1><?=$arbre['nom_courant']?></h1>
             <div class="caracteristique">
             <p class="detail">Caractéristique : <?=$arbre['nom_categorie']?></p>
@@ -49,8 +51,8 @@ ob_start();?>
                 }
         }
 
-        if (isset($_SESSION['user'])){?>           
-            <form action="index.php?action=posterCommentaire&id=<?=$_SESSION['user']['id_utilisateur']?>&id_foret=<?=$id_etre_vivant?>" method="POST">
+        if (isset($_SESSION['user'])){?>         
+            <form action="index.php?action=posterCommentaireArbre&id=<?=$_SESSION['user']['id_utilisateur']?>&id_etre_vivant=<?=$id_etre_vivant?>" method="POST">
                 <input class="inputConnexion" type="text" name="commentaire" placeholder="Votre commentaire">
                 <input class="button" type="submit" name="submit_commentaire" value="poster">
             </form><?php
