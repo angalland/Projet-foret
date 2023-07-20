@@ -63,4 +63,19 @@
 .formulaireModiffier.active {
     display: flex;
     background-color: #B3A88C;
+    position: relative;
+}
+
+.fermeture {
+    width: auto;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #ff365e;
+    color: #fff;
 }

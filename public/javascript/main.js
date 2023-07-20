@@ -12,9 +12,16 @@ function toggleModal() {
 // modiffier un commentaire
 const modalCommentaire = document.querySelectorAll(".formulaireModiffier");
 const modalButton = document.querySelectorAll(".modifier");
+const fermeture = document.querySelector(".fermeture");
 
 modalButton.forEach(trigger => trigger.addEventListener("click", modiffier));
+fermeture.addEventListener("click", fermer);
 
 function modiffier() {
     modalCommentaire.forEach(trigger => trigger.classList.add("active"));
 };
+
+function fermer() {
+    modalCommentaire.forEach(trigger => trigger.classList.remove("active"));
+};
+
