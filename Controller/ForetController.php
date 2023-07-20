@@ -83,10 +83,10 @@ class ForetController {
     // modifie un commentaire de la page detail foret
     public function modifierCommentaire($id, $id_foret) {
 
-        if (isset($POST['submit_update_commentaire'])){
+        if (isset($_POST['submit_update_commentaire'])){
 
             $id_commentaire_foret = filter_var($id);
-            $commentaire = htmlspecialchars($POST['modifierCommentaire']);
+            $commentaire = htmlspecialchars($_POST['modifierCommentaire']);
             $id_foret = filter_var($id_foret);
 
             if ($id_commentaire_foret && $commentaire && $id_foret){
