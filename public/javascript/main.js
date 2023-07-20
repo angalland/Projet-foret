@@ -10,11 +10,11 @@ function toggleModal() {
 };
 
 // modiffier un commentaire
-const modalCommentaire = document.querySelector(".formulaireModiffier");
-const modalButton = document.querySelector(".modifier");
+const modalCommentaire = document.querySelectorAll(".formulaireModiffier");
+const modalButton = document.querySelectorAll(".modifier");
 
-modalButton.addEventListener("click", modiffier);
+modalButton.forEach(trigger => trigger.addEventListener("click", modiffier));
 
 function modiffier() {
-    modalCommentaire.classList.add("active");
+    modalCommentaire.forEach(trigger => trigger.classList.add("active"));
 };
