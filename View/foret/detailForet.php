@@ -57,7 +57,7 @@ ob_start();?>
 
                     <div class="formulaireModiffier">
                         <form action="" method="POST">
-                            <input type="text" name="modifierCommentaire" placeholder="<?= $commentaire['commentaire']?>"/>
+                            <input class="inputConnexion" type="text" name="modifierCommentaire" placeholder="<?= $commentaire['commentaire']?>"/>
                             <input class="button" type="submit" name="submit_update_commentaire" value="Modifier">
                         </form>
                     </div><?php

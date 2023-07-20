@@ -12,11 +12,9 @@ function toggleModal() {
 // modiffier un commentaire
 const modalCommentaire = document.querySelector(".formulaireModiffier");
 const modalButton = document.querySelector(".modifier");
-console.log(modalCommentaire);
-console.log(modalButton);
+
 modalButton.addEventListener("click", modiffier);
 
 function modiffier() {
-    console.log('hello');
     modalCommentaire.classList.add("active");
 };

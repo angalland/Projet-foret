@@ -62,4 +62,5 @@
 
 .formulaireModiffier.active {
     display: flex;
+    background-color: #B3A88C;
 }
