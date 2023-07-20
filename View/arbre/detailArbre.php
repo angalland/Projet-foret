@@ -44,7 +44,7 @@ ob_start();?>
                         <div class="formulaireModiffier">
                         <button class="fermeture">X</button>
                             <form action="index.php?action=modifierCommentaireArbre&id=<?=$commentaire['id_commentaire_arbre']?>&id_etre_vivant=<?=$commentaire['id_etre_vivant']?>" method="POST">
-                                <input class="inputConnexion" type="text" name="modifierCommentaire" placeholder="<?= $commentaire['commentaire']?>"/>
+                                <input class="inputCommentaire" type="text" name="modifierCommentaire" placeholder="<?= $commentaire['commentaire']?>"/>
                                 <input class="button" type="submit" name="submit_update_commentaire" value="Modifier">
                             </form>
                         </div><?php
@@ -54,7 +54,7 @@ ob_start();?>
 
         if (isset($_SESSION['user'])){?>         
             <form action="index.php?action=posterCommentaireArbre&id=<?=$_SESSION['user']['id_utilisateur']?>&id_etre_vivant=<?=$id_etre_vivant?>" method="POST">
-                <input class="inputConnexion" type="text" name="commentaire" placeholder="Votre commentaire">
+                <input class="inputCommentaire" type="text" name="commentaire" placeholder="Votre commentaire">
                 <input class="button" type="submit" name="submit_commentaire" value="poster">
             </form><?php
         } else {?>

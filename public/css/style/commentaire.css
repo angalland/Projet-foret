@@ -24,6 +24,12 @@
     color:white;
 }
 
+.inputCommentaire {
+    margin: 30px;
+    width: 500px;
+    height: 100px;
+}
+
 /* poster un commentaire */
 #commentaireConnexion {
     position: relative;
