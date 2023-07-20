@@ -1,3 +1,4 @@
+/* affichage des commentaire */
 .commentaire {
     display: flex;
     flex-direction: column;
@@ -23,6 +24,7 @@
     color:white;
 }
 
+/* poster un commentaire */
 #commentaireConnexion {
     position: relative;
 }
@@ -30,5 +32,23 @@
 #commentaireConnexion button {
     position: absolute;
     top: 25px;
+    right: 25px;
+}
+
+/* moddifier ou supprimer un commentaire */
+
+#commentaireModification {
+    position: relative;
+}
+
+.modifier {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.supprimer {
+    position: absolute;
+    top:50px;
     right: 25px;
 }

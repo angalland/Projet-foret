@@ -48,11 +48,11 @@ ob_start();?>
         <h2>Commentaire :</h2>
         <?php
         foreach ($requeteCommentaire as $commentaire){?>
-            <div>
+            <div id="commentaireModification">
                 <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
                 if ($commentaire['id_utilisateur'] == $_SESSION['user']['id_utilisateur']){?>
-                    <button class="button"><a href="index.php?action=connexion">Modifier</a></button>
-                    <button class="button"><a href="index.php?action=connexion">Supprimer</a></button><?php
+                    <button class="modifier button"><a href="index.php?action=connexion">Modifier</a></button>
+                    <button class="supprimer button"><a href="index.php?action=connexion">Supprimer</a></button><?php
                 }?>
             </div><?php
         }
