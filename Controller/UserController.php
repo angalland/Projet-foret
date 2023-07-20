@@ -44,7 +44,7 @@ class UserController {
                 // si cela correspond message de succes
                     $_SESSION['messageSucces'] = 'Connexion réussi';
                     $_SESSION['user'] = $res;
-                    require "View/foret/listForet.php";
+                    header("Location:index.php?action=listForet");
                 // sinon message d'erreure
                 } else {
                     $_SESSION['messageAlert'] [] = 'Mot de passe incorrecte';
