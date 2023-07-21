@@ -43,6 +43,16 @@ class PlanteController {
         ");
         $requete->bindparam("id", $id_etre_vivant);
         $requete->execute();
+
+        $requeteCommentaire = $pdo->prepare("
+            SELECT * 
+            FROM commentaire_plante
+            INNER JOIN utilisateur
+                ON commentaire_plante.id_utilisateur = utilisateur.id_utilisateur
+            WHERE id_etre_vivant = :id
+        ");
+        $requeteCommentaire->bindparam("id", $id_etre_vivant);
+        $requeteCommentaire->execute();
             
         require "View/plante/detailPlante.php";
     }
