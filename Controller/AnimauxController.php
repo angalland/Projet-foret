@@ -57,7 +57,7 @@ class AnimauxController {
         require "View/animaux/detailAnimaux.php";
     }
 
-    // poster un commentaire sur la page detail arbre
+    // poster un commentaire sur la page detail animaux
     public function posterCommentaire($id, $id_etre_vivant) {
 
         if (isset($_POST['submit_commentaire'])){
@@ -84,4 +84,29 @@ class AnimauxController {
                 }
             }
         }
+
+    // modifie un commentaire de la page detail animaux
+    public function modifierCommentaire($id, $id_etre_vivant) {
+
+        if (isset($_POST['submit_update_commentaire'])){
+
+            $id_commentaire_animaux = filter_var($id);
+            $commentaire = htmlspecialchars($_POST['modifierCommentaire']);
+            $id_etre_vivant = filter_var($id_etre_vivant);
+
+            if ($id_commentaire_animaux && $commentaire && $id_etre_vivant){
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    UPDATE commentaire_animaux
+                    SET commentaire = :commentaire
+                    WHERE id_commentaire_animaux = :id
+                ");
+                $requete->bindparam("commentaire", $commentaire);
+                $requete->bindparam("id", $id_commentaire_animaux);
+                $requete->execute();
+
+                header ("Location:index.php?action=detailAnimaux&id=$id_etre_vivant");
+            }
+        }
+    }
 }

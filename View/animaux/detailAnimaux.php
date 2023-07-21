@@ -41,7 +41,7 @@ ob_start();?>
 
         <div class="formulaireModiffier">
             <button class="fermeture">X</button>
-                <form action="index.php?action=modifierCommentairePlante&id=<?=$commentaire['id_commentaire_animaux']?>&id_etre_vivant=<?=$commentaire['id_etre_vivant']?>" method="POST">
+                <form action="index.php?action=modifierCommentaireAnimaux&id=<?=$commentaire['id_commentaire_animaux']?>&id_etre_vivant=<?=$commentaire['id_etre_vivant']?>" method="POST">
                     <input class="inputCommentaire" type="text" name="modifierCommentaire" placeholder="<?= $commentaire['commentaire']?>"/>
                     <input class="button" type="submit" name="submit_update_commentaire" value="Modifier">
                 </form>

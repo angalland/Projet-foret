@@ -89,6 +89,9 @@ if(isset($_GET['action'])){
         case 'posterCommentaireAnimaux' : $ctrlAnimal->posterCommentaire($id, $id_etre_vivant);
         break;
 
+        case 'modifierCommentaireAnimaux' : $ctrlAnimal->modifierCommentaire($id, $id_etre_vivant);
+        break;
+
         // controller connexion
         case 'connexion' : $ctrlUser->connexion();
         break;
