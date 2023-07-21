@@ -173,18 +173,20 @@ class UserController {
             $requete = $pdo->prepare("
                 SELECT *
                 FROM utilisateur
-                INNER JOIN commentaire_foret
-                    ON utilisateur.id_utilisateur = commentaire_foret.id_utilisateur
-                INNER JOIN commentaire_arbre
-                    ON utilisateur.id_utilisateur = commentaire_arbre.id_utilisateur
-                INNER JOIN commentaire_plante
-                    ON utilisateur.id_utilisateur = commentaire_plante.id_utilisateur
-                INNER JOIN commentaire_animaux
-                    ON utilisateur.id_utilisateur = commentaire_animaux.id_utilisateur
                 WHERE utilisateur.id_utilisateur = :id
             ");
             $requete->bindparam("id", $id_utilisateur);
             $requete->execute();
+
+            $requeteForet = $pdo->prepare("
+                SELECT *
+                FROM commentaire_foret
+                INNER JOIN foret
+                    ON commentaire_foret.id_foret = foret.id_foret
+                WHERE id_utilisateur = :id
+            ");
+            $requeteForet->bindparam("id", $id_utilisateur);
+            $requeteForet->execute();
 
             require "view/utilisateur/user.php";
         }
