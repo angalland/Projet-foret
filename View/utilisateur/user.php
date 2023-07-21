@@ -1,7 +1,7 @@
 <?php
 ob_start();?>
 
-<article>
+<article id="user">
 <?php
     foreach($requete as $user){
         $date = $user['createAt'];

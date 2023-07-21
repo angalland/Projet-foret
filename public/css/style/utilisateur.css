@@ -1,0 +1,11 @@
+#user {
+    margin: 10px;
+    width: 100%;
+}
+
+#user p {
+    font-size: 25px;
+    color: white;
+    margin: 10px;
+    width: 100%;
+}
