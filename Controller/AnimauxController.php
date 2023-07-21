@@ -109,4 +109,23 @@ class AnimauxController {
             }
         }
     }
+
+    // supprimer un commentaire de la page detail animaux
+    public function supprimerCommentaireAnimaux($id, $id_etre_vivant) {
+
+        $id_commentaire_animaux = filter_var($id);
+        $id_etre_vivant = filter_var($id_etre_vivant);
+
+        if ($id_commentaire_animaux && $id_etre_vivant){
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM commentaire_animaux
+                WHERE id_commentaire_animaux = :id
+            ");
+            $requete->bindparam("id", $id_commentaire_animaux);
+            $requete->execute();
+
+            header ("Location:index.php?action=detailAnimaux&id=$id_etre_vivant");
+        }
+    }
 }

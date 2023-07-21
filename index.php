@@ -92,6 +92,9 @@ if(isset($_GET['action'])){
         case 'modifierCommentaireAnimaux' : $ctrlAnimal->modifierCommentaire($id, $id_etre_vivant);
         break;
 
+        case 'supprimerCommentaireAnimaux' : $ctrlAnimal->supprimerCommentaireAnimaux($id, $id_etre_vivant);
+        break;
+
         // controller connexion
         case 'connexion' : $ctrlUser->connexion();
         break;
