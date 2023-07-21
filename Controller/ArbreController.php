@@ -45,7 +45,7 @@ class ArbreController {
         $requete->execute();
         
         $requeteCommentaire = $pdo->prepare("
-            SELECT * 
+            SELECT *, NOW()
             FROM commentaire_arbre
             INNER JOIN utilisateur
                 ON commentaire_arbre.id_utilisateur = utilisateur.id_utilisateur
