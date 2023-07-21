@@ -45,7 +45,7 @@ class PlanteController {
         $requete->execute();
 
         $requeteCommentaire = $pdo->prepare("
-            SELECT * 
+            SELECT *, NOW()
             FROM commentaire_plante
             INNER JOIN utilisateur
                 ON commentaire_plante.id_utilisateur = utilisateur.id_utilisateur

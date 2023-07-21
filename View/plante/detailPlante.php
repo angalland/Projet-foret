@@ -30,9 +30,12 @@ ob_start();?>
 <article  class="commentaire">
     <h2>Commentaire :</h2>
     <?php
-    foreach ($requeteCommentaire as $commentaire){?>
+    foreach ($requeteCommentaire as $commentaire){
+        $date = $commentaire['createAt'];
+        $dt = new DateTime($date);
+        ?>
         <div id="commentaireModification">
-            <p><?= $commentaire['pseudo']?> : <?= $commentaire['commentaire']?></p><?php
+            <p><?= $commentaire['pseudo']?> <?=$dt->format("d/m/Y H:i")?> : <?= $commentaire['commentaire']?></p><?php
             if (isset($_SESSION['user'])){
                 if ($commentaire['id_utilisateur'] == $_SESSION['user']['id_utilisateur']){?>
                     <button class="modifier button">Modifier</button>
