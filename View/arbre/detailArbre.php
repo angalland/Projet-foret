@@ -33,7 +33,7 @@ ob_start();?>
         <h2>Commentaire :</h2>
         <?php
         foreach ($requeteCommentaire as $commentaire){
-            $date = $commentaire['createAt'];
+            $date = $commentaire['date'];
             $dt = new DateTime($date);
             ?>
             <div id="commentaireModification">
