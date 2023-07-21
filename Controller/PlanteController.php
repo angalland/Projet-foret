@@ -57,7 +57,7 @@ class PlanteController {
         require "View/plante/detailPlante.php";
     }
 
-    // poster un commentaire sur la page detail arbre
+    // poster un commentaire sur la page detail plante
     public function posterCommentaire($id, $id_etre_vivant) {
 
         if (isset($_POST['submit_commentaire'])){
@@ -84,4 +84,30 @@ class PlanteController {
             }
         }
     }
+
+    // modifie un commentaire de la page detail arbre
+    public function modifierCommentaire($id, $id_etre_vivant) {
+
+        if (isset($_POST['submit_update_commentaire'])){
+
+            $id_commentaire_plante = filter_var($id);
+            $commentaire = htmlspecialchars($_POST['modifierCommentaire']);
+            $id_etre_vivant = filter_var($id_etre_vivant);
+
+            if ($id_commentaire_plante && $commentaire && $id_etre_vivant){
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    UPDATE commentaire_plante
+                    SET commentaire = :commentaire
+                    WHERE id_commentaire_plante = :id
+                ");
+            $requete->bindparam("commentaire", $commentaire);
+            $requete->bindparam("id", $id_commentaire_plante);
+            $requete->execute();
+
+            header ("Location:index.php?action=detailPlante&id=$id_etre_vivant");
+            }
+        }
+    }
+
 }
