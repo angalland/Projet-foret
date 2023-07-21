@@ -76,6 +76,9 @@ if(isset($_GET['action'])){
         case 'modifierCommentairePlante' : $ctrlPlante->modifierCommentaire($id, $id_etre_vivant);
         break;
 
+        case 'supprimerCommentairePlante' : $ctrlPlante->supprimerCommentairePlante($id, $id_etre_vivant);
+        break;
+
         // controller animaux
         case 'listAnimaux' : $ctrlAnimal->listAnimaux();
         break;

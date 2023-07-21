@@ -110,4 +110,23 @@ class PlanteController {
         }
     }
 
+    // supprimer un commentaire de la page detail arbre
+    public function supprimerCommentairePlante($id, $id_etre_vivant) {
+
+        $id_commentaire_plante = filter_var($id);
+        $id_etre_vivant = filter_var($id_etre_vivant);
+
+        if ($id_commentaire_plante && $id_etre_vivant){
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM commentaire_plante
+                WHERE id_commentaire_plante = :id
+            ");
+        $requete->bindparam("id", $id_commentaire_plante);
+        $requete->execute();
+
+        header ("Location:index.php?action=detailPlante&id=$id_etre_vivant");
+        }
+    }
+
 }
