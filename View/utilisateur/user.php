@@ -3,15 +3,16 @@ ob_start();?>
 
 <article>
 <?php
-    foreach($requete as $user){?>
+    foreach($requete as $user){
+        $date = $user['createAt'];
+        $dt = new DateTime($date);
+        ?>
         <p>Pseudo : <?=$user['pseudo']?></p>
-        <p>Commentaire foret :</p>
-    <?php
-    foreach($requeteForet as $foret){?>
-        <p><?=$foret['nom_foret']?> <?=$foret['commentaire']?></p>
-    <?php
-    }
+        <p>Email : <?=$user['email']?></p>
+        <p>Date de création du compte : <?=$dt->format("d/m/Y")?></p>
+    <?php 
     }?>
+
 </article>
 <?php
 $titre = 'Mon compte';
