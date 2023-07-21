@@ -163,4 +163,30 @@ class UserController {
         }
     }
 
+    // view profil
+    public function user() {
+        if ($_SESSION['user']){
+
+            $id_utilisateur = filter_var($_SESSION['user']['id_utilisateur']);
+            
+            $pdo = $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                SELECT *
+                FROM utilisateur
+                INNER JOIN commentaire_foret
+                    ON utilisateur.id_utilisateur = commentaire_foret.id_utilisateur
+                INNER JOIN commentaire_arbre
+                    ON utilisateur.id_utilisateur = commentaire_arbre.id_utilisateur
+                INNER JOIN commentaire_plante
+                    ON utilisateur.id_utilisateur = commentaire_plante.id_utilisateur
+                INNER JOIN commentaire_animaux
+                    ON utilisateur.id_utilisateur = commentaire_animaux.id_utilisateur
+                WHERE utilisateur.id_utilisateur = :id
+            ");
+            $requete->bindparam("id", $id_utilisateur);
+            $requete->execute();
+
+            require "view/utilisateur/user.php";
+        }
+    }
 }

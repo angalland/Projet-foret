@@ -111,6 +111,9 @@ if(isset($_GET['action'])){
         case 'logout' : $ctrlUser->logout();
         break;
 
+        case 'utilisateur' : $ctrlUser->user();
+        break;
+
 
     }
 }
