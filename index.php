@@ -70,6 +70,9 @@ if(isset($_GET['action'])){
         case 'detailPlante' : $ctrlPlante->detailPlante($id);
         break;
 
+        case 'posterCommentairePlante' : $ctrlPlante->posterCommentaire($id, $id_etre_vivant);
+        break;
+
         // controller animaux
         case 'listAnimaux' : $ctrlAnimal->listAnimaux();
         break;

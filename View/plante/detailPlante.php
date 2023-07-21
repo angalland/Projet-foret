@@ -51,7 +51,7 @@ ob_start();?>
     }
 
     if (isset($_SESSION['user'])){?>         
-        <form action="index.php?action=posterCommentaireArbre&id=<?=$_SESSION['user']['id_utilisateur']?>&id_etre_vivant=<?=$id_etre_vivant?>" method="POST">
+        <form action="index.php?action=posterCommentairePlante&id=<?=$_SESSION['user']['id_utilisateur']?>&id_etre_vivant=<?=$id_etre_vivant?>" method="POST">
             <input class="inputCommentaire" type="text" name="commentaire" placeholder="Votre commentaire">
             <input class="button" type="submit" name="submit_commentaire" value="poster">
         </form><?php
