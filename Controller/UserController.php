@@ -198,6 +198,26 @@ class UserController {
             $requeteArbre->bindparam("id", $id_utilisateur);
             $requeteArbre->execute();
 
+            $requetePlante = $pdo->prepare("
+                SELECT *
+                FROM commentaire_plante
+                INNER JOIN etre_vivant
+                    ON commentaire_plante.id_etre_vivant = etre_vivant.id_etre_vivant
+                WHERE id_utilisateur = :id
+            ");
+            $requetePlante->bindparam("id", $id_utilisateur);
+            $requetePlante->execute();
+
+            $requeteAnimaux = $pdo->prepare("
+                SELECT *
+                FROM commentaire_animaux
+                INNER JOIN etre_vivant
+                    ON commentaire_animaux.id_etre_vivant = etre_vivant.id_etre_vivant
+                WHERE id_utilisateur = :id
+            ");
+            $requeteAnimaux->bindparam("id", $id_utilisateur);
+            $requeteAnimaux->execute();
+
             require "view/utilisateur/user.php";
         }
     }
