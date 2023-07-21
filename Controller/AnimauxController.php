@@ -45,7 +45,7 @@ class AnimauxController {
         $requete->execute();
 
         $requeteCommentaire = $pdo->prepare("
-            SELECT *, NOW()
+            SELECT *
             FROM commentaire_animaux
             INNER JOIN utilisateur
                 ON commentaire_animaux.id_utilisateur = utilisateur.id_utilisateur
