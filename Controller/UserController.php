@@ -188,6 +188,16 @@ class UserController {
             $requeteForet->bindparam("id", $id_utilisateur);
             $requeteForet->execute();
 
+            $requeteArbre = $pdo->prepare("
+                SELECT *
+                FROM commentaire_arbre
+                INNER JOIN etre_vivant
+                    ON commentaire_arbre.id_etre_vivant = etre_vivant.id_etre_vivant
+                WHERE id_utilisateur = :id
+            ");
+            $requeteArbre->bindparam("id", $id_utilisateur);
+            $requeteArbre->execute();
+
             require "view/utilisateur/user.php";
         }
     }
