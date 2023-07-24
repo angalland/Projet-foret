@@ -51,10 +51,10 @@
                                     <li class="menu-deroulant">
                                         <a href="">Admin</a>
                                         <ul class="sous-menu">
-                                            <li><a href="">Ajouter une fôret</a>
-                                            <li><a href="">Ajouter un être vivant</a>
-                                        <ul>
-                                    <li>
+                                            <li><a href="">Ajouter une fôret</a></li>
+                                            <li><a href="">Ajouter un être vivant</a></li>
+                                        </ul>
+                                    </li>
                                 <?php
                                 }
                             } else {?>
