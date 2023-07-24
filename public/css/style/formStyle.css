@@ -109,3 +109,43 @@
 .deconnexion {
     margin: 20px;
 }
+
+/* formulaire d'ajout  */
+#formAddForet {
+    margin : 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+ }
+
+.addLabel {
+    color: white;
+    font-size: 25px;
+    display: block;
+    min-width: 150px;
+}
+
+.addDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.addH3Foret {
+    width: 100%;
+    text-align: center;
+}
+
+.addButtonForet {
+    width: 100%;
+    text-align: center;
+}
+
+.file {
+    margin-left: 5px;
+    color: white;
+    font-size: 20px;
+}
