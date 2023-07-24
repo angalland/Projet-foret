@@ -45,8 +45,12 @@
                             <?php
                             if (isset($_SESSION['user'])){?>
                                 <li><a href="index.php?action=deconnexion">Déconnexion</a></li>
-                                <li><a href="index.php?action=utilisateur">Mon Compte</a></li>
-                                <?php 
+                                <li><a href="index.php?action=utilisateur">Mon Compte</a></li><?php
+                                $admin = 'admin';
+                                if ($_SESSION['user']['role'] == $admin){?>
+                                    <li><a href="">Admin</a>
+                                <?php
+                                }
                             } else {?>
                                 <li><a href="index.php?action=connexion"><img class="logoConnexion" src="public/logo/user-regular.svg" /></a></li>
                                 <?php
