@@ -119,5 +119,8 @@ if(isset($_GET['action'])){
         // controller Admin foret
         case'viewAddForet' : $ctrlAdminforet->viewAddForet();
         break;
+
+        case 'addForet' : $ctrlAdminforet->addForet();
+        break;
     }
 }

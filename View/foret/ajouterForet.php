@@ -31,7 +31,7 @@ ob_start();?>
     </div>
 
     <div class="addButtonForet ">
-        <input class="button" type="submit" value='Ajouter'>
+        <input class="button" type="submit" name="submitAddForet" value='Ajouter'>
     </div>
 </form>
 
