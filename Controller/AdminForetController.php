@@ -16,7 +16,7 @@ class AdminForetController {
         if (isset($_POST['submitAddForet'])){
             
             // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
-            $_SESSION["errors"] = [];
+            $_SESSION["messageAlert"] = [];
 
             // filtre les données envoyées
             $nom_foret = htmlspecialchars($_POST['nom_foret']);
@@ -61,7 +61,7 @@ class AdminForetController {
 
                         // si il est deja utilisé renvoie une erreure
                         if ($existeNomForet){
-                            $_SESSION['errors'][]= "Le nom de cette fôret est déjà utilisé, veuillez mettre un autre nom";
+                            $_SESSION['messageAlert'][]= "Le nom de cette fôret est déjà utilisé, veuillez mettre un autre nom";
                         } else {
                             // sinon on crée uniqueName
                             $uniqueName = $nom_foret;
@@ -76,12 +76,12 @@ class AdminForetController {
                     } elseif (in_array($extension, $extensionAutorisees) == false) { // sinon
                             
                         // envoie un message d'alerte si la premiere condition n'est pas respecté et le fichier ne sera pas transmis
-                        $_SESSION['errors'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers au format jpg, jpeg, gif ou png";
+                        $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers au format jpg, jpeg, gif ou png";
                         
                     } elseif ($size > $tailleMax) { // sinon 
                         
                         // envoie un message d'alerte si la taille du fichier dépasse la taille autorisé
-                        $_SESSION['errors'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers de moins de 3 méga";
+                        $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers de moins de 3 méga";
                     }
 
                     if (isset($fileName)) {
@@ -89,7 +89,7 @@ class AdminForetController {
                     }
             }
             
-            if (isset($nom_foret) && !empty($nom_foret)){
+            if (isset($nom_foret) && !empty($nom_foret) && isset($ville) && !empty($ville) && isset($code_postal) && !empty($code_postal) && isset($photo) && !empty($photo) && isset($descriptif) && !empty($descriptif)){
                 $pdo = Connect::seConnecter();
                 $requete = $pdo->prepare("
                     INSERT INTO foret
@@ -110,10 +110,10 @@ class AdminForetController {
                 $_SESSION['messageSucces'] = "Votre forêt a bien été ajouté";
 
             } else {
-                $_SESSION['errors'][] = "Le nom de la forêt est incorrecte";
+                $_SESSION['messageAlert'][] = "Données incorrectes !";
+                require "view/foret/ajouterForet.php";
             }
             require "view/foret/ajouterForet.php";
         }   
-
     }
 }
