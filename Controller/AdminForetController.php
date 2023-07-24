@@ -85,9 +85,34 @@ class AdminForetController {
                     }
 
                     if (isset($fileName)) {
-                    $affiche = "public/img/forêt/".$fileName; // crée une variable qui = au chemin d'acces du fichier dans le dossier upload
+                    $photo = "public/img/forêt/".$fileName; // crée une variable qui = au chemin d'acces du fichier dans le dossier upload
                     }
-            }        
+            }
+            
+            if (isset($nom_foret) && !empty($nom_foret)){
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    INSERT INTO foret
+                    (nom_foret, ville, code_postal, photo, descriptif)
+                    VALUES (:nom_foret,
+                            :ville,
+                            :code_postal,
+                            :photo,
+                            :descriptif)
+                ");
+                $requete->bindparam("nom_foret", $nom_foret);
+                $requete->bindparam("ville", $ville);
+                $requete->bindparam("code_postal", $code_postal);
+                $requete->bindparam("photo", $photo);
+                $requete->bindparam("descriptif", $descriptif);
+                $requete->execute();
+
+                $_SESSION['messageSucces'] = "Votre forêt a bien été ajouté";
+
+            } else {
+                $_SESSION['errors'][] = "Le nom de la forêt est incorrecte";
+            }
+            require "view/foret/ajouterForet.php";
         }   
 
     }
