@@ -6,6 +6,7 @@ use Controller\ArbreController;
 use Controller\PlanteController;
 use Controller\AnimauxController;
 use Controller\UserController;
+use Controller\AdminForetController;
 
 session_start();
 
@@ -19,6 +20,7 @@ $ctrlArbre = new ArbreController();
 $ctrlPlante = new PlanteController();
 $ctrlAnimal = new AnimauxController();
 $ctrlUser = new UserController();
+$ctrlAdminforet = new AdminForetController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 $id_foret = (isset($_GET["id_foret"])) ? $_GET["id_foret"] : null;
@@ -114,6 +116,8 @@ if(isset($_GET['action'])){
         case 'utilisateur' : $ctrlUser->user();
         break;
 
-
+        // controller Admin foret
+        case'viewAddForet' : $ctrlAdminforet->viewAddForet();
+        break;
     }
 }

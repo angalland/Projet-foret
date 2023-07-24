@@ -49,9 +49,9 @@
                                 $admin = 'admin';
                                 if ($_SESSION['user']['role'] == $admin){?>
                                     <li class="menu-deroulant">
-                                        <a href="">Admin</a>
+                                        <a>Administrateur</a>
                                         <ul class="sous-menu">
-                                            <li><a href="">Ajouter une fôret</a></li>
+                                            <li><a href="index.php?action=viewAddForet">Ajouter une fôret</a></li>
                                             <li><a href="">Ajouter un être vivant</a></li>
                                         </ul>
                                     </li>
