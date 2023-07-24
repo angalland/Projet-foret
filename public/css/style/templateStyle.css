@@ -60,8 +60,8 @@ body {
     display: none!important;
     position: absolute;
     width: 350px;
-    top: 40px;
-    right: 1px;
+    top: 30px;
+    left: -100px;
     background-color: #0D463E;
 }
 
