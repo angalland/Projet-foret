@@ -48,7 +48,13 @@
                                 <li><a href="index.php?action=utilisateur">Mon Compte</a></li><?php
                                 $admin = 'admin';
                                 if ($_SESSION['user']['role'] == $admin){?>
-                                    <li><a href="">Admin</a>
+                                    <li class="menu-deroulant">
+                                        <a href="">Admin</a>
+                                        <ul class="sous-menu">
+                                            <li><a href="">Ajouter une fôret</a>
+                                            <li><a href="">Ajouter un être vivant</a>
+                                        <ul>
+                                    <li>
                                 <?php
                                 }
                             } else {?>
