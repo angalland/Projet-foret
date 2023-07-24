@@ -47,27 +47,31 @@ class AdminForetController {
 
                         // génere un nom unique ex: 5f586bf96dcd38.73540086
                         // $uniqueName = uniqid('', true);
+
                         // verifie que le nom de la foret n'est pas déja utilisé
                         $pdo = Connect::seConnecter();
                         $requeteNomForet = $pdo->prepare("
                             SELECT nom_foret
                             FROM foret
+                            WHERE nom_foret = :nom_foret
                         ");
+                        $requeteNomForet->bindparam("nom_foret", $nom_foret);
                         $requeteNomForet->execute();
                         $existeNomForet = $requeteNomForet->fetch(\PDO::FETCH_ASSOC);
-                        var_dump($existeNomForet);
-                        exit();
+
+                        // si il est deja utilisé renvoie une erreure
                         if ($existeNomForet){
                             $_SESSION['errors'][]= "Le nom de cette fôret est déjà utilisé, veuillez mettre un autre nom";
                         } else {
+                            // sinon on crée uniqueName
                             $uniqueName = $nom_foret;
+                            // on ajoute $uniqueName avec $extension = 5f586bf96dcd38.73540086.jpg
+                            $fileName = $uniqueName.'.'.$extension;
+                            
+                            //transfere le fichier img ($tmpName etant le chemin ou il est sur l'ordinateur dans le fichier /upload/ et lui assigne $fileName)
+                            move_uploaded_file($tmpName, 'public/img/forêt/'.$fileName);
                         }
 
-                        // on ajoute $uniqueName avec $extension = 5f586bf96dcd38.73540086.jpg
-                        $fileName = $uniqueName.'.'.$extension;
-                        
-                        //transfere le fichier img ($tmpName etant le chemin ou il est sur l'ordinateur dans le fichier /upload/ et lui assigne $fileName)
-                        move_uploaded_file($tmpName, 'public/img/forêt/'.$fileName);
 
                     } elseif (in_array($extension, $extensionAutorisees) == false) { // sinon
                             
@@ -82,7 +86,6 @@ class AdminForetController {
 
                     if (isset($fileName)) {
                     $affiche = "public/img/forêt/".$fileName; // crée une variable qui = au chemin d'acces du fichier dans le dossier upload
-                    var_dump($affiche);
                     }
             }        
         }   
