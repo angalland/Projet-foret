@@ -31,6 +31,7 @@ body {
 .navbar .nav-link ul {
     display: flex;
     flex-direction: row;
+    height: var(--hauteur-menu);
 }
 
 
@@ -52,6 +53,19 @@ body {
     color: white;
 }
 
+.menu-deroulant {
+    position: relative;
+    height: 100%;
+    flex: 1;
+}
+
+.menu-deroulant > a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .menu-deroulant > a:after{
     content: ">";
     margin-left: 7px;
@@ -59,6 +73,7 @@ body {
 }
 
 .sous-menu {
+    margin-top: var(--hauteur-menu);
     width: 100%;
     text-align: left;
     background-color: #28634F;
