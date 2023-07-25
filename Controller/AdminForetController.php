@@ -254,5 +254,25 @@ class AdminForetController {
                 $_SESSION['messageAlert'][] = "Tous les champs doivent être rempli";
             }
         }
+
+        if (isset($_POST['submitDeleteForet'])){
+
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            // filtre les données
+            $id_foret = intval(htmlspecialchars($id));
+            
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM foret
+                WHERE id_foret = :id_foret
+            ");
+            $requete->bindparam("id_foret", $id_foret);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre forêt a bien été supprimée !";
+            require "view/foret/modifierForet.php";
+        }
     }
 }
