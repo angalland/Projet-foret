@@ -60,6 +60,7 @@ body {
     top: 30px;
     left: -100px;
     background-color: #0D463E;
+    z-index: 3;
 }
 
 .menu-deroulant:hover .sous-menu {

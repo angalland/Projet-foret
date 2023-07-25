@@ -166,3 +166,7 @@
 .updateDivForet {
     display: none;
 }
+
+.ligne {
+    border-bottom: 1px solid black;
+}
