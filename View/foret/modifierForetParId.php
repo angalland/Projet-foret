@@ -37,6 +37,10 @@ foreach ($requete as $foret){?>
         <div class="addButtonForet ">
             <input class="button" type="submit" name="submitUpdateForet" value='Modifier'>
         </div>
+
+        <div class="addButtonForet ">
+            <input class="button" type="submit" name="submitDeleteForet" value='Supprimer'>
+        </div>
     </form><?php
 }
 
