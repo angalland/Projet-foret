@@ -41,7 +41,21 @@ ob_start();?>
         <div class="addButtonForet ">
             <input class="button" type="submit" name="submitAddFamille" value='Ajouter'>
         </div>
-</form>
+    </form>
+
+    <form action="index.php?action=addClasse" method="POST" class="formClasse">
+
+        <h3 class="formH3 addH3Foret">Ajouter une espece</h3>
+
+        <div class="divClasse"> 
+            <label for="nom_espece" class="addLabel">Nom de l'espece</label>
+            <input type="text" name="nom_espece" id="nom_espece" class="inputConnexion">
+        </div>
+
+        <div class="addButtonForet ">
+            <input class="button" type="submit" name="submitAddEspece" value='Ajouter'>
+        </div>
+    </form>    
 </div>
 <?php
 

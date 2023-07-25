@@ -65,5 +65,23 @@ class AdminTaxonomieController {
 
             require "view/taxonomie/ajouterTaxonomie.php";
         }
+
+        if (isset($_POST['submitAddEspece'])){
+ 
+            $nom_espece = htmlspecialchars($_POST['nom_espece']);
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                INSERT INTO espece
+                    (nom_espece)
+                VALUES (:nom_espece)
+            ");
+            $requete->bindparam("nom_espece", $nom_espece);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre espece a bien été ajoutée !";
+
+            require "view/taxonomie/ajouterTaxonomie.php";
+        }
     }
 }
