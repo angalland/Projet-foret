@@ -147,4 +147,9 @@ class AdminForetController {
             require "view/foret/modifierForetParId.php";
         }
     }
+
+    // update une foret
+    public function updateForet($id) {
+        
+    }
 }

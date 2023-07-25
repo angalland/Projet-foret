@@ -128,5 +128,8 @@ if(isset($_GET['action'])){
 
         case'viewUpdateForetById' : $ctrlAdminforet->viewUpdateForetById();
         break;
+
+        case 'updateForet' : $ctrlAdminforet->updateForet($id);
+        break;
     }
 }
