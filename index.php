@@ -122,5 +122,8 @@ if(isset($_GET['action'])){
 
         case 'addForet' : $ctrlAdminforet->addForet();
         break;
+
+        case 'viewUpdateForet' : $ctrlAdminforet->viewUpdateForet();
+        break;
     }
 }

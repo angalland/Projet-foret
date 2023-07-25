@@ -53,6 +53,7 @@
                                         <ul class="sous-menu">
                                             <li><a href="index.php?action=viewAddForet">Ajouter une fôret</a></li>
                                             <li><a href="">Ajouter un être vivant</a></li>
+                                            <li><a href="index.php?action=viewUpdateForet">Modifier une forêt</a></li>
                                         </ul>
                                     </li>
                                 <?php

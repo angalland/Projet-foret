@@ -116,4 +116,9 @@ class AdminForetController {
             require "view/foret/ajouterForet.php";
         }   
     }
+
+    // page modifier une foret
+    public function viewUpdateForet() {
+        require "view/foret/modifierForet.php";
+    }
 }
