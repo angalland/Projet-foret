@@ -152,8 +152,12 @@ class AdminForetController {
     public function updateForet($id) {
         // verifie que le bouton modifier est bien été appuyer
         if (isset($_POST['submitUpdateForet'])){
+
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
             // filtre les données
-            $id_foret = filter_var($id);
+            $id_foret = intval(htmlspecialchars($id));
             $nom_foret = htmlspecialchars($_POST['nom_foret']);
             $ville = htmlspecialchars($_POST['ville']);
             $code_postal = htmlspecialchars($_POST['code_postal']);
@@ -220,6 +224,34 @@ class AdminForetController {
                     if (isset($fileName)) {
                     $photo = "public/img/forêt/".$fileName; // crée une variable qui = au chemin d'acces du fichier dans le dossier upload
                     }
+            }
+
+            if (isset($nom_foret) && !empty($nom_foret) && isset($ville) && !empty($ville) && isset($code_postal) && !empty($code_postal) && isset($photo) && !empty($photo) && isset($descriptif) && !empty($descriptif)){
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    UPDATE foret
+                    SET nom_foret = :nom_foret,
+                        ville = :ville,
+                        code_postal = :code_postal,
+                        photo = :photo,
+                        descriptif = :descriptif
+                    WHERE id_foret = :id_foret
+                ");
+                $requete->bindparam("nom_foret", $nom_foret);
+                $requete->bindparam("ville", $ville);
+                $requete->bindparam("code_postal", $code_postal);
+                $requete->bindparam("photo", $photo);
+                $requete->bindparam("descriptif", $descriptif);
+                $requete->bindparam("id_foret", $id_foret);
+                $requete->execute();
+
+                unlink($anciennePhoto);
+
+                $_SESSION['messageSucces'] = "Votre ".$nom_foret." a bien été modifié !";
+                
+                require "view/foret/modifierForet.php";
+            } else {
+                $_SESSION['messageAlert'][] = "Tous les champs doivent être rempli";
             }
         }
     }
