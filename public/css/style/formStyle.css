@@ -149,3 +149,16 @@
     color: white;
     font-size: 20px;
 }
+
+/* formulaire update foret */
+.addDivForet {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.updateButtonForet {
+    font-size: 25px;
+}

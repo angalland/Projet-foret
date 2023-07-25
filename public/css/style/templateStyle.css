@@ -11,9 +11,6 @@ body {
 
 
 /* navBar */
-:root {
-    --hauteur-menu: 60px;
-}
 
 .navbar {
     padding: 30px;
