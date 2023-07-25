@@ -162,3 +162,7 @@
 .updateButtonForet {
     font-size: 25px;
 }
+
+.updateDivForet {
+    display: none;
+}

@@ -122,7 +122,7 @@ class AdminForetController {
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
-            SELECT id_foret, nom_foret
+            SELECT *
             FROM foret        
         ");
         $requete->execute();
