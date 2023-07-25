@@ -1,8 +1,7 @@
 <?php
-ob_start();
-
-foreach ($requeteClasse as $classe)?>
-    <form action="" method="POST" class="formClasse">
+ob_start();?>
+<div class="taxonomie">
+    <form action="index.php?action=addClasse" method="POST" class="formClasse">
 
         <h3 class="formH3 addH3Foret">Ajouter une classe</h3>
 
@@ -12,9 +11,24 @@ foreach ($requeteClasse as $classe)?>
         </div>
 
         <div class="addButtonForet ">
-            <input class="button" type="submit" name="submitAddForet" value='Ajouter'>
+            <input class="button" type="submit" name="submitAddClasse" value='Ajouter'>
         </div>
-    </form> 
+    </form>
+    
+    <form action="index.php?action=addClasse" method="POST" class="formClasse">
+
+        <h3 class="formH3 addH3Foret">Ajouter un ordre</h3>
+
+        <div class="divClasse"> 
+            <label for="nom_classe" class="addLabel">Nom de l'ordre</label>
+            <input type="text" name="nom_classe" id="nom_classe" class="inputConnexion">
+        </div>
+
+        <div class="addButtonForet ">
+            <input class="button" type="submit" name="submitAddOrdre" value='Ajouter'>
+        </div>
+    </form>
+</div>
 <?php
 
 // affiche un message succes si il y en a un 

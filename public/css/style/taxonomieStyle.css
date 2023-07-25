@@ -1,5 +1,13 @@
+.taxonomie {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap:10px;
+}
+
 .formClasse {
-    width: 100%;
+    width: 49%;
 }
 
 .divClasse {

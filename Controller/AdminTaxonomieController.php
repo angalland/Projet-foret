@@ -7,14 +7,27 @@ class AdminTaxonomieController {
 
     // page ajouter taxonomie
     public function viewTaxonomie(){
-        
-        // requete bbd classe
-        $pdo = Connect::seConnecter();
-        $requeteClasse = $pdo->prepare("
-            SELECT *
-            FROM classe
-        ");
-        $requeteClasse->execute();
         require "view/taxonomie/ajouterTaxonomie.php";
+    }
+
+    // ajoute une classe
+    public function addClasse(){
+        if (isset($_POST['submitAddClasse'])){
+
+            $nom_classe = htmlspecialchars($_POST['nom_classe']);
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                INSERT INTO classe
+                    (nom_classe)
+                VALUES (:nom_classe)
+            ");
+            $requete->bindparam("nom_classe", $nom_classe);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre classe a bien été ajoutée !";
+
+            require "view/taxonomie/ajouterTaxonomie.php";
+        }
     }
 }
