@@ -9,6 +9,8 @@ foreach ($requete as $foret) {
     $photo = $foret['photo'];
     $descriptif = $foret['descriptif'];
 }
+var_dump($id_forets);
+var_dump($nom_forets);
 ?>
 <form id="formAddForet" class="formH3 addH3Foret" action="" method="POST">
     <h3 class="formH3 addH3Foret">Choississez la forêt à modifier</h3>
@@ -16,12 +18,15 @@ foreach ($requete as $foret) {
     <div class="addDivForet">
         <label class="addLabel" for="nom_foret">Forêt : </label>
         <select name="forêt" id="nom_foret" class="inputConnexion">
+            <option value=""></option>
+            <option
             <?php foreach ($id_forets as $id_foret){?>
-                <?php foreach ($nom_forets as $nom_foret){?>
-            <option value="<?=$id_foret?>"><?=$nom_foret?></option>
-            <?php
-                      }
-                  }?>                       
+                    value="<?=$id_foret?>"
+                    <?php } ?>><?php
+                    foreach ($nom_forets as $nom_foret){?>
+                        <?=$nom_foret?><?php
+                    }?>
+            </option>                      
         </select>
     </div>
 
