@@ -28,6 +28,20 @@ ob_start();?>
             <input class="button" type="submit" name="submitAddOrdre" value='Ajouter'>
         </div>
     </form>
+
+    <form action="index.php?action=addClasse" method="POST" class="formClasse">
+
+        <h3 class="formH3 addH3Foret">Ajouter une famille</h3>
+
+        <div class="divClasse"> 
+            <label for="nom_famille" class="addLabel">Nom de la famille</label>
+            <input type="text" name="nom_famille" id="nom_famille" class="inputConnexion">
+        </div>
+
+        <div class="addButtonForet ">
+            <input class="button" type="submit" name="submitAddFamille" value='Ajouter'>
+        </div>
+</form>
 </div>
 <?php
 
