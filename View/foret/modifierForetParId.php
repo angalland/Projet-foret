@@ -1,8 +1,11 @@
 <?php
 ob_start();
 foreach ($requete as $foret){?>
-<div class="updateDivForet">
-    <form action="" method="POST">
+    <form action="" method="POST" id="formAddForet">
+
+        <h3 class="formH3 addH3Foret">
+            Modifier <?=$foret['nom_foret']?>
+        </h3>
 
         <div class="addDiv">
             <label class="addLabel" for="nom_foret">Nom :</label>

@@ -132,8 +132,9 @@ class AdminForetController {
     // page pour modifier la foret choisit
     public function viewUpdateForetById() {
         if (isset($_POST['submitUpdateForet'])){
+
             $id_foret = intval(htmlspecialchars($_POST['foret']));
-            
+
             $pdo = Connect::seConnecter();
             $requete = $pdo->prepare("
                 SELECT *
