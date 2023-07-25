@@ -83,5 +83,23 @@ class AdminTaxonomieController {
 
             require "view/taxonomie/ajouterTaxonomie.php";
         }
+
+        if (isset($_POST['submitAddCategorie'])){
+
+            $nom_categorie = htmlspecialchars($_POST['nom_categorie']);
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                INSERT INTO categorie
+                    (nom_categorie)
+                VALUES (:nom_categorie)
+            ");
+            $requete->bindparam("nom_categorie", $nom_categorie);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre catégorie a bien été ajoutée !";
+
+            require "view/taxonomie/ajouterTaxonomie.php";            
+        }
     }
 }
