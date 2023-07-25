@@ -148,7 +148,7 @@ class AdminForetController {
         }
     }
 
-    // update une foret
+    // update ou delete une foret
     public function updateForet($id) {
         // verifie que le bouton modifier est bien été appuyer
         if (isset($_POST['submitUpdateForet'])){

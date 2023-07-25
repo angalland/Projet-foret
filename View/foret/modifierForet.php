@@ -40,7 +40,7 @@ if (isset($_SESSION['messageAlert'])) {
     }
 };
 
-$titre = 'Ajouter une forêt';
+$titre = 'modifier/supprimer une forêt';
 $contenu = ob_get_clean();
 
 require "view/template.php";
