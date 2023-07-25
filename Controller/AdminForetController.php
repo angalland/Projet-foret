@@ -119,6 +119,13 @@ class AdminForetController {
 
     // page modifier une foret
     public function viewUpdateForet() {
+
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+            SELECT id_foret, nom_foret
+            FROM foret        
+        ");
+        $requete->execute();
         require "view/foret/modifierForet.php";
     }
 }
