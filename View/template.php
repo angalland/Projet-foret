@@ -13,6 +13,7 @@
             <link rel="stylesheet" href="public/css/style/formStyle.css" />
             <link rel="stylesheet" href="public/css/style/commentaire.css" />
             <link rel="stylesheet" href="public/css/style/utilisateur.css" />
+            <link rel="stylesheet" href="public/css/style/taxonomieStyle.css" />
 
             <!-- lien leaflet -->
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin=""/>

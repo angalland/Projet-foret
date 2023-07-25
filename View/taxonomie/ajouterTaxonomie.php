@@ -2,13 +2,13 @@
 ob_start();
 
 foreach ($requeteClasse as $classe)?>
-    <form action="" method="POST">
+    <form action="" method="POST" class="formClasse">
 
-        <h3>Ajouter une classe</h3>
+        <h3 class="formH3 addH3Foret">Ajouter une classe</h3>
 
-        <div>
-            <label for="nom_classe">Nom de la classe</label>
-            <input type="text" name="nom_classe" id="nom_classe">
+        <div class="divClasse"> 
+            <label for="nom_classe" class="addLabel">Nom de la classe</label>
+            <input type="text" name="nom_classe" id="nom_classe" class="inputConnexion">
         </div>
 
         <div class="addButtonForet ">
