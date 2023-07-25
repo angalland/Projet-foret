@@ -47,5 +47,23 @@ class AdminTaxonomieController {
 
             require "view/taxonomie/ajouterTaxonomie.php";           
         }
+
+        if (isset($_POST['submitAddFamille'])){
+
+            $nom_famille = htmlspecialchars($_POST['nom_famille']);
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                INSERT INTO famille
+                    (nom_famille)
+                VALUES (:nom_famille)
+            ");
+            $requete->bindparam("nom_famille", $nom_famille);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre famille a bien été ajoutée !";
+
+            require "view/taxonomie/ajouterTaxonomie.php";
+        }
     }
 }
