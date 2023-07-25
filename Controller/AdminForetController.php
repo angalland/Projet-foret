@@ -117,7 +117,7 @@ class AdminForetController {
         }   
     }
 
-    // page modifier une foret
+    // page modifier une foret pour choisir la foret
     public function viewUpdateForet() {
 
         $pdo = Connect::seConnecter();
@@ -127,5 +127,23 @@ class AdminForetController {
         ");
         $requete->execute();
         require "view/foret/modifierForet.php";
+    }
+
+    // page pour modifier la foret choisit
+    public function viewUpdateForetById() {
+        if (isset($_POST['submitUpdateForet'])){
+            $id_foret = intval(htmlspecialchars($_POST['foret']));
+            
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                SELECT *
+                FROM foret 
+                WHERE id_foret = :id_foret       
+            ");
+            $requete->bindparam("id_foret", $id_foret);
+            $requete->execute();
+
+            require "view/foret/modifierForetParId.php";
+        }
     }
 }

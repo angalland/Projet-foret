@@ -3,12 +3,12 @@ ob_start();
 
 
 ?>
-<form id="formAddForet" class="formH3 addH3Foret" action="" method="GET">
+<form id="formAddForet" class="formH3 addH3Foret" action="index.php?action=viewUpdateForetById" method="POST">
     <h3 class="formH3 addH3Foret">Choississez la forêt à modifier</h3>
 
     <div class="addDivForet">
         <label class="addLabel" for="nom_foret">Forêt : </label>
-        <select name="forêt" id="nom_foret" class="inputConnexion">
+        <select name="foret" id="nom_foret" class="inputConnexion">
             <option value=""></option>
             <?php
             foreach ($requete as $foret){?>
@@ -20,42 +20,11 @@ ob_start();
     </div>
 
     <div class="addButtonForet ">
-        <input class="button updateButtonForet" type="submit" name="submitAddForet" value='Modifier'>
+        <input class="button updateButtonForet" type="submit" name="submitUpdateForet" value='Modifier'>
     </div>
 </form>
 
-<div class="updateDivForet">
-    <form action="" method="POST">
-
-        <div class="addDiv">
-            <label class="addLabel" for="nom_foret">Nom :</label>
-            <input type="text" name="nom_foret" id="nom_foret" class="inputConnexion" value="<?=$foret['nom_foret']?>">
-        </div>
-
-        <div class="addDiv">
-            <label class="addLabel" for="ville">Ville :</label>
-            <input type="text" name="ville" id="ville" class="inputConnexion" value="<?=$foret['ville']?>">
-        </div>
-
-        <div class="addDiv">
-            <label class="addLabel" for="code_postal">Code postal :</label>
-            <input type="text" name="code_postal" id="code_postal" class="inputConnexion" value="<?=$foret['code_postal']?>">
-        </div>
-
-        <div class="addDiv">
-            <label class="addLabel" for="photo">Photo :</label>
-            <input type="file" name="photo" id="photo" class="file">
-        </div>
-
-        <div class="addDiv">
-            <label class="addLabel" for="descriptif">Description :</label>
-            <input type="text" name="descriptif" id="descriptif" class="inputConnexion" value="<?=$foret['descriptif']?>">
-        </div>
-
-        <div class="addButtonForet ">
-            <input class="button" type="submit" name="submitAddForet" value='Ajouter'>
-        </div>
-    </form><?php
+<?php
 
 
 // affiche un message succes si il y en a un 
