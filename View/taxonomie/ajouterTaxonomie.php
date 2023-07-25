@@ -20,8 +20,8 @@ ob_start();?>
         <h3 class="formH3 addH3Foret">Ajouter un ordre</h3>
 
         <div class="divClasse"> 
-            <label for="nom_classe" class="addLabel">Nom de l'ordre</label>
-            <input type="text" name="nom_classe" id="nom_classe" class="inputConnexion">
+            <label for="nom_ordre" class="addLabel">Nom de l'ordre</label>
+            <input type="text" name="nom_ordre" id="nom_ordre" class="inputConnexion">
         </div>
 
         <div class="addButtonForet ">
