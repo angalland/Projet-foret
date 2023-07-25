@@ -7,6 +7,7 @@ use Controller\PlanteController;
 use Controller\AnimauxController;
 use Controller\UserController;
 use Controller\AdminForetController;
+use Controller\AdminTaxonomieController;
 
 session_start();
 
@@ -21,6 +22,7 @@ $ctrlPlante = new PlanteController();
 $ctrlAnimal = new AnimauxController();
 $ctrlUser = new UserController();
 $ctrlAdminforet = new AdminForetController();
+$ctrlAdminTaxonomie = new AdminTaxonomieController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 $id_foret = (isset($_GET["id_foret"])) ? $_GET["id_foret"] : null;
@@ -130,6 +132,10 @@ if(isset($_GET['action'])){
         break;
 
         case 'updateForet' : $ctrlAdminforet->updateForet($id);
+        break;
+
+        // controller taxonomie
+        case 'viewTaxonomie' : $ctrlAdminTaxonomie->viewTaxonomie();
         break;
     }
 }
