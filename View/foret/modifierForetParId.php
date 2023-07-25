@@ -1,7 +1,9 @@
 <?php
 ob_start();
 foreach ($requete as $foret){?>
-    <form action="index.php?action=updateForet&id=<?=$foret['id_foret']?>" method="POST" id="formAddForet">
+    <form action="index.php?action=updateForet&id=<?=$foret['id_foret']?>" method="POST" id="formAddForet" enctype="multipart/form-data">
+
+        <input type="hidden" name='anciennePhoto' value='<?=$foret['photo']?>'>
 
         <h3 class="formH3 addH3Foret">
             Modifier <?=$foret['nom_foret']?>
