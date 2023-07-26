@@ -404,5 +404,23 @@ class AdminTaxonomieController {
 
             header("Location:index.php?action=viewUpdateTaxonomie");
         }
+
+        // supprimer une categorie
+        if (isset($_POST['submitDeleteCategorie'])) {
+
+            $id_categorie = intval(htmlspecialchars($id));
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM categorie
+                WHERE id_categorie = :id_categorie
+            ");
+            $requete->bindparam("id_categorie", $id_categorie);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre catégorie a bien été supprimée !";
+            
+            header("Location:index.php?action=viewUpdateTaxonomie");
+        }
     }
 }
