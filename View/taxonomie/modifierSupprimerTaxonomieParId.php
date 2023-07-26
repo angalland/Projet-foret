@@ -88,6 +88,28 @@ if (isset($requeteClasse)){
             </div>
         </form><?php
     }      
+} elseif (isset($requeteCategorie)) {
+    foreach ($requeteCategorie as $categorie){?>
+        <form action="index.php?action=updateClasse&id=<?=$categorie['id_categorie']?>" method="POST" id="formAddForet">
+
+            <h3 class="formH3 addH3Foret">
+                Modifier <?=$categorie['nom_categorie']?>
+            </h3>
+
+            <div class="updateDiv">
+                <label class="addLabel" for="nom_categorie">Nom :</label>
+                <input type="text" name="nom_categorie" id="nom_categorie" class="inputConnexion" value="<?=$categorie['nom_categorie']?>">
+            </div>
+
+            <div class="addButtonForet ">
+                <input class="button" type="submit" name="submitUpdateCategorie" value='Modifier'>
+            </div>
+
+            <div class="addButtonForet ">
+                <input class="button" type="submit" name="submitDeleteCategorie" value='Supprimer'>
+            </div>
+        </form><?php
+    }  
 }
 ?>
 <?php
