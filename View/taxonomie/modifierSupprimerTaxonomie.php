@@ -84,6 +84,27 @@ ob_start();?>
             <input class="button" type="submit" name="submitUpdateEspece" value='Modifier'>
         </div>
     </form>
+
+    <form class="formClasse" action="index.php?action=viewUpdateTaxonomieById" method="POST">
+        <h3 class="formH3 addH3Foret">Choississez la catégorie à modifier ou Supprimer</h3>
+
+        <div class="divClasse">
+            <label class="addLabel" for="nom_categorie">Catégorie : </label>
+            <select name="categorie" id="nom_categorie" class="inputConnexion">
+                <option value=""></option>
+                <?php
+                foreach ($requeteCategorie as $categorie){?>
+                    <option value="<?=$categorie["id_categorie"]?>">
+                    <?=$categorie['nom_categorie']?></option>                      
+                <?php
+                }?>
+            </select>
+        </div>
+
+        <div class="addButtonForet ">
+            <input class="button" type="submit" name="submitUpdateCategorie" value='Modifier'>
+        </div>
+    </form>
 <div>
 
 <?php

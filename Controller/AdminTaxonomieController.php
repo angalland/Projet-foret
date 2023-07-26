@@ -131,7 +131,14 @@ class AdminTaxonomieController {
             SELECT *
             FROM espece
         ");
-        $requeteEspece->execute();  
+        $requeteEspece->execute();
+        
+        $pdo = Connect::seConnecter();
+        $requeteCategorie = $pdo->prepare("
+            SELECT *
+            FROM categorie
+        ");
+        $requeteCategorie->execute(); 
 
         require "view/taxonomie/modifierSupprimerTaxonomie.php";
     }
@@ -198,6 +205,22 @@ class AdminTaxonomieController {
             ");
             $requeteEspece->bindparam("id_espece", $id_espece);
             $requeteEspece->execute();
+
+            require "view/taxonomie/modifierSupprimerTaxonomieParId.php";
+        }
+
+        if (isset($_POST['submitUpdateCategorie'])){
+
+            $id_categorie = intval(htmlspecialchars($_POST['categorie']));
+
+            $pdo = Connect::seConnecter();
+            $requeteCategorie = $pdo->prepare("
+                SELECT *
+                FROM categorie
+                WHERE id_categorie = :id_categorie      
+            ");
+            $requeteCategorie->bindparam("id_categorie", $id_categorie);
+            $requeteCategorie->execute();
 
             require "view/taxonomie/modifierSupprimerTaxonomieParId.php";
         }
