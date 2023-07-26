@@ -280,5 +280,23 @@ class AdminTaxonomieController {
 
             header("Location:index.php?action=viewUpdateTaxonomie");
         }
+
+        // supprimer famille
+        if (isset($_POST['submitDeleteFamille'])){
+
+            $id_famille = intval(htmlspecialchars($id));
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM famille
+                WHERE id_famille = :id_famille
+            ");
+            $requete->bindparam("id_famille", $id_famille);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre famille a bien été supprimée !";
+            
+            header("Location:index.php?action=viewUpdateTaxonomie");
+        }
     }
 }
