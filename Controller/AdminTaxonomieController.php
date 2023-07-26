@@ -139,6 +139,22 @@ class AdminTaxonomieController {
             
             require "view/taxonomie/modifierSupprimerTaxonomieParId.php";
         }
+
+        if (isset($_POST['submitUpdateOrdre'])){
+
+            $id_ordre = intval(htmlspecialchars($_POST['ordre']));
+
+            $pdo = Connect::seConnecter();
+            $requeteOrdre = $pdo->prepare("
+                SELECT *
+                FROM ordre 
+                WHERE id_ordre = :id_ordre       
+            ");
+            $requeteOrdre->bindparam("id_ordre", $id_ordre);
+            $requeteOrdre->execute();
+
+            require "view/taxonomie/modifierSupprimerTaxonomieParId.php";
+        }
     }
 
     // modifier ou supprime une classe
