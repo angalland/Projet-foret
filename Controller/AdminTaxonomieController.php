@@ -383,5 +383,26 @@ class AdminTaxonomieController {
             
             header("Location:index.php?action=viewUpdateTaxonomie");            
         }
+
+        // modifier categorie
+        if (isset($_POST['submitUpdateCategorie'])) {
+
+            $id_categorie = intval(htmlspecialchars($id));
+            $nom_categorie = htmlspecialchars($_POST['nom_categorie']);
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                UPDATE categorie
+                    SET nom_categorie = :nom_categorie
+                WHERE id_categorie = :id_categorie
+            ");
+            $requete->bindparam("nom_categorie", $nom_categorie);
+            $requete->bindparam("id_categorie", $id_categorie);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre catégorie a bien été modifiée !";
+
+            header("Location:index.php?action=viewUpdateTaxonomie");
+        }
     }
 }
