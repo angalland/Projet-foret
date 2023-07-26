@@ -105,6 +105,12 @@ class AdminTaxonomieController {
 
     // afficher la page modifier/supprimer une taxonomie
     public function viewUpdateTaxonomie() {
+        $pdo = Connect::seConnecter();
+        $requeteClasse = $pdo->prepare("
+            SELECT *
+            FROM classe
+        ");
+        $requeteClasse->execute();
         require "view/taxonomie/modifierSupprimerTaxonomie.php";
     }
 }
