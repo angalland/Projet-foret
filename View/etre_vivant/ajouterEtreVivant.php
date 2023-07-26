@@ -15,12 +15,12 @@ ob_start();?>
 
     <div class="addDiv">
         <label class="addLabel" for="taille">Taille en Cm :</label>
-        <input type="number" name="taille" id="taille" min="0" class="inputConnexion">
+        <input type="number" name="taille" id="taille"  class="inputConnexion">
     </div>
 
     <div class="addDiv">
         <label class="addLabel" for="poids">Poids en Kg :</label>
-        <input type="number" name="poids" id="poids" min="0" class="inputConnexion">
+        <input type="number" name="poids" id="poids"  class="inputConnexion">
     </div>
 
     <div class="addDiv">
