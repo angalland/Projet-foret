@@ -10,7 +10,7 @@ class AdminTaxonomieController {
         require "view/taxonomie/ajouterTaxonomie.php";
     }
 
-    // ajoute une classe
+    // ajoute une taxonomie
     public function addClasse(){
         if (isset($_POST['submitAddClasse'])){
 
@@ -119,6 +119,13 @@ class AdminTaxonomieController {
         ");
         $requeteOrdre->execute();
 
+        $pdo = Connect::seConnecter();
+        $requeteFamille = $pdo->prepare("
+            SELECT *
+            FROM famille
+        ");
+        $requeteFamille->execute();        
+
         require "view/taxonomie/modifierSupprimerTaxonomie.php";
     }
 
@@ -152,6 +159,22 @@ class AdminTaxonomieController {
             ");
             $requeteOrdre->bindparam("id_ordre", $id_ordre);
             $requeteOrdre->execute();
+
+            require "view/taxonomie/modifierSupprimerTaxonomieParId.php";
+        }
+
+        if (isset($_POST['submitUpdateFamille'])){
+
+            $id_famille = intval(htmlspecialchars($_POST['famille']));
+
+            $pdo = Connect::seConnecter();
+            $requeteFamille = $pdo->prepare("
+                SELECT *
+                FROM famille 
+                WHERE id_famille = :id_famille      
+            ");
+            $requeteFamille->bindparam("id_famille", $id_famille);
+            $requeteFamille->execute();
 
             require "view/taxonomie/modifierSupprimerTaxonomieParId.php";
         }

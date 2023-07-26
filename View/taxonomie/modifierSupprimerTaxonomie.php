@@ -42,6 +42,27 @@ ob_start();?>
             <input class="button" type="submit" name="submitUpdateOrdre" value='Modifier'>
         </div>
     </form>
+
+    <form class="formClasse" action="index.php?action=viewUpdateTaxonomieById" method="POST">
+        <h3 class="formH3 addH3Foret">Choississez la famille à modifier ou Supprimer</h3>
+
+        <div class="divClasse">
+            <label class="addLabel" for="nom_famille">Famille : </label>
+            <select name="famille" id="nom_famille" class="inputConnexion">
+                <option value=""></option>
+                <?php
+                foreach ($requeteFamille as $famille){?>
+                    <option value="<?=$famille["id_famille"]?>">
+                    <?=$famille['nom_famille']?></option>                      
+                <?php
+                }?>
+            </select>
+        </div>
+
+        <div class="addButtonForet ">
+            <input class="button" type="submit" name="submitUpdateFamille" value='Modifier'>
+        </div>
+    </form>
 <div>
 
 <?php

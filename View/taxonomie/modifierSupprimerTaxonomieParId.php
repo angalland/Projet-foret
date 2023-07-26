@@ -44,6 +44,28 @@ if (isset($requeteClasse)){
             </div>
         </form><?php
     }    
+} elseif (isset($requeteFamille)){
+    foreach ($requeteFamille as $famille){?>
+        <form action="index.php?action=updateClasse&id=<?=$famille['id_famille']?>" method="POST" id="formAddForet">
+
+            <h3 class="formH3 addH3Foret">
+                Modifier <?=$famille['nom_famille']?>
+            </h3>
+
+            <div class="updateDiv">
+                <label class="addLabel" for="nom_famille">Nom :</label>
+                <input type="text" name="nom_famille" id="nom_famille" class="inputConnexion" value="<?=$famille['nom_famille']?>">
+            </div>
+
+            <div class="addButtonForet ">
+                <input class="button" type="submit" name="submitUpdateFamille" value='Modifier'>
+            </div>
+
+            <div class="addButtonForet ">
+                <input class="button" type="submit" name="submitDeleteFamille" value='Supprimer'>
+            </div>
+        </form><?php
+    }  
 }
 ?>
 <?php
