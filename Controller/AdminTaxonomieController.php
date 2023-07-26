@@ -259,5 +259,26 @@ class AdminTaxonomieController {
             
             header("Location:index.php?action=viewUpdateTaxonomie");
         }
+
+        // modifier famille
+        if (isset($_POST['submitUpdateFamille'])){
+
+            $id_famille = intval(htmlspecialchars($id));
+            $nom_famille = htmlspecialchars($_POST['nom_famille']);
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                UPDATE famille
+                    SET nom_famille = :nom_famille
+                WHERE id_famille = :id_famille
+            ");
+            $requete->bindparam("nom_famille", $nom_famille);
+            $requete->bindparam("id_famille", $id_famille);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre famille a bien été modifiée !";
+
+            header("Location:index.php?action=viewUpdateTaxonomie");
+        }
     }
 }
