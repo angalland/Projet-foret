@@ -21,6 +21,27 @@ ob_start();?>
             <input class="button" type="submit" name="submitUpdateClasse" value='Modifier'>
         </div>
     </form>
+
+    <form class="formClasse" action="index.php?action=viewUpdateTaxonomieById" method="POST">
+        <h3 class="formH3 addH3Foret">Choississez l'ordre à modifier ou Supprimer</h3>
+
+        <div class="divClasse">
+            <label class="addLabel" for="nom_ordre">Ordre : </label>
+            <select name="ordre" id="nom_ordre" class="inputConnexion">
+                <option value=""></option>
+                <?php
+                foreach ($requeteOrdre as $ordre){?>
+                    <option value="<?=$ordre["id_ordre"]?>">
+                    <?=$ordre['nom_ordre']?></option>                      
+                <?php
+                }?>
+            </select>
+        </div>
+
+        <div class="addButtonForet ">
+            <input class="button" type="submit" name="submitUpdateOrdre" value='Modifier'>
+        </div>
+    </form>
 <div>
 
 <?php

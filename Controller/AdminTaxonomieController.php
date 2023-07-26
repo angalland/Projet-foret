@@ -111,6 +111,14 @@ class AdminTaxonomieController {
             FROM classe
         ");
         $requeteClasse->execute();
+
+        $pdo = Connect::seConnecter();
+        $requeteOrdre = $pdo->prepare("
+            SELECT *
+            FROM ordre
+        ");
+        $requeteOrdre->execute();
+
         require "view/taxonomie/modifierSupprimerTaxonomie.php";
     }
 
