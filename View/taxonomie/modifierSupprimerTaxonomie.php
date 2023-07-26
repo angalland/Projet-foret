@@ -1,12 +1,12 @@
 <?php
 ob_start();?>
 <div class="taxonomie">
-    <form class="formClasse" action="index.php?action=viewUpdateForetById" method="POST">
+    <form class="formClasse" action="index.php?action=viewUpdateTaxonomieById" method="POST">
         <h3 class="formH3 addH3Foret">Choississez la classe à modifier ou Supprimer</h3>
 
         <div class="divClasse">
-            <label class="addLabel" for="nom_foret">Classe : </label>
-            <select name="foret" id="nom_foret" class="inputConnexion">
+            <label class="addLabel" for="nom_classe">Classe : </label>
+            <select name="classe" id="nom_classe" class="inputConnexion">
                 <option value=""></option>
                 <?php
                 foreach ($requeteClasse as $classe){?>
@@ -18,7 +18,7 @@ ob_start();?>
         </div>
 
         <div class="addButtonForet ">
-            <input class="button" type="submit" name="submitUpdateForet" value='Modifier'>
+            <input class="button" type="submit" name="submitUpdateClasse" value='Modifier'>
         </div>
     </form>
 <div>

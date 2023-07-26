@@ -113,4 +113,23 @@ class AdminTaxonomieController {
         $requeteClasse->execute();
         require "view/taxonomie/modifierSupprimerTaxonomie.php";
     }
+
+    // affiche la taxonomie a modifier ou supprimer par id
+    public function viewUpdateTaxonomieById() {
+        if (isset($_POST['submitUpdateClasse'])){
+
+            $id_classe = intval(htmlspecialchars($_POST['classe']));
+            
+            $pdo = Connect::seConnecter();
+            $requeteClasse = $pdo->prepare("
+                SELECT *
+                FROM classe 
+                WHERE id_classe = :id_classe       
+            ");
+            $requeteClasse->bindparam("id_classe", $id_classe);
+            $requeteClasse->execute();
+            
+            require "view/taxonomie/modifierSupprimerTaxonomieParId.php";
+        }
+    }
 }
