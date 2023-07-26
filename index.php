@@ -140,5 +140,8 @@ if(isset($_GET['action'])){
 
         case 'addClasse' : $ctrlAdminTaxonomie->addClasse();
         break;
+
+        case 'viewUpdateTaxonomie' : $ctrlAdminTaxonomie->viewUpdateTaxonomie();
+        break;
     }
 }

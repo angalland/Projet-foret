@@ -57,6 +57,7 @@
                                             <li><a href="index.php?action=viewUpdateForet">Modifier/Supprimer une forêt</a></li>
                                             <div class="ligne"></div>
                                             <li><a href="index.php?action=viewTaxonomie">Ajouter une taxonomie</a></li>
+                                            <li><a href="index.php?action=viewUpdateTaxonomie">Modifier/Supprimer une taxonomie</a></li>
                                         </ul>
                                     </li>
                                 <?php

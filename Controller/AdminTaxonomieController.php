@@ -102,4 +102,9 @@ class AdminTaxonomieController {
             require "view/taxonomie/ajouterTaxonomie.php";            
         }
     }
+
+    // afficher la page modifier/supprimer une taxonomie
+    public function viewUpdateTaxonomie() {
+        require "view/taxonomie/modifierSupprimerTaxonomie.php";
+    }
 }
