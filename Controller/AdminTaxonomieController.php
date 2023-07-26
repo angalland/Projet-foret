@@ -218,5 +218,23 @@ class AdminTaxonomieController {
 
             header("Location:index.php?action=viewUpdateTaxonomie");
         }
+
+        // supprimer ordre
+        if (isset($_POST['submitDeleteOrdre'])){
+
+            $id_ordre = intval(htmlspecialchars($id));
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM ordre
+                WHERE id_ordre = :id_ordre
+            ");
+            $requete->bindparam("id_ordre", $id_ordre);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre ordre a bien été supprimée !";
+            
+            header("Location:index.php?action=viewUpdateTaxonomie");
+        }
     }
 }
