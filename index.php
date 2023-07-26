@@ -8,6 +8,7 @@ use Controller\AnimauxController;
 use Controller\UserController;
 use Controller\AdminForetController;
 use Controller\AdminTaxonomieController;
+use Controller\AdminEtreVivantController;
 
 session_start();
 
@@ -23,6 +24,7 @@ $ctrlAnimal = new AnimauxController();
 $ctrlUser = new UserController();
 $ctrlAdminforet = new AdminForetController();
 $ctrlAdminTaxonomie = new AdminTaxonomieController();
+$ctrlAdminEtreVivant = new AdminEtreVivantController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 $id_foret = (isset($_GET["id_foret"])) ? $_GET["id_foret"] : null;
@@ -148,6 +150,10 @@ if(isset($_GET['action'])){
         break;
 
         case 'updateClasse' : $ctrlAdminTaxonomie->updateClasse($id);
+        break;
+
+        // controller etre vivant
+        case 'viewAddEtreVivant' : $ctrlAdminEtreVivant->viewAddEtreVivant();
         break;
     }
 }

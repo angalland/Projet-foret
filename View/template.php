@@ -53,7 +53,7 @@
                                         <a>Administrateur</a>
                                         <ul class="sous-menu">
                                             <li><a href="index.php?action=viewAddForet">Ajouter une fôret</a></li>
-                                            <li><a href="">Ajouter un être vivant</a></li>
+                                            <li><a href="index.php?action=viewAddEtreVivant">Ajouter un être vivant</a></li>
                                             <li><a href="index.php?action=viewUpdateForet">Modifier/Supprimer une forêt</a></li>
                                             <div class="ligne"></div>
                                             <li><a href="index.php?action=viewTaxonomie">Ajouter une taxonomie</a></li>
