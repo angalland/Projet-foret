@@ -173,12 +173,52 @@ class AdminEtreVivantController {
             }
 
             if (isset($fileName) && $id_categorie == 1) {
-                    $photo = "public/img/Arbre/".$fileName; // crée une variable qui = au chemin d'acces du fichier dans le dossier upload
+                    $photo_repartition = "public/img/Arbre/".$fileName; // crée une variable qui = au chemin d'acces du fichier dans le dossier upload
             } elseif (isset($fileName) && $id_categorie == 2) {
-                    $photo = "public/img/plante/".$fileName;
+                    $photo_repartition = "public/img/plante/".$fileName;
             } elseif (isset($fileName) && $id_categorie == 3) {
-                    $photo = "public/img/Animaux/".$fileName;
+                    $photo_repartition = "public/img/Animaux/".$fileName;
             }
+
+            if (isset($nom_courant) && !empty($nom_courant) && isset($nom_latin) && !empty($nom_latin) && isset($photo) && !empty($photo) && isset($photo_repartition) && !empty($photo_repartition) && isset($id_classe) && !empty($id_classe) && isset($id_ordre) &&!empty($id_ordre) && isset($id_famille) && !empty($id_famille) && isset($id_espece) && !empty($id_espece) && isset($id_categorie) && !empty($id_categorie) && isset($descriptif) && !empty($descriptif)){
+
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    INSERT INTO etre_vivant
+                    (nom_courant, nom_latin, taille, poids, photo, photo_repartition, id_classe, id_ordre, id_famille, id_espece, id_categorie, descriptif)
+                    VALUES (:nom_courant,
+                            :nom_latin,
+                            :taille,
+                            :poids,
+                            :photo,
+                            :photo_repartition,
+                            :id_classe,
+                            :id_ordre,
+                            :id_famille,
+                            :id_espece,
+                            :id_categorie,
+                            :descriptif)
+                ");
+                $requete->bindparam("nom_courant", $nom_courant);
+                $requete->bindparam("nom_latin", $nom_latin);
+                $requete->bindparam("taille", $taille);
+                $requete->bindparam("poids", $poids);
+                $requete->bindparam("photo", $photo);
+                $requete->bindparam("photo_repartition", $photo_repartition);
+                $requete->bindparam("id_classe", $id_classe);
+                $requete->bindparam("id_ordre", $id_ordre);
+                $requete->bindparam("id_famille", $id_famille);
+                $requete->bindparam("id_espece", $id_espece);
+                $requete->bindparam("id_categorie", $id_categorie);
+                $requete->bindparam("descriptif", $descriptif);
+                $requete->execute();
+
+                $_SESSION['messageSucces'] = "Votre être-vivant a bien été ajouté";
+            } else {
+                $_SESSION['messageAlert'][] = "Données incorrectes !";
+                require "view/etre_vivant/ajouterEtreVivant.php";
+            }
+            require "view/etre_vivant/ajouterEtreVivant.php";         
         }
 
     }
