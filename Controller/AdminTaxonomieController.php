@@ -132,4 +132,34 @@ class AdminTaxonomieController {
             require "view/taxonomie/modifierSupprimerTaxonomieParId.php";
         }
     }
+
+    // modifier ou supprime une classe
+    public function updateClasse($id) {
+        if (isset($_POST['submitUpdateClasse'])){
+
+            $id_classe = intval(htmlspecialchars($id));
+            $nom_classe = htmlspecialchars($_POST['nom_classe']);
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                UPDATE classe
+                    SET nom_classe = :nom_classe
+                WHERE id_classe = :id_classe
+            ");
+            $requete->bindparam("nom_classe", $nom_classe);
+            $requete->bindparam("id_classe", $id_classe);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre classe a bien été modifiée !";
+
+            header("Location:index.php?action=viewUpdateTaxonomie");
+
+        }
+
+        if (isset($_POST['submitDeleteClasse'])){
+
+            $id_classe = intval(htmlspecialchars($id));
+            
+        }
+    }
 }

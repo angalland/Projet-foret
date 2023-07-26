@@ -1,7 +1,7 @@
 <?php
 ob_start();
 foreach ($requeteClasse as $classe){?>
-    <form action="index.php?action=updateForet&id=<?=$classe['id_classe']?>" method="POST" id="formAddForet">
+    <form action="index.php?action=updateClasse&id=<?=$classe['id_classe']?>" method="POST" id="formAddForet">
 
         <h3 class="formH3 addH3Foret">
             Modifier <?=$classe['nom_classe']?>
@@ -13,11 +13,11 @@ foreach ($requeteClasse as $classe){?>
         </div>
 
         <div class="addButtonForet ">
-            <input class="button" type="submit" name="submitUpdateForet" value='Modifier'>
+            <input class="button" type="submit" name="submitUpdateClasse" value='Modifier'>
         </div>
 
         <div class="addButtonForet ">
-            <input class="button" type="submit" name="submitDeleteForet" value='Supprimer'>
+            <input class="button" type="submit" name="submitDeleteClasse" value='Supprimer'>
         </div>
     </form><?php
 }?>
