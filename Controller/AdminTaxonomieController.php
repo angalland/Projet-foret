@@ -321,5 +321,44 @@ class AdminTaxonomieController {
             
             header("Location:index.php?action=viewUpdateTaxonomie");
         }
+
+        // modifier une espece
+        if (isset($_POST['submitUpdateEspece'])) {
+
+            $id_espece = intval(htmlspecialchars($id));
+            $nom_espece = htmlspecialchars($_POST['nom_espece']);
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                UPDATE espece
+                    SET nom_espece = :nom_espece
+                WHERE id_espece = :id_espece
+            ");
+            $requete->bindparam("nom_espece", $nom_espece);
+            $requete->bindparam("id_espece", $id_espece);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre espece a bien été modifiée !";
+
+            header("Location:index.php?action=viewUpdateTaxonomie");
+        }
+
+        // supprimer espece
+        if (isset($_POST['submitDeleteEspece'])) {
+
+            $id_espece = intval(htmlspecialchars($id));
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM espece
+                WHERE id_espece = :id_espece
+            ");
+            $requete->bindparam("id_espece", $id_espece);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre espece a bien été supprimée !";
+            
+            header("Location:index.php?action=viewUpdateTaxonomie");            
+        }
     }
 }
