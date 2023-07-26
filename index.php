@@ -155,5 +155,8 @@ if(isset($_GET['action'])){
         // controller etre vivant
         case 'viewAddEtreVivant' : $ctrlAdminEtreVivant->viewAddEtreVivant();
         break;
+
+        case 'addEtreVivant' : $ctrlAdminEtreVivant->addEtreVivant();
+        break;
     }
 }

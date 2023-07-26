@@ -46,4 +46,11 @@ class AdminEtreVivantController {
 
         require "view/etre_vivant/ajouterEtreVivant.php";
     }
+
+    // ajoute un etre vivant
+    public function addEtreVivant() {
+        if (isset($_POST['submitAddEtreVivant'])){
+            
+        }
+    }
 }

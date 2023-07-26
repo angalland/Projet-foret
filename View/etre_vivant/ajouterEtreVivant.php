@@ -104,7 +104,7 @@ ob_start();?>
     </div>
 
     <div class="addButtonForet ">
-        <input class="button" type="submit" name="submitAddForet" value='Ajouter'>
+        <input class="button" type="submit" name="submitAddEtreVivant" value='Ajouter'>
     </div>
 </form>
 <?php
