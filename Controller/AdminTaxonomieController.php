@@ -159,7 +159,18 @@ class AdminTaxonomieController {
         if (isset($_POST['submitDeleteClasse'])){
 
             $id_classe = intval(htmlspecialchars($id));
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM classe
+                WHERE id_classe = :id_classe
+            ");
+            $requete->bindparam("id_classe", $id_classe);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre classe a bien été supprimée !";
             
+            header("Location:index.php?action=viewUpdateTaxonomie");
         }
     }
 }
