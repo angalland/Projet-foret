@@ -180,6 +180,14 @@ class AdminEtreVivantController {
                     $photo_repartition = "public/img/Animaux/".$fileName;
             }
 
+            if ($taille == 0){
+                $taille = null;
+            }
+
+            if ($poids == 0){
+                $poids = null;
+            }
+
             if (isset($nom_courant) && !empty($nom_courant) && isset($nom_latin) && !empty($nom_latin) && isset($photo) && !empty($photo) && isset($photo_repartition) && !empty($photo_repartition) && isset($id_classe) && !empty($id_classe) && isset($id_ordre) &&!empty($id_ordre) && isset($id_famille) && !empty($id_famille) && isset($id_espece) && !empty($id_espece) && isset($id_categorie) && !empty($id_categorie) && isset($descriptif) && !empty($descriptif)){
 
                 $pdo = Connect::seConnecter();
