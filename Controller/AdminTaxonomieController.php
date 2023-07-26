@@ -157,8 +157,9 @@ class AdminTaxonomieController {
         }
     }
 
-    // modifier ou supprime une classe
+    // modifier ou supprime une taxonomie
     public function updateClasse($id) {
+        // modifier une classe
         if (isset($_POST['submitUpdateClasse'])){
 
             $id_classe = intval(htmlspecialchars($id));
@@ -179,7 +180,7 @@ class AdminTaxonomieController {
             header("Location:index.php?action=viewUpdateTaxonomie");
 
         }
-
+        // supprimer une classe
         if (isset($_POST['submitDeleteClasse'])){
 
             $id_classe = intval(htmlspecialchars($id));
@@ -194,6 +195,27 @@ class AdminTaxonomieController {
 
             $_SESSION['messageSucces'] = "Votre classe a bien été supprimée !";
             
+            header("Location:index.php?action=viewUpdateTaxonomie");
+        }
+
+        // modifier ordre
+        if (isset($_POST['submitUpdateOrdre'])){
+
+            $id_ordre = intval(htmlspecialchars($id));
+            $nom_ordre = htmlspecialchars($_POST['nom_ordre']);
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                UPDATE ordre
+                    SET nom_ordre = :nom_ordre
+                WHERE id_ordre = :id_ordre
+            ");
+            $requete->bindparam("nom_ordre", $nom_ordre);
+            $requete->bindparam("id_ordre", $id_ordre);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre ordre a bien été modifiée !";
+
             header("Location:index.php?action=viewUpdateTaxonomie");
         }
     }
