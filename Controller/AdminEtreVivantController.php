@@ -251,6 +251,10 @@ class AdminEtreVivantController {
             }
             require "view/etre_vivant/ajouterEtreVivant.php";         
         }
+    }
 
+    // Affiche la page modifier ou supprimer un etre vivant
+    public function viewUpdateEtreVivant() {
+        require "view/etre_vivant/modifierSupprimerEtreVivant.php";
     }
 }

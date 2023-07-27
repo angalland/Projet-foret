@@ -158,5 +158,8 @@ if(isset($_GET['action'])){
 
         case 'addEtreVivant' : $ctrlAdminEtreVivant->addEtreVivant();
         break;
+
+        case 'viewUpdateEtreVivant' : $ctrlAdminEtreVivant->viewUpdateEtreVivant();
+        break;
     }
 }
