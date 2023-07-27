@@ -534,6 +534,22 @@ class AdminEtreVivantController {
                 die;
             }        
         }
+
+        if (isset($_POST['submitDeleteEtreVivant'])){
+            $id_etre_vivant = intval(htmlspecialchars($id));
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM etre_vivant
+                WHERE id_etre_vivant = :id_etre_vivant
+            ");
+            $requete->bindparam("id_etre_vivant", $id_etre_vivant);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre être-vivant a bien été supprimée !";
+            header("Location:index.php?action=viewUpdateEtreVivant");
+            die;
+        }
         
     }
 }
