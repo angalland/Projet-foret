@@ -4,8 +4,8 @@ ob_start();?>
     <h3 class="formH3 addH3Foret">Choississez l'être-vivant à modifier ou Supprimer</h3>
 
     <div class="addDivForet">
-        <label class="addLabel" for="nom_foret">Être-vivant : </label>
-        <select name="foret" id="nom_foret" class="inputConnexion">
+        <label class="addLabel" for="nom_etre_vivant">Être-vivant : </label>
+        <select name="etre_vivant" id="nom_etre_vivant" class="inputConnexion">
             <option value=""></option>
             <?php
             foreach ($requete as $etre_vivant){?>

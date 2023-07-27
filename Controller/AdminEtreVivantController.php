@@ -266,6 +266,18 @@ class AdminEtreVivantController {
 
     // affiche le formulaire de modification d'un etre-vivant par id
     public function viewUpdateEtreVivantById() {
-        if (isset($_POST['submitUpdateEtreVivant']))
+        if (isset($_POST['submitUpdateEtreVivant'])) {
+            $id_etre_vivant = intval(htmlspecialchars($_POST['etre_vivant']));
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                SELECT *
+                FROM etre_vivant
+                WHERE id_etre_vivant = :id_etre_vivant
+            ");
+            $requete->bindparam("id_etre_vivant", $id_etre_vivant);
+            $requete->execute();
+            require "view/etre_vivant/modifierSupprimerEtreVivantParId.php";
+        }
     }
 }
