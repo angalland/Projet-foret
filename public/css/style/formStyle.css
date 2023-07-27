@@ -170,3 +170,8 @@
 .ligne {
     border-bottom: 1px solid black;
 }
+
+/* formulaire update etre-viant */
+.updateEtreVivant {
+    margin-top: 10px;
+}

@@ -273,10 +273,48 @@ class AdminEtreVivantController {
             $requete = $pdo->prepare("
                 SELECT *
                 FROM etre_vivant
+                INNER JOIN classe
+                    ON etre_vivant.id_classe = classe.id_classe
                 WHERE id_etre_vivant = :id_etre_vivant
             ");
             $requete->bindparam("id_etre_vivant", $id_etre_vivant);
             $requete->execute();
+
+            $pdo = Connect::seConnecter();
+            $requeteClasse = $pdo->prepare("
+                SELECT *
+                FROM classe
+            ");
+            $requeteClasse->execute();
+    
+            $pdo = Connect::seConnecter();
+            $requeteOrdre = $pdo->prepare("
+                SELECT *
+                FROM ordre
+            ");
+            $requeteOrdre->execute();
+    
+            $pdo = Connect::seConnecter();
+            $requeteFamille = $pdo->prepare("
+                SELECT *
+                FROM famille
+            ");
+            $requeteFamille->execute();
+            
+            $pdo = Connect::seConnecter();
+            $requeteEspece = $pdo->prepare("
+                SELECT *
+                FROM espece
+            ");
+            $requeteEspece->execute();
+            
+            $pdo = Connect::seConnecter();
+            $requeteCategorie = $pdo->prepare("
+                SELECT *
+                FROM categorie
+            ");
+            $requeteCategorie->execute();
+
             require "view/etre_vivant/modifierSupprimerEtreVivantParId.php";
         }
     }
