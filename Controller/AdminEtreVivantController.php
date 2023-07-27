@@ -87,18 +87,40 @@ class AdminEtreVivantController {
 
                 if(in_array($extension, $extensionAutorisees) && $size <= $tailleMax && $error == 0 ){ // vérifie que $extension soit compris dans $extensionAutorisees et que la taille du fichier soit <= a la valeur de $tailleMax et que le fichier ne renvoie aucune erreure
 
+                        // verifie que le nom de la foret n'est pas déja utilisé
+                        $pdo = Connect::seConnecter();
+                        $requeteNomCourant = $pdo->prepare("
+                            SELECT nom_courant
+                            FROM etre_vivant
+                            WHERE nom_courant = :nom_courant
+                        ");
+                        $requeteNomCourant->bindparam("nom_courant", $nom_courant);
+                        $requeteNomCourant->execute();
+                        $existeNomCourant = $requeteNomCourant->fetch(\PDO::FETCH_ASSOC);
+
+                        // si il est deja utilisé renvoie une erreure
+                        if ($existeNomCourant){
+                            $_SESSION['messageAlert'][]= "Le nom de cette être-vivant est déjà utilisé, veuillez mettre un autre nom";
+                            header("Location:index.php?action=viewAddEtreVivant");
+                            die;
+                        } else {
+                            // sinon on crée uniqueName
+                            $uniqueName = $nom_courant;
+                            // on ajoute $uniqueName avec $extension = 5f586bf96dcd38.73540086.jpg
+                            $fileName = $uniqueName.'.'.$extension;
+                        }
                     // génere un nom unique ex: 5f586bf96dcd38.73540086
                     // $uniqueName = uniqid('', true);
-                    $uniqueName = $nom_courant;
-                    // on ajoute $uniqueName avec $extension = 5f586bf96dcd38.73540086.jpg
-                    $fileName = $uniqueName.'.'.$extension;
+                    // $uniqueName = $nom_courant;
+                    // // on ajoute $uniqueName avec $extension = 5f586bf96dcd38.73540086.jpg
+                    // $fileName = $uniqueName.'.'.$extension;
                         
-                    //transfere le fichier img ($tmpName etant le chemin ou il est sur l'ordinateur dans le fichier /upload/ et lui assigne $fileName)
-                    if ($id_categorie == 1){
+                    //transfere le fichier img ($tmpName etant le chemin ou il est sur l'ordinateur dans le fichier /upload/ et lui assigne $fileName)                    
+                    if (isset($fileName) && $id_categorie == 1){
                         move_uploaded_file($tmpName, 'public/img/Arbre/'.$fileName);
-                    } elseif ($id_categorie == 2){
+                    } elseif (isset($fileName) && $id_categorie == 2){
                         move_uploaded_file($tmpName, 'public/img/plante/'.$fileName);
-                    } elseif ($id_categorie == 3){
+                    } elseif (isset($fileName) && $id_categorie == 3){
                         move_uploaded_file($tmpName, 'public/img/Animaux/'.$fileName);
                     }
                 }
@@ -108,11 +130,14 @@ class AdminEtreVivantController {
                 
                     // envoie un message d'alerte si la premiere condition n'est pas respecté et le fichier ne sera pas transmis
                     $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers au format jpg, jpeg, gif ou png";
-            
+                    header("Location:index.php?action=viewAddEtreVivant");
+                    die;
             } elseif ($size > $tailleMax) { // sinon 
             
                     // envoie un message d'alerte si la taille du fichier dépasse la taille autorisé
                     $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers de moins de 3 méga";
+                    header("Location:index.php?action=viewAddEtreVivant");
+                    die;
             }
 
             if (isset($fileName) && $id_categorie == 1) {
@@ -165,11 +190,14 @@ class AdminEtreVivantController {
                 
                     // envoie un message d'alerte si la premiere condition n'est pas respecté et le fichier ne sera pas transmis
                     $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers au format jpg, jpeg, gif ou png";
-            
+                    header("Location:index.php?action=viewAddEtreVivant");
+                    die;
             } elseif ($size > $tailleMax) { // sinon 
             
                     // envoie un message d'alerte si la taille du fichier dépasse la taille autorisé
                     $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers de moins de 3 méga";
+                    header("Location:index.php?action=viewAddEtreVivant");
+                    die;
             }
 
             if (isset($fileName) && $id_categorie == 1) {
