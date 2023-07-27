@@ -255,6 +255,12 @@ class AdminEtreVivantController {
 
     // Affiche la page modifier ou supprimer un etre vivant
     public function viewUpdateEtreVivant() {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+            SELECT *
+            FROM etre_vivant
+        ");
+        $requete->execute();
         require "view/etre_vivant/modifierSupprimerEtreVivant.php";
     }
 }
