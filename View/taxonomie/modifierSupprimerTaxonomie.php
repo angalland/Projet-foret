@@ -105,6 +105,8 @@ ob_start();?>
             <input class="button" type="submit" name="submitUpdateCategorie" value='Modifier'>
         </div>
     </form>
+
+    <p class="alert">Attention, Vous ne pouvez pas supprimer une taxonomie qui est utilisée par un être-vivant ! Vous devez d'abord supprimer tous les être-vivants reliés à cette taxinomie. Merci de bien le prendre en compte</p>
 <div>
 
 <?php
