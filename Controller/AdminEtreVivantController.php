@@ -109,11 +109,6 @@ class AdminEtreVivantController {
                             // on ajoute $uniqueName avec $extension = 5f586bf96dcd38.73540086.jpg
                             $fileName = $uniqueName.'.'.$extension;
                         }
-                    // génere un nom unique ex: 5f586bf96dcd38.73540086
-                    // $uniqueName = uniqid('', true);
-                    // $uniqueName = $nom_courant;
-                    // // on ajoute $uniqueName avec $extension = 5f586bf96dcd38.73540086.jpg
-                    // $fileName = $uniqueName.'.'.$extension;
                         
                     //transfere le fichier img ($tmpName etant le chemin ou il est sur l'ordinateur dans le fichier /upload/ et lui assigne $fileName)                    
                     if (isset($fileName) && $id_categorie == 1){
