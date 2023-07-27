@@ -520,12 +520,19 @@ class AdminEtreVivantController {
                 $requete->bindparam("id_etre_vivant", $id_etre_vivant);
                 $requete->execute();
 
-                $_SESSION['messageSucces'] = "Votre être-vivant a bien été ajouté";
+                unlink($anciennePhoto);
+                unlink($anciennePhotoRepartition);
+
+                $_SESSION['messageSucces'] = "Votre être-vivant a bien été modifié";
+
+                header("Location:index.php?action=viewUpdateEtreVivant");
+                die;
+
             } else {
                 $_SESSION['messageAlert'][] = "Données incorrectes !";
-                require "view/etre_vivant/ajouterEtreVivant.php";
-            }
-            require "view/etre_vivant/ajouterEtreVivant.php";         
+                header("Location:index.php?action=viewUpdateEtreVivant");
+                die;
+            }        
         }
         
     }
