@@ -1,7 +1,7 @@
 <?php
 ob_start();
 foreach ($requete as $etre_vivant){?>
-    <form action="index.php?action=updateForet&id=<?=$etre_vivant['id_etre_vivant']?>" method="POST" id="formAddForet" enctype="multipart/form-data">
+    <form action="index.php?action=updateDeleteEtreVivant&id=<?=$etre_vivant['id_etre_vivant']?>" method="POST" id="formAddForet" enctype="multipart/form-data">
 
         <input type="hidden" name='anciennePhoto' value='<?=$etre_vivant['photo']?>'>
         <input type="hidden" name='anciennePhotoRepartition' value='<?=$etre_vivant['photo_repartition']?>'>
@@ -110,11 +110,11 @@ foreach ($requete as $etre_vivant){?>
         </div>
 
         <div class="addButtonForet updateEtreVivant">
-            <input class="button" type="submit" name="submitUpdateForet" value='Modifier'>
+            <input class="button" type="submit" name="submitUpdateEtreVivant" value='Modifier'>
         </div>
 
         <div class="addButtonForet updateEtreVivant">
-            <input class="button" type="submit" name="submitDeleteForet" value='Supprimer'>
+            <input class="button" type="submit" name="submitDeleteEtreVivant" value='Supprimer'>
         </div>
     </form><?php
 }

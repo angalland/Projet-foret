@@ -318,4 +318,12 @@ class AdminEtreVivantController {
             require "view/etre_vivant/modifierSupprimerEtreVivantParId.php";
         }
     }
+
+    // modifier ou supprimer un etre-vivant
+    public function updateDeleteEtreVivant($id) {
+        if (isset($_POST['submitUpdateEtreVivant'])){
+            $id_etre_vivant = intval(htmlspecialchars($id));
+            var_dump($id_etre_vivant);
+        }
+    }
 }
