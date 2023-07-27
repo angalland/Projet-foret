@@ -1,6 +1,6 @@
 <?php
 ob_start();?>
-<form id="formAddForet" class="formH3 addH3Foret" action="index.php?action=viewUpdateForetById" method="POST">
+<form id="formAddForet" class="formH3 addH3Foret" action="index.php?action=viewUpdateEtreVivantById" method="POST">
     <h3 class="formH3 addH3Foret">Choississez l'être-vivant à modifier ou Supprimer</h3>
 
     <div class="addDivForet">
@@ -17,7 +17,7 @@ ob_start();?>
     </div>
 
     <div class="addButtonForet ">
-        <input class="button updateButtonForet" type="submit" name="submitUpdateForet" value='Modifier'>
+        <input class="button updateButtonForet" type="submit" name="submitUpdateEtreVivant" value='Modifier'>
     </div>
 </form>
 <?php

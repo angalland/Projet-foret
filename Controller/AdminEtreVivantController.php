@@ -263,4 +263,9 @@ class AdminEtreVivantController {
         $requete->execute();
         require "view/etre_vivant/modifierSupprimerEtreVivant.php";
     }
+
+    // affiche le formulaire de modification d'un etre-vivant par id
+    public function viewUpdateEtreVivantById() {
+        if (isset($_POST['submitUpdateEtreVivant']))
+    }
 }
