@@ -140,7 +140,7 @@ class AdminEtreVivantController {
             } elseif (isset($fileName) && $id_categorie == 2) {
                     $photo = "public/img/plante/".$fileName;
             } elseif (isset($fileName) && $id_categorie == 3) {
-                    $photo = "public/img/Animaux".$fileName;
+                    $photo = "public/img/Animaux/".$fileName;
             }
 
             // filtre et dowload le fichier photo_repartition
@@ -415,7 +415,7 @@ class AdminEtreVivantController {
             } elseif (isset($fileName) && $id_categorie == 2) {
                     $photo = "public/img/plante/".$fileName;
             } elseif (isset($fileName) && $id_categorie == 3) {
-                    $photo = "public/img/Animaux".$fileName;
+                    $photo = "public/img/Animaux/".$fileName;
             }
 
             // filtre et dowload le fichier photo_repartition
