@@ -262,6 +262,7 @@ class AdminForetController {
 
             // filtre les données
             $id_foret = intval(htmlspecialchars($id));
+            $anciennePhoto = htmlspecialchars($_POST['anciennePhoto']);
             
             $pdo = Connect::seConnecter();
             $requete = $pdo->prepare("
@@ -270,6 +271,8 @@ class AdminForetController {
             ");
             $requete->bindparam("id_foret", $id_foret);
             $requete->execute();
+
+            unlink($anciennePhoto);
 
             $_SESSION['messageSucces'] = "Votre forêt a bien été supprimée !";
             require "view/foret/modifierForet.php";

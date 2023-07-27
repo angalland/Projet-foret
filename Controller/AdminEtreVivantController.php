@@ -537,6 +537,8 @@ class AdminEtreVivantController {
 
         if (isset($_POST['submitDeleteEtreVivant'])){
             $id_etre_vivant = intval(htmlspecialchars($id));
+            $anciennePhoto = htmlspecialchars($_POST['anciennePhoto']);
+            $anciennePhotoRepartition = htmlspecialchars($_POST['anciennePhotoRepartition']);
 
             $pdo = Connect::seConnecter();
             $requete = $pdo->prepare("
@@ -546,6 +548,9 @@ class AdminEtreVivantController {
             $requete->bindparam("id_etre_vivant", $id_etre_vivant);
             $requete->execute();
 
+            unlink($anciennePhoto);
+            unlink($anciennePhotoRepartition);
+            
             $_SESSION['messageSucces'] = "Votre être-vivant a bien été supprimée !";
             header("Location:index.php?action=viewUpdateEtreVivant");
             die;
