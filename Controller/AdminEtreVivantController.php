@@ -376,7 +376,7 @@ class AdminEtreVivantController {
                         // si il est deja utilisé renvoie une erreure
                         if ($existeNomCourant){
                             $_SESSION['messageAlert'][]= "Le nom de cette être-vivant est déjà utilisé, veuillez mettre un autre nom";
-                            header("Location:index.php?action=viewAddEtreVivant");
+                            header("Location:index.php?action=viewUpdateEtreVivant");
                             die;
                         } else {
                             // sinon on crée uniqueName
@@ -400,13 +400,13 @@ class AdminEtreVivantController {
                 
                     // envoie un message d'alerte si la premiere condition n'est pas respecté et le fichier ne sera pas transmis
                     $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers au format jpg, jpeg, gif ou png";
-                    header("Location:index.php?action=viewAddEtreVivant");
+                    header("Location:index.php?action=viewUpdateEtreVivant");
                     die;
             } elseif ($size > $tailleMax) { // sinon 
             
                     // envoie un message d'alerte si la taille du fichier dépasse la taille autorisé
                     $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers de moins de 3 méga";
-                    header("Location:index.php?action=viewAddEtreVivant");
+                    header("Location:index.php?action=viewUpdateEtreVivant");
                     die;
             }
 
@@ -460,13 +460,13 @@ class AdminEtreVivantController {
                 
                     // envoie un message d'alerte si la premiere condition n'est pas respecté et le fichier ne sera pas transmis
                     $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers au format jpg, jpeg, gif ou png";
-                    header("Location:index.php?action=viewAddEtreVivant");
+                    header("Location:index.php?action=viewUpdateEtreVivant");
                     die;
             } elseif ($size > $tailleMax) { // sinon 
             
                     // envoie un message d'alerte si la taille du fichier dépasse la taille autorisé
                     $_SESSION['messageAlert'] [] = "Le fichier n'a pas été ajouté, vous devez transmettre des fichiers de moins de 3 méga";
-                    header("Location:index.php?action=viewAddEtreVivant");
+                    header("Location:index.php?action=viewUpdateEtreVivant");
                     die;
             }
 
