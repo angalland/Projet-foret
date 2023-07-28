@@ -2,6 +2,7 @@
 ob_start();?>
 <?php
                 foreach ($requeteRandonnee as $randonnee){?>
+                <a href="index.php?action=detailRandonne&id=<?=$randonnee['id_randonnee']?>">
                     <div id="<?=$randonnee['id_randonnee']?>" style="width:400px;height:400px;margin:30px"></div>
                     <script>
                         // initialisation de la carte leaflet et du zoom
@@ -25,7 +26,8 @@ ob_start();?>
                             var latlong=event.latlng
                             alert("Longitude - Latitude : "+latlong);
                         }
-                    </script><?php
+                    </script>
+                </a><?php
                 }
 
 
