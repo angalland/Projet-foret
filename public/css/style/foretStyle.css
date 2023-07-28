@@ -92,3 +92,8 @@
     color:white;
 }
 
+.map {
+    margin: 30px;
+    width: 400px;
+    height: 400px; 
+}
