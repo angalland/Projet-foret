@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 .buttonRandonnee {
     width: 100%;
@@ -19,4 +20,13 @@
 .buttonRandonnee > a {
     color: white;
     font-size: 25px;  
+}
+.leafletRandonne > h2 {
+    color: white;
+    font-size: 2em;
+}
+
+.leafletRandonne > p {
+    color:white;
+    font-size: 25px;
 }
