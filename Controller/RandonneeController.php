@@ -11,7 +11,7 @@ class RandonneeController {
         $requeteRandonnee = $pdo->prepare("
             SELECT *
             FROM randonnee
-        ")
+        ");
         $requeteRandonnee->execute();
         require "view/randonnee/listRandonnee.php";
     }
