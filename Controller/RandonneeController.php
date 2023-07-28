@@ -15,4 +15,9 @@ class RandonneeController {
         $requeteRandonnee->execute();
         require "view/randonnee/listRandonnee.php";
     }
+
+    // affiche le detail d'une randonnee
+    public function detailRandonne($id) {
+        var_dump($id);
+    }
 }

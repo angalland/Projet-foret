@@ -173,5 +173,8 @@ if(isset($_GET['action'])){
         // controller Randonnee
         case 'listRandonnee' : $ctrlRandonnee->listRandonnee();
         break;
+
+        case 'detailRandonne' : $ctrlRandonnee->detailRandonne($id);
+        break;
     }
 }

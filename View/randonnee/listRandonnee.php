@@ -16,18 +16,18 @@ ob_start();?>
                         var marker = L.marker([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>]).addTo(map);
                         // popup sur le marker
                         marker.bindPopup("<?=$randonnee['nom_randonnee']?>").openPopup();
-                        // affiche la longitude et la latitude du point sur lequel ou on clique
                         var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
                         var osmAttrib='Map data © OpenStreetMap contributors';
                         var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
                         map.addLayer(osm);
-                        map.on('click',clicSurCarte);
-                        function clicSurCarte(event){
-                            var latlong=event.latlng
-                            alert("Longitude - Latitude : "+latlong);
-                        }
+                        // affiche la longitude et la latitude du point sur lequel ou on clique
+                        // map.on('click',clicSurCarte);
+                        // function clicSurCarte(event){
+                        //     var latlong=event.latlng
+                        //     alert("Longitude - Latitude : "+latlong);
+                        // }
                     </script>
-                </a><?php
+                <button><a href="index.php?action=detailRandonne&id=<?=$randonnee['id_randonnee']?>">Détail de la <?=$randonnee['nom_randonnee']?></a></button><?php
                 }
 
 
