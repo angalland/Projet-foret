@@ -1,0 +1,22 @@
+/* listRandonne */
+.leafletRandonne {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.buttonRandonnee {
+    width: 100%;
+    background-color: #1170C7;
+    color: white;
+    font-size: 1em;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buttonRandonnee > a {
+    color: white;
+    font-size: 25px;  
+}
