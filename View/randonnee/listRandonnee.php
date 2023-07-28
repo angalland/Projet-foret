@@ -36,10 +36,10 @@ ob_start();?>
                     }
                 </script>
 
-            <div id="map"></div>
+            <div id="map1"></div>
                 <script>
                     // initialisation de la carte leaflet et du zoom
-                    var map1 = L.map('map').setView([<?=$longitude2?>, <?=$lattitude2?>], 14);
+                    var map1 = L.map('map1').setView([<?=$longitude2?>, <?=$lattitude2?>], 14);
                     // gestion des tuiles
                     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     maxZoom: 19,
