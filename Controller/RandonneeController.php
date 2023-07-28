@@ -18,6 +18,16 @@ class RandonneeController {
 
     // affiche le detail d'une randonnee
     public function detailRandonne($id) {
-        var_dump($id);
+        $id_randonnee = intval(htmlspecialchars($id));
+        $pdo = Connect::seConnecter();
+        $requeteRandonnee = $pdo->prepare("
+            SELECT *
+            FROM randonnee
+            WHERE id_randonnee = :id_randonnee
+        ");
+        $requeteRandonnee->bindparam("id_randonnee", $id_randonnee);
+        $requeteRandonnee->execute();
+
+        require "view/randonnee/detailRandonnee.php";
     }
 }
