@@ -26,15 +26,7 @@ ob_start();?>
             }).addTo(map);
             // marker sur la carte
             var marker1 = L.marker([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>]).addTo(map);
-            // var marker2 = L.marker([48.722538, 7.336367]).addTo(map);
-
-            // ligne entre 2 point test 1
-            // var latlngs = Array();
-            // latlngs.push(marker1.getLatLng());
-            // latlngs.push(marker2.getLatLng());
-            // var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
-            // map.fitBounds(polyline.getBounds());
-
+            
             // ligne entre plusieurs point test 1
             var marker2 = [<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>];
             var latlngs2 = [
