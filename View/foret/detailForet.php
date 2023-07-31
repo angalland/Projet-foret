@@ -26,14 +26,18 @@ ob_start();?>
             }).addTo(map);
             // marker sur la carte
             var marker1 = L.marker([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>]).addTo(map);
-            var marker2 = L.marker([48.722538, 48.722538]).addTo(map);
+            var marker2 = L.marker([48.722538, 7.336367]).addTo(map);
 
-            // ligne entre 2 point
+            // ligne entre 2 point test 1
             var latlngs = Array();
             latlngs.push(marker1.getLatLng());
             latlngs.push(marker2.getLatLng());
             var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
             map.fitBounds(polyline.getBounds());
+
+            // ligne entre plusieurs point test 1
+
+
             // popup sur le marker
             marker1.bindPopup("<?=$randonnee['nom_randonnee']?>").openPopup();
             // affiche la longitude et la latitude du point sur lequel ou on clique
