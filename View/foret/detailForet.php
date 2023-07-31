@@ -21,42 +21,44 @@ ob_start();?>
         // boucle pour lire la table randonnee
         foreach ($requeteRandonnee as $randonnee){?>
             <div id="<?=$randonnee['nom_randonnee']?>" style="width:400px;height:400px;margin:30px"></div>
-            <?php
+        <?php
         }?>
             <script>
+
                 // initialisation de la carte leaflet et du zoom
                 var map = L.map('<?=$randonnee['nom_randonnee']?>').setView([
-                    <?php foreach ($requetePoint as $point){?>
-                        <?=$point['longitude']?>, <?=$point['lattitude']?>], 14);
-                    
-
+                    <?php
+                    foreach ($requetePoint as $point){?>
+                        <?=$point['longitude']?>, <?=$point['lattitude']?>
+                    <?php 
+                    }?>
+                ], 14);
 
             // gestion des tuiles
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
-            // marker sur la carte
-            var marker1 = L.marker([<?=$point['longitude']?>, <?=$point['lattitude']?>]).addTo(map);
-                        <?php
-                        }?>
             
             // trace le chemin sur la carte
             var latlngs = [
-            <?php 
+                <?php 
             foreach ($requetePointRandonnee as $pointRandonnee){?>
                 [<?=$pointRandonnee['longitude']?>, <?=$pointRandonnee['lattitude']?>],
-            <?php
-            }?>]
-
+                <?php
+            }?>
+            ]
+            
             var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
-
+            
             map.fitBounds(polyline.getBounds());
-
+            
+            // marker sur la carte
+            // var marker1 = L.marker([marker0]).addTo(map);
             // popup sur le marker
-            // marker1.bindPopup("<?=$randonnee['nom_randonnee']?>").openPopup();
-            // var marker3 = L.marker([48.741805, 7.361058]).addTo(map);
-            // marker3.bindPopup("Départ de la randonnée").openPopup();
+            // marker1.bindPopup("nom de la popup").openPopup();
+            // // var marker2 = L.marker([longitude, lattitude]);
+
 
             // affiche la longitude et la latitude du point sur lequel ou on clique
             var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -68,11 +70,7 @@ ob_start();?>
                 var latlong=event.latlng
                 alert("Longitude - Latitude : "+latlong);
             }
-           
-            <?php
-        ?>
-    </script><?php
-    }?>
+            </script>
 
     <article  class="commentaire">
         <h2>Commentaire :</h2>
