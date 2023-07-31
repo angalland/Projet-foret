@@ -47,6 +47,13 @@ class ForetController {
         ");
         $requetePoint->execute();
 
+        $requetePointRandonnee = $pdo->prepare("
+            SELECT *
+            FROM point
+            WHERE id_randonnee = 1
+        ");
+        $requetePointRandonnee->execute();
+
         $requeteCommentaire = $pdo->prepare("
             SELECT *
             FROM commentaire_foret
