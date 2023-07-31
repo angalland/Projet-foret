@@ -30,8 +30,6 @@ ob_start();?>
                     <?php
                     foreach ($requetePoint as $point){?>
                         <?=$point['longitude']?>, <?=$point['lattitude']?>
-                    <?php 
-                    }?>
                 ], 14);
 
             // gestion des tuiles
@@ -54,11 +52,15 @@ ob_start();?>
             map.fitBounds(polyline.getBounds());
             
             // marker sur la carte
-            // var marker1 = L.marker([marker0]).addTo(map);
+            // marker du départ
+            var marker1 = L.marker([<?=$point['longitude']?>, <?=$point['lattitude']?>]).addTo(map);
+            // marker de l'arrivée
+            var marker2 = L.marker([<?=$pointRandonnee['longitude']?>, <?=$pointRandonnee['lattitude']?>]).addTo(map);
             // popup sur le marker
-            // marker1.bindPopup("nom de la popup").openPopup();
-            // // var marker2 = L.marker([longitude, lattitude]);
-
+            marker2.bindPopup("Arrivée").openPopup();
+            marker1.bindPopup("Départ de la randonnée").openPopup();
+            <?php
+            }?>
 
             // affiche la longitude et la latitude du point sur lequel ou on clique
             var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
