@@ -7,6 +7,7 @@ ob_start();?>
             <h1><?=$foret['nom_foret']?></h1>
             <p><?=$foret['descriptif']?></p>
             <img class="imgDetailForet" src="<?=$foret['photo']?>"/><?php
+        }
         ?>
     </article>
 
@@ -17,12 +18,11 @@ ob_start();?>
         <?php
         // boucle pour lire la table randonnee
         foreach ($requeteRandonnee as $randonnee){?>
+
         // point foret
         var foret1 = [48.724406, 7.338116];
         var foret2 = [48.249455, 7.344366];
 
-        var depart = [<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>];
-        console.log(depart);
             // initialisation de la carte leaflet et du zoom
             var map = L.map('map').setView([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>], 14);
             // gestion des tuiles
@@ -130,7 +130,7 @@ ob_start();?>
             }
            
             <?php
-        }?>
+        ?>
     </script><?php
     }?>
 
