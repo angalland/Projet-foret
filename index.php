@@ -10,6 +10,7 @@ use Controller\AdminForetController;
 use Controller\AdminTaxonomieController;
 use Controller\AdminEtreVivantController;
 use Controller\RandonneeController;
+use Controller\AdminRandonneeController;
 
 session_start();
 
@@ -27,6 +28,7 @@ $ctrlAdminforet = new AdminForetController();
 $ctrlAdminTaxonomie = new AdminTaxonomieController();
 $ctrlAdminEtreVivant = new AdminEtreVivantController();
 $ctrlRandonnee = new RandonneeController();
+$ctrlAdminRandonnee = new AdminRandonneeController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 $id_foret = (isset($_GET["id_foret"])) ? $_GET["id_foret"] : null;
@@ -175,6 +177,10 @@ if(isset($_GET['action'])){
         break;
 
         case 'detailRandonne' : $ctrlRandonnee->detailRandonne($id);
+        break;
+
+        // admin controller randonnee
+        case 'viewAddRandonnee' : $ctrlAdminRandonnee->viewAddRandonnee();
         break;
     }
 }

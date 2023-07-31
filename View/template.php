@@ -61,6 +61,8 @@
                                             <div class="ligne"></div>
                                             <li><a href="index.php?action=viewTaxonomie">Ajouter une taxonomie</a></li>
                                             <li><a href="index.php?action=viewUpdateTaxonomie">Modifier/Supprimer une taxonomie</a></li>
+                                            <div class="ligne"></div>
+                                            <li><a href="index.php?action=viewAddRandonnee">Ajouter une randonnée</a></li>
                                         </ul>
                                     </li>
                                 <?php
