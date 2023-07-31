@@ -42,16 +42,18 @@ class ForetController {
         $requetePoint = $pdo->prepare("
             SELECT *
             FROM point
-            WHERE id_randonnee = 1
+            WHERE id_randonnee = :id
             LIMIT 1
         ");
+        $requetePoint->bindparam("id", $id_foret);
         $requetePoint->execute();
 
         $requetePointRandonnee = $pdo->prepare("
             SELECT *
             FROM point
-            WHERE id_randonnee = 1
+            WHERE id_randonnee = :id
         ");
+        $requetePointRandonnee->bindparam("id", $id_foret);
         $requetePointRandonnee->execute();
 
         $requeteCommentaire = $pdo->prepare("
