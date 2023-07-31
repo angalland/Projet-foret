@@ -112,8 +112,12 @@ ob_start();?>
             var polyline = L.polyline(latlngs2, {color: 'red'}).addTo(map);
 
             map.fitBounds(polyline.getBounds());
+
             // popup sur le marker
             marker1.bindPopup("<?=$randonnee['nom_randonnee']?>").openPopup();
+            var marker3 = L.marker([48.741805, 7.361058]).addTo(map);
+            marker3.bindPopup("Départ de la randonnée").openPopup();
+
             // affiche la longitude et la latitude du point sur lequel ou on clique
             var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
             var osmAttrib='Map data © OpenStreetMap contributors';
