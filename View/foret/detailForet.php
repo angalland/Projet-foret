@@ -26,18 +26,63 @@ ob_start();?>
             }).addTo(map);
             // marker sur la carte
             var marker1 = L.marker([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>]).addTo(map);
-            var marker2 = L.marker([48.722538, 7.336367]).addTo(map);
+            // var marker2 = L.marker([48.722538, 7.336367]).addTo(map);
 
             // ligne entre 2 point test 1
-            var latlngs = Array();
-            latlngs.push(marker1.getLatLng());
-            latlngs.push(marker2.getLatLng());
-            var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
-            map.fitBounds(polyline.getBounds());
+            // var latlngs = Array();
+            // latlngs.push(marker1.getLatLng());
+            // latlngs.push(marker2.getLatLng());
+            // var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+            // map.fitBounds(polyline.getBounds());
 
             // ligne entre plusieurs point test 1
+            var latlngs2 = [
+                [48.741805, 7.361058],
+                [48.741027, 7.359784],
+                [48.740931, 7.359715],
+                [48.740714, 7.35935],
+                [48.739826, 7.358927],
+                [48.739691, 7.35888],
+                [48.739311, 7.358958],
+                [48.739193, 7.358953],
+                [48.738752, 7.358851],
+                [48.738306, 7.358781],
+                [48.737921, 7.358725],
+                [48.737859, 7.358768],
+                [48.73782, 7.358653],
+                [48.737785, 7.3581],
+                [48.737739, 7.357939],
+                [48.737585, 7.357711],
+                [48.737441, 7.357649],
+                [48.737323, 7.357671],
+                [48.736801, 7.358229],
+                [48.736426, 7.35853],
+                [48.736099, 7.358599],
+                [48.735913, 7.358537],
+                [48.735722, 7.358371],
+                [48.735379, 7.357907],
+                [48.735025, 7.357188],
+                [48.734002, 7.354204],
+                [48.733638, 7.352565],
+                [48.733613, 7.350084],
+                [48.733748, 7.34929],
+                [48.73388, 7.348921],
+                [48.733925, 7.348653],
+                [48.733893, 7.348406],
+                [48.733815, 7.348157],
+                [48.73358, 7.347849],
+                [48.733466, 7.348039],
+                [48.732966, 7.347271],
+                [48.73266, 7.346829],
+                [48.73194, 7.34623],
+                [48.731807, 7.346105],
+                [48.731315, 7.345373],
+                [48.73119, 7.34514]
+            ];
 
+            var polyline = L.polyline(latlngs2, {color: 'red'}).addTo(map);
 
+            map.fitBounds(polyline.getBounds());
             // popup sur le marker
             marker1.bindPopup("<?=$randonnee['nom_randonnee']?>").openPopup();
             // affiche la longitude et la latitude du point sur lequel ou on clique
