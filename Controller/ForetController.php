@@ -34,6 +34,8 @@ class ForetController {
         $requeteRandonnee = $pdo->prepare("
             SELECT *
             FROM randonnee
+            INNER JOIN point
+                ON randonnee.id_randonnee = point.id_randonnee
             WHERE id_foret = :id
         ");
         $requeteRandonnee->bindparam("id", $id_foret);
