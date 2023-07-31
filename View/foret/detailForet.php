@@ -10,32 +10,35 @@ ob_start();?>
         }
         ?>
     </article>
-
+    <?php
+    // // point foret
+    // var foret1 = [48.724406, 7.338116];
+    // var foret2 = [48.249455, 7.344366];
+    ?>
     <!-- carte randonnee -->
     <h2 id="h2detailForet">La randonnée incontournable</h2>
-    <div id="map"></div>
-    <script>
         <?php
         // boucle pour lire la table randonnee
         foreach ($requeteRandonnee as $randonnee){?>
+            <div id="<?=$randonnee['nom_randonnee']?>"></div>
+            <script>
+                // initialisation de la carte leaflet et du zoom
+                var map = L.map('<?=$randonnee['nom_randonnee']?>').setView([
+                    <?php foreach ($requetePoint as $point){?>
+                        <?=$point['longitude']?>, <?=$point['lattitude']?>], 14);
+                    <?php
+                    }?>
 
-        // point foret
-        var foret1 = [48.724406, 7.338116];
-        var foret2 = [48.249455, 7.344366];
 
-            // initialisation de la carte leaflet et du zoom
-            var map = L.map('map').setView([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>], 14);
             // gestion des tuiles
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
             // marker sur la carte
-            var marker1 = L.marker([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>]).addTo(map);
+            // var marker1 = L.marker([longitude, lattitude]).addTo(map);
             
-            // ligne entre plusieurs point test 1
-            var marker2 = [<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>];
-            var latlngs2 = [<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>];
+
             // var latlngs2 = [
             //     [48.741805, 7.361058],
             //     [48.741027, 7.359784],
@@ -109,14 +112,14 @@ ob_start();?>
             // ];
 
 
-            var polyline = L.polyline(latlngs2, {color: 'red'}).addTo(map);
+            // var polyline = L.polyline(latlngs2, {color: 'red'}).addTo(map);
 
-            map.fitBounds(polyline.getBounds());
+            // map.fitBounds(polyline.getBounds());
 
             // popup sur le marker
-            marker1.bindPopup("<?=$randonnee['nom_randonnee']?>").openPopup();
-            var marker3 = L.marker([48.741805, 7.361058]).addTo(map);
-            marker3.bindPopup("Départ de la randonnée").openPopup();
+            // marker1.bindPopup("<?=$randonnee['nom_randonnee']?>").openPopup();
+            // var marker3 = L.marker([48.741805, 7.361058]).addTo(map);
+            // marker3.bindPopup("Départ de la randonnée").openPopup();
 
             // affiche la longitude et la latitude du point sur lequel ou on clique
             var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
