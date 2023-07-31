@@ -101,6 +101,7 @@ ob_start();?>
                 marker2
             ];
 
+            
             var polyline = L.polyline(latlngs2, {color: 'red'}).addTo(map);
 
             map.fitBounds(polyline.getBounds());
