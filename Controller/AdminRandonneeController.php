@@ -17,8 +17,8 @@ class AdminRandonneeController {
     }
 
     // page pour ajouter une randonée apres avoir choisit la foret
-    public function viewUpdateRandonneeById() {
-        if (isset($_POST['submitUpdateForet'])){
+    public function viewAddRandonneeByForet() {
+        if (isset($_POST['submitAddRandonnee'])){
     
             $id_foret = intval(htmlspecialchars($_POST['foret']));
     

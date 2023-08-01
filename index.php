@@ -183,7 +183,7 @@ if(isset($_GET['action'])){
         case 'viewAddRandonnee' : $ctrlAdminRandonnee->viewAddRandonnee();
         break;
 
-        case 'viewUpdateRandonneeById' : $ctrlAdminRandonnee->viewUpdateRandonneeById();
+        case 'viewAddRandonneeByForet' : $ctrlAdminRandonnee->viewAddRandonneeByForet();
         break;
     }
 }
