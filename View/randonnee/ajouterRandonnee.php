@@ -12,12 +12,12 @@ ob_start();?>
 
     <div class="addDiv">
         <label for="duree" class="addLabel">Durée en Min : </label>
-        <input type="number" name="duree" id="duree" class="inputConnexion">
+        <input type="number" name="duree" id="duree" class="inputConnexion" min="0">
     </div>
 
     <div class="addDiv">
         <label for="difficulte" class="addLabel">Difficulte : </label>
-        <input type="number" name="difficulte" id="difficulte" class="inputConnexion">
+        <input type="number" name="difficulte" id="difficulte" class="inputConnexion" min="0">
     </div>
 
     <div class="addDivForetRandonnee">
