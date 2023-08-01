@@ -82,7 +82,25 @@ class AdminRandonneeController {
         if (isset($_POST['submitAddParcours'])){
             $id_randonnee = intval(htmlspecialchars($_POST['randonnee']));
             $_SESSION['id_randonnee'] = $id_randonnee;
+
             require "view/randonnee/ajouterParcoursParRandonnee.php";
+        }
+    }
+
+    // ajouter des points
+    public function addParcours(){
+        if (isset($_POST['submitAddParcoursPointDepart'])){
+            $id_randonnee = intval(htmlspecialchars($_SESSION['id_randonnee']));
+            unset($_SESSION['id_randonnee']);
+            $point = htmlspecialchars($_POST['point_depart']);
+            $points = explode(",", $point);
+            $longitude = intval($points[0], $base = 20,20);
+            $lattitude = intval($points[1], $base = 20,20);
+            var_dump($id_randonnee);
+            var_dump($point);
+            var_dump($points);
+            var_dump($longitude);
+            var_dump($lattitude);
         }
     }
 }
