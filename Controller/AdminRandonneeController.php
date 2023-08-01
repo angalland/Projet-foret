@@ -19,7 +19,14 @@ class AdminRandonneeController {
     // ajoute une randonnée
     public function addRandonneeByForet(){
         if (isset($_POST['submitAddRandonneeByForet'])){
-            var_dump($_POST);
+            $nom_randonnee = htmlspecialchars($_POST['nom_randonnee']);
+            $duree = intval(filter_var($_POST['duree'], FILTER_SANITIZE_NUMBER_INT));
+            $difficulte = intval(filter_var($_POST['difficulte'], FILTER_SANITIZE_NUMBER_INT));
+            $id_foret = intval(htmlspecialchars($_POST['foret']));
+            var_dump($nom_randonnee);
+            var_dump($duree);
+            var_dump($difficulte);
+            var_dump($id_foret);
         }
     }
 
