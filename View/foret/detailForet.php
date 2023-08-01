@@ -10,11 +10,7 @@ ob_start();?>
         }
         ?>
     </article>
-    <?php
-    // // point foret
-    // var foret1 = [48.724406, 7.338116];
-    // var foret2 = [48.249455, 7.344366];
-    ?>
+
     <!-- carte randonnee -->
     <h2 id="h2detailForet">La randonnée incontournable</h2>
         <?php

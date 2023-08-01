@@ -84,6 +84,32 @@ class AdminRandonneeController {
             $id_randonnee = intval(htmlspecialchars($_POST['randonnee']));
             $_SESSION['id_randonnee'] = $id_randonnee;
 
+            $pdo = Connect::seConnecter();
+            $requeteRandonnee = $pdo->prepare("
+                SELECT *
+                FROM randonnee
+                WHERE id_foret = :id
+            ");
+            $requeteRandonnee->bindparam("id", $id_foret);
+            $requeteRandonnee->execute();
+
+            $requetePoint = $pdo->prepare("
+                SELECT *
+                FROM point
+                WHERE id_randonnee = :id
+                LIMIT 1
+            ");
+            $requetePoint->bindparam("id", $id_randonnee);
+            $requetePoint->execute();
+
+            $requetePointRandonnee = $pdo->prepare("
+                SELECT *
+                FROM point
+                WHERE id_randonnee = :id
+            ");
+            $requetePointRandonnee->bindparam("id", $id_randonnee);
+            $requetePointRandonnee->execute();            
+
             require "view/randonnee/ajouterParcoursParRandonnee.php";
         }
     }

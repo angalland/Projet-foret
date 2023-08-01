@@ -16,6 +16,27 @@ ob_start();?>
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
+            // trace le chemin sur la carte
+            var latlngs = [
+                <?php 
+            foreach ($requetePointRandonnee as $pointRandonnee){?>
+                [<?=$pointRandonnee['longitude']?>, <?=$pointRandonnee['lattitude']?>],
+                <?php
+            }?>
+            ]
+            
+            var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+            
+            map.fitBounds(polyline.getBounds());
+            
+            // marker sur la carte
+            // marker du départ
+            <?php
+            foreach ($requetePoint as $point){?>
+            var marker1 = L.marker([<?=$point['longitude']?>, <?=$point['lattitude']?>]).addTo(map);
+            <?php
+            }?>
+
             // affiche la longitude et la latitude du point sur lequel ou on clique
             var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
             var osmAttrib='Map data © OpenStreetMap contributors';
