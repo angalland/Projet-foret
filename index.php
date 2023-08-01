@@ -33,6 +33,7 @@ $ctrlAdminRandonnee = new AdminRandonneeController();
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 $id_foret = (isset($_GET["id_foret"])) ? $_GET["id_foret"] : null;
 $id_etre_vivant = (isset($_GET["id_etre_vivant"])) ? $_GET["id_etre_vivant"] : null;
+$id_randonnee = (isset($_GET['id_randonnee'])) ? $_GET['id_randonnee'] : null;
 
 if(isset($_GET['action'])){
     switch ($_GET['action']) {
@@ -45,7 +46,7 @@ if(isset($_GET['action'])){
         case 'listForet' : $ctrlForet->listForet();
         break;
 
-        case 'detailForet' : $ctrlForet->detailForet($id);
+        case 'detailForet' : $ctrlForet->detailForet($id, $id_randonnee);
         break;
 
         case 'posterCommentaire' : $ctrlForet->posterCommentaire($id, $id_foret);

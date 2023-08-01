@@ -11,6 +11,8 @@ class ForetController {
         $requete = $pdo->prepare("
             SELECT *
             FROM foret
+            INNER JOIN randonnee
+                ON foret.id_foret = randonnee.id_foret
         ");
         $requete->execute();
         
@@ -18,9 +20,10 @@ class ForetController {
     }
 
     // affiche detail foret 
-    public function detailForet($id) {
+    public function detailForet($id, $id_randonnee) {
 
         $id_foret = filter_var($id);
+        $id_randonnee = filter_var($id_randonnee);
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
@@ -45,7 +48,7 @@ class ForetController {
             WHERE id_randonnee = :id
             LIMIT 1
         ");
-        $requetePoint->bindparam("id", $id_foret);
+        $requetePoint->bindparam("id", $id_randonnee);
         $requetePoint->execute();
 
         $requetePointRandonnee = $pdo->prepare("
@@ -53,7 +56,7 @@ class ForetController {
             FROM point
             WHERE id_randonnee = :id
         ");
-        $requetePointRandonnee->bindparam("id", $id_foret);
+        $requetePointRandonnee->bindparam("id", $id_randonnee);
         $requetePointRandonnee->execute();
 
         $requeteCommentaire = $pdo->prepare("
