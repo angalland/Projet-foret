@@ -1,20 +1,25 @@
 <?php
 ob_start();?>
-<form action="" method="POST">
+<form action="" method="POST" class="formAddRandonnee">
 
-    <h3>Ajouter une randonnée</h3>
+    <h3 class="formH3 addH3Foret">Ajouter une randonnée</h3>
 
-    <label for="nom_randonnee">Nom de la randonnee : </label>
-    <input type="text" name="nom_randonnee" id="nom_randonnee">
+    <div class="addDiv">
+    <label for="nom_randonnee" class="addLabel">Nom de la randonnee : </label>
+    <input type="text" name="nom_randonnee" id="nom_randonnee" class="inputConnexion">
+    </div>
 
-    <label for="duree">Durée en Min : </label>
-    <input type="number" name="duree" id="duree">
+    <div class="addDiv">
+    <label for="duree" class="addLabel">Durée en Min : </label>
+    <input type="number" name="duree" id="duree" class="inputConnexion">
+    </div>
 
-    <label for="difficulte">Difficulte : </label>
-    <input type="number" name="difficulte" id="difficulte">
+    <div class="addDiv">
+    <label for="difficulte" class="addLabel">Difficulte : </label>
+    <input type="number" name="difficulte" id="difficulte" class="inputConnexion">
+    </div>
 
-
-    <div id="map" style="width:400px;height:400px;margin:30px"></div>
+    <div id="map" style="width:50%;height:400px;"></div>
         <script>
             // initialisation de la carte leaflet et du zoom
             var map = L.map('map').setView([48.581647, 7.750522], 7);
@@ -36,6 +41,11 @@ ob_start();?>
                 alert("Longitude - Latitude : "+latlong);
             }
             </script>
+
+    <div class="addButtonForet ">
+        <input class="button" type="submit" name="submitAddForet" value='Ajouter'>
+    </div>
+
 </form>
 <?php
 $titre = 'ajouter une randonnée';

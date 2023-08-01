@@ -175,3 +175,13 @@
 .updateEtreVivant {
     margin-top: 10px;
 }
+
+/* formulaire d'ajout d'une randonnée */
+.formAddRandonnee {
+    margin : 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
