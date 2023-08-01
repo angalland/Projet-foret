@@ -61,9 +61,11 @@ ob_start();?>
         
         <div class="addPointRandonnee">
             <h4 class="formH3 addH3Foret">Ajouter un point</h4>
-            <label for="point" class="addLabel">Longitude, Lattitude : </label>
-            <input type="text" name="point" id="point" class="inputPointRandonnee" placeholder="Exemple : 48.789855, 7.568951">
-            <input class="buttonPointRandonnee" type="submit" name="submitAddForet" value='Ajouter un point'>
+            <label for="point" class="addLabel">Longitude : </label>
+            <input type="number" name="point_longitude" id="point" class="inputPointRandonnee" placeholder="Exemple : 48.789855" step="0.000001">
+            <label for="point" class="addLabel">Lattitude : </label>
+            <input type="number" name="point_lattitude" id="point" class="inputPointRandonnee" placeholder="Exemple : 7.568952" step="0.000001">
+            <input class="buttonPointRandonnee" type="submit" name="submitAddParcoursPoint" value='Ajouter un point'>
         </div>
 
         <div class="addPointRandonnee">

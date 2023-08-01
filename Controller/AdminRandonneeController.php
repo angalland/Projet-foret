@@ -147,7 +147,37 @@ class AdminRandonneeController {
                 header("Location:index.php?action=viewAddParcoursByRandonnee");
 
             }
+        }
 
+        if (isset($_POST['submitAddParcoursPoint'])){
+
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            // filtrage des donnée
+            $id_randonnee = intval(htmlspecialchars($_SESSION['id_randonnee']));
+            // unset($_SESSION['id_randonnee']);
+            $longitude = (float)(htmlspecialchars($_POST['point_longitude']));
+            $lattitude = (float)(htmlspecialchars($_POST['point_lattitude']));
+
+            if (isset($id_randonnee) && !empty($id_randonnee) && isset($longitude) && !empty($longitude) && isset($lattitude) && !empty($lattitude)){
+
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    INSERT INTO point
+                    (longitude, lattitude, id_randonnee)
+                    VALUES (:longitude,
+                            :lattitude,
+                            :id_randonnee)
+                ");
+                $requete->bindparam("longitude", $longitude);
+                $requete->bindparam("lattitude", $lattitude);
+                $requete->bindparam("id_randonnee", $id_randonnee);
+                $requete->execute();
+
+                $_SESSION['messageSucces'] = "Votre point a bien été ajouté !";
+                header("Location:index.php?action=viewAddParcoursByRandonnee");
+            }
         }
     }
 }
