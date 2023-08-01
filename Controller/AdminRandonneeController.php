@@ -25,4 +25,15 @@ class AdminRandonneeController {
             require "view/randonnee/ajouterRandonneeParIdForet.php";
         }
     }
+
+    // affiche la page pour choisir la randonnée dont on veut rajouter un parcours
+    public function viewAddParcours(){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+            SELECT *
+            FROM randonnee
+        ");
+        $requete->execute();
+        require "view/randonnee/ajouterParcours.php";
+    }
 }
