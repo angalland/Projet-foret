@@ -144,7 +144,7 @@ class AdminRandonneeController {
                 $requete->execute();
 
                 $_SESSION['messageSucces'] = "Votre point de départ a bien été ajouté !";
-                header("Location:index.php?action=viewAddParcoursByRandonnee");
+                header("Location:index.php?action=viewAddParcours");
 
             }
         }
@@ -176,7 +176,7 @@ class AdminRandonneeController {
                 $requete->execute();
 
                 $_SESSION['messageSucces'] = "Votre point a bien été ajouté !";
-                header("Location:index.php?action=viewAddParcoursByRandonnee");
+                header("Location:index.php?action=viewAddParcours");
             }
         }
 
