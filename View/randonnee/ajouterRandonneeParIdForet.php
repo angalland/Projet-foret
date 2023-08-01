@@ -42,15 +42,31 @@ ob_start();?>
             }
             </script>
 
-    <div class="addPointRandonnee">
-        <h4 class="formH3 addH3Foret">Ajouter un point de départ</h4>
-        <label for="point_depart" class="addLabel">Longitude, Lattitude : </label>
-        <input type="text" name="point_depart" id="point_depart" class="inputPointRandonnee" placeholder="Exemple : 48.789855, 7.568951">
-        <input class="buttonPointRandonnee" type="submit" name="submitAddForet" value='Ajouter le point de départ'>
+    <div class="divAddRandonnee">
+        <div class="addPointRandonnee">
+            <h4 class="formH3 addH3Foret">Ajouter un point de départ</h4>
+            <label for="point_depart" class="addLabel">Longitude, Lattitude : </label>
+            <input type="text" name="point_depart" id="point_depart" class="inputPointRandonnee" placeholder="Exemple : 48.789855, 7.568951">
+            <input class="buttonPointRandonnee" type="submit" name="submitAddForet" value='Ajouter le point de départ'>
+        </div>
+        
+        <div class="addPointRandonnee">
+            <h4 class="formH3 addH3Foret">Ajouter un point</h4>
+            <label for="point" class="addLabel">Longitude, Lattitude : </label>
+            <input type="text" name="point" id="point" class="inputPointRandonnee" placeholder="Exemple : 48.789855, 7.568951">
+            <input class="buttonPointRandonnee" type="submit" name="submitAddForet" value='Ajouter un point'>
+        </div>
+
+        <div class="addPointRandonnee">
+            <h4 class="formH3 addH3Foret">Ajouter un point d'arrivée</h4>
+            <label for="point_arrivee" class="addLabel">Longitude, Lattitude : </label>
+            <input type="text" name="point_arrivee" id="point_arrivee" class="inputPointRandonnee" placeholder="Exemple : 48.789855, 7.568951">
+            <input class="buttonPointRandonnee" type="submit" name="submitAddForet" value='Ajouter un point'>
+        </div>
     </div>
 
     <div class="addButtonForet ">
-        <input class="button" type="submit" name="submitAddForet" value='Ajouter'>
+        <input class="buttonPointRandonneeAdd" type="submit" name="submitAddForet" value='Ajouter une randonnée'>
     </div>
 
 </form>
