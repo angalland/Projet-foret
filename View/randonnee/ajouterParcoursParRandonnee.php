@@ -34,6 +34,8 @@ ob_start();?>
             <?php
             foreach ($requetePoint as $point){?>
             var marker1 = L.marker([<?=$point['longitude']?>, <?=$point['lattitude']?>]).addTo(map);
+            // popup sur le marker
+            marker1.bindPopup("Départ de la randonnée").openPopup();
             <?php
             }?>
 
@@ -70,9 +72,11 @@ ob_start();?>
 
         <div class="addPointRandonnee">
             <h4 class="formH3 addH3Foret">Ajouter un point d'arrivée</h4>
-            <label for="point_arrivee" class="addLabel">Longitude, Lattitude : </label>
-            <input type="text" name="point_arrivee" id="point_arrivee" class="inputPointRandonnee" placeholder="Exemple : 48.789855, 7.568951">
-            <input class="buttonPointRandonnee" type="submit" name="submitAddForet" value="Ajouter un point d'arrivée">
+            <label for="point_arrivee" class="addLabel">Longitude : </label>
+            <input type="text" name="point_arrivee_longitude" id="point_arrivee" class="inputPointRandonnee" placeholder="Exemple : 48.789855" step="0.000001">
+            <label for="point_arrivee" class="addLabel">Lattitude : </label>
+            <input type="text" name="point_arrivee_lattitude" id="point_arrivee" class="inputPointRandonnee" placeholder="Exemple : 7.365241" step="0.000001">
+            <input class="buttonPointRandonnee" type="submit" name="submitAddParcoursPointArrivee" value="Ajouter un point d'arrivée">
         </div>
     </div>
 </form>
