@@ -191,5 +191,8 @@ if(isset($_GET['action'])){
 
         case 'viewAddParcoursByRandonnee' : $ctrlAdminRandonnee->viewAddParcoursByRandonnee();
         break;
+
+        case 'addRandonneeByid_foret' : $ctrlAdminRandonnee->addRandonneeByid_foret($id);
+        break;
     }
 }

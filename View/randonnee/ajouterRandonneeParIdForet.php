@@ -1,6 +1,6 @@
 <?php
 ob_start();?>
-<form action="" method="POST" class="formAddRandonnee">
+<form action="index.php?action=addRandonneeByid_foret&id=<?=$_SESSION['id_foret']?>" method="POST" class="formAddRandonnee">
 
     <h3 class="formH3 addH3Foret">Ajouter une randonnée</h3>
 
@@ -20,7 +20,7 @@ ob_start();?>
     </div>
 
     <div class="addButtonForet ">
-        <input class="buttonPointRandonneeAdd" type="submit" name="submitAddForet" value='Ajouter une randonnée'>
+        <input class="buttonPointRandonneeAdd" type="submit" name="submitAddRandonneeById" value='Ajouter une randonnée'>
     </div>
 
 </form>

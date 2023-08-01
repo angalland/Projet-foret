@@ -37,6 +37,13 @@ class AdminRandonneeController {
         require "view/randonnee/ajouterParcours.php";
     }
 
+    // ajoute une randonnée
+    public function addRandonneeByid_foret($id){
+        if (isset($_POST['submitAddRandonneeById'])){
+            var_dump($id);
+        }
+    }
+
     // affiche la page ajouter un parcours
     public function viewAddParcoursByRandonnee(){
         if (isset($_POST['submitAddParcours'])){
