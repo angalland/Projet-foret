@@ -21,17 +21,8 @@ class AdminRandonneeController {
         if (isset($_POST['submitAddRandonnee'])){
     
             $id_foret = intval(htmlspecialchars($_POST['foret']));
-    
-            $pdo = Connect::seConnecter();
-            $requete = $pdo->prepare("
-                SELECT *
-                FROM foret 
-                WHERE id_foret = :id_foret       
-            ");
-            $requete->bindparam("id_foret", $id_foret);
-            $requete->execute();
-    
-            require "view/foret/modifierForetParId.php";
+            $_SESSION['id_foret'] = $id_foret;
+            require "view/randonnee/ajouterRandonneeParIdForet.php";
         }
     }
 }

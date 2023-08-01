@@ -17,7 +17,7 @@ ob_start();?>
     </div>
 
     <div class="addButtonForet ">
-        <input class="button updateButtonForet" type="submit" name="submitAddRandonnee" value='Modifier'>
+        <input class="button updateButtonForet" type="submit" name="submitAddRandonnee" value='Choissir'>
     </div>
 </form>
 <?php
@@ -34,7 +34,7 @@ if (isset($_SESSION['messageAlert'])) {
     }
 };
 
-$titre = 'Detail de la randonnées';
+$titre = 'Choissir la foret dont on veut ajouter une randonnee';
 $contenu = ob_get_clean();
 
 require "view/template.php";
