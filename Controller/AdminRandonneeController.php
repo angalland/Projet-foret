@@ -36,4 +36,13 @@ class AdminRandonneeController {
         $requete->execute();
         require "view/randonnee/ajouterParcours.php";
     }
+
+    // affiche la page ajouter un parcours
+    public function viewAddParcoursByRandonnee(){
+        if (isset($_POST['submitAddParcours'])){
+            $id_randonnee = intval(htmlspecialchars($_POST['randonnee']));
+            $_SESSION['id_randonnee'] = $id_randonnee;
+            require "view/randonnee/ajouterParcoursParRandonnee.php";
+        }
+    }
 }
