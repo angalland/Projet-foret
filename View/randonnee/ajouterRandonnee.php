@@ -1,9 +1,26 @@
 <?php
 ob_start();?>
-<form id="formAddForet" class="formH3 addH3Foret" action="index.php?action=viewAddRandonneeByForet" method="POST">
-    <h3 class="formH3 addH3Foret">Choississez la forêt dont il faut rajouter une randonnée</h3>
 
-    <div class="addDivForet">
+<form action="index.php?action=addRandonneeByForet" method="POST" class="formAddRandonnee">
+
+    <h3 class="formH3 addH3Foret">Ajouter une randonnée</h3>
+
+    <div class="addDiv">
+        <label for="nom_randonnee" class="addLabel">Nom de la randonnee : </label>
+        <input type="text" name="nom_randonnee" id="nom_randonnee" class="inputConnexion">
+    </div>
+
+    <div class="addDiv">
+        <label for="duree" class="addLabel">Durée en Min : </label>
+        <input type="number" name="duree" id="duree" class="inputConnexion">
+    </div>
+
+    <div class="addDiv">
+        <label for="difficulte" class="addLabel">Difficulte : </label>
+        <input type="number" name="difficulte" id="difficulte" class="inputConnexion">
+    </div>
+
+    <div class="addDivForetRandonnee">
         <label class="addLabel" for="nom_foret">Forêt : </label>
         <select name="foret" id="nom_foret" class="inputConnexion">
             <option value=""></option>
@@ -17,8 +34,9 @@ ob_start();?>
     </div>
 
     <div class="addButtonForet ">
-        <input class="button updateButtonForet" type="submit" name="submitAddRandonnee" value='Choissir'>
+        <input class="buttonPointRandonneeAdd" type="submit" name="submitAddRandonneeByForet" value='Ajouter une randonnée'>
     </div>
+
 </form>
 <?php
 // affiche un message succes si il y en a un 

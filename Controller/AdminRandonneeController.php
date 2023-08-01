@@ -16,13 +16,10 @@ class AdminRandonneeController {
         require "view/randonnee/ajouterRandonnee.php";
     }
 
-    // page pour ajouter une randonée apres avoir choisit la foret
-    public function viewAddRandonneeByForet() {
-        if (isset($_POST['submitAddRandonnee'])){
-    
-            $id_foret = intval(htmlspecialchars($_POST['foret']));
-            $_SESSION['id_foret'] = $id_foret;
-            require "view/randonnee/ajouterRandonneeParIdForet.php";
+    // ajoute une randonnée
+    public function addRandonneeByForet(){
+        if (isset($_POST['submitAddRandonneeByForet'])){
+            var_dump($_POST);
         }
     }
 
@@ -37,12 +34,6 @@ class AdminRandonneeController {
         require "view/randonnee/ajouterParcours.php";
     }
 
-    // ajoute une randonnée
-    public function addRandonneeByid_foret($id){
-        if (isset($_POST['submitAddRandonneeById'])){
-            var_dump($id);
-        }
-    }
 
     // affiche la page ajouter un parcours
     public function viewAddParcoursByRandonnee(){

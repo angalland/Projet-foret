@@ -183,7 +183,7 @@ if(isset($_GET['action'])){
         case 'viewAddRandonnee' : $ctrlAdminRandonnee->viewAddRandonnee();
         break;
 
-        case 'viewAddRandonneeByForet' : $ctrlAdminRandonnee->viewAddRandonneeByForet();
+        case 'addRandonneeByForet' : $ctrlAdminRandonnee->addRandonneeByForet();
         break;
 
         case 'viewAddParcours' : $ctrlAdminRandonnee->viewAddParcours();
@@ -192,7 +192,5 @@ if(isset($_GET['action'])){
         case 'viewAddParcoursByRandonnee' : $ctrlAdminRandonnee->viewAddParcoursByRandonnee();
         break;
 
-        case 'addRandonneeByid_foret' : $ctrlAdminRandonnee->addRandonneeByid_foret($id);
-        break;
     }
 }

@@ -229,3 +229,11 @@
     display: flex;
     width: 100%;
 }
+
+.addDivForetRandonnee {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
