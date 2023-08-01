@@ -42,6 +42,13 @@ ob_start();?>
             }
             </script>
 
+    <div class="addPointRandonnee">
+        <h4 class="formH3 addH3Foret">Ajouter un point de départ</h4>
+        <label for="point_depart" class="addLabel">Longitude, Lattitude : </label>
+        <input type="text" name="point_depart" id="point_depart" class="inputPointRandonnee" placeholder="Exemple : 48.789855, 7.568951">
+        <input class="buttonPointRandonnee" type="submit" name="submitAddForet" value='Ajouter le point de départ'>
+    </div>
+
     <div class="addButtonForet ">
         <input class="button" type="submit" name="submitAddForet" value='Ajouter'>
     </div>
