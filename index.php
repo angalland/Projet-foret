@@ -182,5 +182,8 @@ if(isset($_GET['action'])){
         // admin controller randonnee
         case 'viewAddRandonnee' : $ctrlAdminRandonnee->viewAddRandonnee();
         break;
+
+        case 'viewUpdateRandonneeById' : $ctrlAdminRandonnee->viewUpdateRandonneeById();
+        break;
     }
 }

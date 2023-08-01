@@ -1,6 +1,6 @@
 <?php
 ob_start();?>
-<form id="formAddForet" class="formH3 addH3Foret" action="index.php?action=viewUpdateForetById" method="POST">
+<form id="formAddForet" class="formH3 addH3Foret" action="index.php?action=viewUpdateRandonneeById" method="POST">
     <h3 class="formH3 addH3Foret">Choississez la forêt dont il faut rajouter une randonnée</h3>
 
     <div class="addDivForet">
