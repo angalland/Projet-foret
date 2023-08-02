@@ -132,11 +132,47 @@ class AdminUpdateRandonneeController {
 
     // affiche la page supprimer un parcours celon la randonnee
     public function viewDeleteParcoursByRandonnee(){
+
         if (isset($_POST['submitDeleteParcours'])){
+
             $id_randonnee = intval(htmlspecialchars($_POST['randonnee']));
             
-            $pdo = Connect::seConnecter();
-            
+            if (isset($id_randonnee)){
+                $pdo = Connect::seConnecter();
+                $requeteRandonnee = $pdo->prepare("
+                SELECT *
+                FROM randonnee
+                WHERE id_foret = :id
+                ");
+                $requeteRandonnee->bindparam("id", $id_foret);
+                $requeteRandonnee->execute();
+
+                $requetePointDepart = $pdo->prepare("
+                    SELECT *
+                    FROM point
+                    WHERE id_randonnee = :id
+                    AND etape = 'Départ'
+                ");
+                $requetePointDepart->bindparam("id", $id_randonnee);
+                $requetePointDepart->execute();
+
+                $requetePointRandonnee = $pdo->prepare("
+                    SELECT *
+                    FROM point
+                    WHERE id_randonnee = :id
+                ");
+                $requetePointRandonnee->bindparam("id", $id_randonnee);
+                $requetePointRandonnee->execute();
+
+                $requetePointArrivee = $pdo->prepare("
+                    SELECT *
+                    FROM point
+                    WHERE id_randonnee = :id
+                    AND etape = 'Arrivée'
+                ");
+                $requetePointArrivee->bindparam("id", $id_randonnee);
+                $requetePointArrivee->execute();           
+            }   
         }
     }
 }   
