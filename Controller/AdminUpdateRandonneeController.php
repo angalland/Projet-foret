@@ -118,4 +118,9 @@ class AdminUpdateRandonneeController {
             }
         }
     }
+
+    // affiche la page supprimer un parcours
+    public function viewDeleteParcours(){
+        require "view/randonnee/supprimerParcours.php";
+    }
 }

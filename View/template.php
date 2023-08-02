@@ -64,7 +64,9 @@
                                             <div class="ligne"></div>
                                             <li><a href="index.php?action=viewAddRandonnee">Ajouter une randonnée</a></li>
                                             <li><a href="index.php?action=viewUpdateRandonnee">Modifier/Supprimer une randonnée</a></li>
+                                            <div class="ligne"></div>
                                             <li><a href="index.php?action=viewAddParcours">Ajouter un parcours</a></li>
+                                            <li><a href="index.php?action=viewDeleteParcours">Supprimer un parcours</a></li>
                                         </ul>
                                     </li>
                                 <?php
