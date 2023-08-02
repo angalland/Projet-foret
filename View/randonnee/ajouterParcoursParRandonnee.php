@@ -55,7 +55,6 @@ ob_start();?>
             map.on('click',clicSurCarte);
             function clicSurCarte(event){
                 var latlong=event.latlng
-                // alert("Longitude - Latitude : "+latlong);
                 document.getElementById("coordonnee").innerHTML = latlong;
             }
         </script>
