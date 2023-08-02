@@ -88,5 +88,28 @@ class AdminUpdateRandonneeController {
                 die;
             }
         }
+
+        if (isset($_POST['submitDeleteRandonneById'])) {
+
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            $id_randonnee = intval(htmlspecialchars($id));
+            
+            if (isset($id_randonnee) && !empty($id_randonnee)){
+                
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    DELETE FROM randonnee
+                    WHERE id_randonnee = :id
+               ");
+               $requete->bindparam("id", $id_randonnee);
+               $requete->execute();
+
+               $_SESSION['messageSucces'] = "Votre randonnée a bien été supprimée !";
+               header("Location:index.php?action=viewUpdateRandonnee");
+               die;
+            }
+        }
     }
 }
