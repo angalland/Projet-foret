@@ -1,7 +1,7 @@
 <?php
 ob_start();
 foreach ($requete as $randonnee){?>
-<form action="index.php?action=addRandonneeByForet" method="POST" class="formAddRandonnee">
+<form action="index.php?action=UpdateDeleteRandonneeById&id=<?=$randonnee['id_randonnee']?>" method="POST" class="formAddRandonnee">
 
 <h3 class="formH3 addH3Foret">Modifier une randonnée</h3>
 
@@ -44,6 +44,7 @@ foreach ($requete as $randonnee){?>
 </form>
 <?php
 }
+
 $titre = 'Modifier/Supprimer randonnée';
 $contenu = ob_get_clean();
 
