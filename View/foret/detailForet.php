@@ -24,8 +24,8 @@ ob_start();?>
                 // initialisation de la carte leaflet et du zoom
                 var map = L.map('<?=$randonnee['nom_randonnee']?>').setView([
                     <?php
-                    foreach ($requetePoint as $point){?>
-                        <?=$point['longitude']?>, <?=$point['lattitude']?>
+                    foreach ($requetePointDepart as $depart){?>
+                        <?=$depart['longitude']?>, <?=$depart['lattitude']?>
                 ], 14);
 
             // gestion des tuiles
@@ -49,12 +49,18 @@ ob_start();?>
             
             // marker sur la carte
             // marker du départ
-            var marker1 = L.marker([<?=$point['longitude']?>, <?=$point['lattitude']?>]).addTo(map);
+            var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);
             // marker de l'arrivée
-            var marker2 = L.marker([<?=$pointRandonnee['longitude']?>, <?=$pointRandonnee['lattitude']?>]).addTo(map);
+            <?php
+            foreach ($requetePointArrivee as $arrivee){?>
+               var marker2 = L.marker([<?=$arrivee['longitude']?>, <?=$arrivee['lattitude']?>]).addTo(map);
+            <?php
+            }?>
+
             // popup sur le marker
             marker2.bindPopup("Arrivée").openPopup();
             marker1.bindPopup("Départ de la randonnée").openPopup();
+
             <?php
             }?>
 

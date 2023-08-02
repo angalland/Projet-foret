@@ -22,8 +22,8 @@ class ForetController {
     // affiche detail foret 
     public function detailForet($id, $id_randonnee) {
 
-        $id_foret = filter_var($id);
-        $id_randonnee = filter_var($id_randonnee);
+        $id_foret = intval(htmlspecialchars($id));
+        $id_randonnee = intval(htmlspecialchars($id_randonnee));
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
@@ -42,14 +42,14 @@ class ForetController {
         $requeteRandonnee->bindparam("id", $id_foret);
         $requeteRandonnee->execute();
 
-        $requetePoint = $pdo->prepare("
+        $requetePointDepart = $pdo->prepare("
             SELECT *
             FROM point
             WHERE id_randonnee = :id
-            LIMIT 1
+            AND etape = 'Départ'
         ");
-        $requetePoint->bindparam("id", $id_randonnee);
-        $requetePoint->execute();
+        $requetePointDepart->bindparam("id", $id_randonnee);
+        $requetePointDepart->execute();
 
         $requetePointRandonnee = $pdo->prepare("
             SELECT *
@@ -58,6 +58,15 @@ class ForetController {
         ");
         $requetePointRandonnee->bindparam("id", $id_randonnee);
         $requetePointRandonnee->execute();
+
+        $requetePointArrivee = $pdo->prepare("
+            SELECT *
+            FROM point
+            WHERE id_randonnee = :id
+            AND etape = 'Arrivée'
+        ");
+        $requetePointArrivee->bindparam("id", $id_randonnee);
+        $requetePointArrivee->execute();
 
         $requeteCommentaire = $pdo->prepare("
             SELECT *
