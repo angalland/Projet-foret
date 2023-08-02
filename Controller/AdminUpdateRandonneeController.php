@@ -29,6 +29,12 @@ class AdminUpdateRandonneeController {
             ");
             $requete->bindparam("id", $id_randonnee);
             $requete->execute();
+
+            $requeteForet = $pdo->prepare("
+                SELECT *
+                FROM foret
+            ");
+            $requeteForet->execute();
             require "view/randonnee/modifierSupprimerRandonneeParId.php";
         }
     }
