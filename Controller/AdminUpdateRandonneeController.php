@@ -97,18 +97,24 @@ class AdminUpdateRandonneeController {
             $id_randonnee = intval(htmlspecialchars($id));
             
             if (isset($id_randonnee) && !empty($id_randonnee)){
-                
-                $pdo = Connect::seConnecter();
-                $requete = $pdo->prepare("
-                    DELETE FROM randonnee
-                    WHERE id_randonnee = :id
-               ");
-               $requete->bindparam("id", $id_randonnee);
-               $requete->execute();
+                try {
+                    $pdo = Connect::seConnecter();
+                    $requete = $pdo->prepare("
+                        DELETE FROM randonnee
+                        WHERE id_randonnee = :id
+                    ");
+                    $requete->bindparam("id", $id_randonnee);
+                    $requete->execute();
 
-               $_SESSION['messageSucces'] = "Votre randonnée a bien été supprimée !";
-               header("Location:index.php?action=viewUpdateRandonnee");
-               die;
+                    $_SESSION['messageSucces'] = "Votre randonnée a bien été supprimée !";
+                    header("Location:index.php?action=viewUpdateRandonnee");
+                    die;
+
+                } catch (\PDOException $ex){
+                    $_SESSION['messageAlert'] [] = "Vous ne pouvez pas supprimer cette randonnée car elle possede un ou des parcours associés. Veuillez d'abord suprimez c'est parcours pour pouvoir supprimer cette randonnée";
+                    header("Location:index.php?action=viewUpdateRandonnee");
+                    die;
+                }
             }
         }
     }
