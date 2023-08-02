@@ -30,14 +30,22 @@ ob_start();?>
             map.fitBounds(polyline.getBounds());
             
             // marker sur la carte
-            // marker du départ
+            // marker de l'arrivée
             <?php
-            foreach ($requetePoint as $point){?>
-            var marker1 = L.marker([<?=$point['longitude']?>, <?=$point['lattitude']?>]).addTo(map);
+            foreach ($requetePointArrivee as $arrivee){?>
+                var marker2 = L.marker([<?=$arrivee['longitude']?>, <?=$arrivee['lattitude']?>]).addTo(map);
+                marker2.bindPopup("Arrivée").openPopup();
+             <?php   
+            }
+
+            // marker du départ
+            foreach ($requetePointDepart as $depart){?>
+            var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);
             // popup sur le marker
             marker1.bindPopup("Départ de la randonnée").openPopup();
             <?php
             }?>
+
 
             // affiche la longitude et la latitude du point sur lequel ou on clique
             var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -50,6 +58,9 @@ ob_start();?>
                 alert("Longitude - Latitude : "+latlong);
             }
         </script>
+
+    
+
 
     <div class="divAddRandonnee">
         <div class="addPointRandonnee">
