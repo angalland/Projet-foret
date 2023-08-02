@@ -121,6 +121,12 @@ class AdminUpdateRandonneeController {
 
     // affiche la page supprimer un parcours
     public function viewDeleteParcours(){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+            SELECT *
+            FROM randonnee
+        ");
+        $requete->execute();
         require "view/randonnee/supprimerParcours.php";
     }
 }
