@@ -16,6 +16,17 @@ ob_start();?>
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
+            // affiche la longitude et la latitude du point sur lequel ou on clique
+            var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+            var osmAttrib='Map data © OpenStreetMap contributors';
+            var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
+            map.addLayer(osm);
+            map.on('click',clicSurCarte);
+            function clicSurCarte(event){
+                var latlong=event.latlng
+                document.getElementById("coordonnee").innerHTML = latlong;
+            }
+
             // trace le chemin sur la carte
             var latlngs = [
                 <?php 
@@ -46,21 +57,9 @@ ob_start();?>
             <?php
             }?>
 
-
-            // affiche la longitude et la latitude du point sur lequel ou on clique
-            var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-            var osmAttrib='Map data © OpenStreetMap contributors';
-            var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
-            map.addLayer(osm);
-            map.on('click',clicSurCarte);
-            function clicSurCarte(event){
-                var latlong=event.latlng
-                document.getElementById("coordonnee").innerHTML = latlong;
-            }
         </script>
 
         <p id="coordonnee"></p>
-
 
     <div class="divAddRandonnee">
         <div class="addPointRandonnee">
