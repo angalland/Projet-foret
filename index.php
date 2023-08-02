@@ -202,5 +202,8 @@ if(isset($_GET['action'])){
         case 'viewUpdateRandonnee' : $ctrlAdminUpdateRandonneeController->viewUpdateRandonnee();
         break;
 
+        case 'viewUpdateRandonneeById' : $ctrlAdminUpdateRandonneeController->viewUpdateRandonneeById();
+        break;
+
     }
 }

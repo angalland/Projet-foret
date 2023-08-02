@@ -1,6 +1,6 @@
 <?php
 ob_start();?>
-<form id="formAddForet" class="formH3 addH3Foret" action="index.php?action=viewAddParcoursByRandonnee" method="POST">
+<form id="formAddForet" class="formH3 addH3Foret" action="index.php?action=viewUpdateRandonneeById" method="POST">
     <h3 class="formH3 addH3Foret">Choississez la randonnée</h3>
 
     <div class="addDivForet">
@@ -17,7 +17,7 @@ ob_start();?>
     </div>
 
     <div class="addButtonForet ">
-        <input class="button updateButtonForet" type="submit" name="submitAddParcours" value='Choissir'>
+        <input class="button updateButtonForet" type="submit" name="submitUpdateRandonneeById" value='Choissir'>
     </div>
 </form>
 <?php
