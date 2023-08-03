@@ -186,12 +186,29 @@ class AdminUpdateRandonneeController {
     // supprimer un point ou tous les points
     public function deletePoint($id){
         if (isset($_POST['submitDeletePoint'])){
+
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            // filtre des données
             $id_randonnee = intval(htmlspecialchars($id));
             $longitude = (float)(htmlspecialchars($_POST['point_longitude']));
             $lattitude = (float)(htmlspecialchars($_POST['point_lattitude']));
-            var_dump($_POST);
-            var_dump($id_randonnee);
-            die();
+
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("
+                DELETE FROM point
+                WHERE id_randonnee = :id_randonnee
+                AND longitude = :longitude
+                AND lattitude = :lattitude
+            ");
+            $requete->bindparam("id_randonnee", $id_randonnee);
+            $requete->bindparam("longitude", $longitude);
+            $requete->bindparam("lattitude", $lattitude);
+            $requete->execute();
+
+            $_SESSION['messageSucces'] = "Votre point a bien été supprimer !";
+            header("Location:index.php?action=viewDeleteParcours");
         }
     }
 }   
