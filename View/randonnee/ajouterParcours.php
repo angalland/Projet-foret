@@ -1,7 +1,7 @@
 <?php
 ob_start();?>
 <form id="formAddForet" class="formH3 addH3Foret" action="index.php?action=viewAddParcoursByRandonnee" method="POST">
-    <h3 class="formH3 addH3Foret">Choississez la randonnée dont il faut rajouter un parcours</h3>
+    <h3 class="formH3 addH3Foret">Choississez la randonnée dont il faut rajouter un point</h3>
 
     <div class="addDivForet">
         <label class="addLabel" for="nom_randonnee">Randonnée : </label>
