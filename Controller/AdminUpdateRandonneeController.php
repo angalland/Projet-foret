@@ -139,6 +139,15 @@ class AdminUpdateRandonneeController {
             
             if (isset($id_randonnee)){
                 $pdo = Connect::seConnecter();
+
+                $requeteRandonnee = $pdo->prepare("
+                    SELECT *
+                    FROM randonnee
+                    WHERE id_foret = :id
+                ");
+                $requeteRandonnee->bindparam("id", $id_foret);
+                $requeteRandonnee->execute();
+
                 $requetePointDepart = $pdo->prepare("
                     SELECT *
                     FROM point

@@ -1,8 +1,9 @@
 <?php
 ob_start();?>
+ 
  <div id="map" style="width:50%;height:400px;"></div>
+        
         <script>
-            
             // initialisation de la carte leaflet et du zoom
             var map = L.map('map').setView([48.581647, 7.750522], 7);
 

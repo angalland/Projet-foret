@@ -10,9 +10,9 @@ ob_start();?>
             <?php
             foreach ($requete as $randonnee){?>
                 <option value="<?=$randonnee["id_randonnee"]?>">
-                <?=$randonnee['nom_randonnee']?></option>                      
+                <?=$randonnee['nom_randonnee']?></option>
             <?php
-            }?>
+            }?>                      
         </select>
     </div>
 
