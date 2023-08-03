@@ -45,7 +45,11 @@ foreach ($requetePointDepart as $depart){
                 marker2.bindPopup("Arrivée").openPopup();
 
             // marker de tous les points
-            
+            <?php
+            foreach ($res as $pointLigne) {?>
+                var markerPoint = L.marker([<?=$pointLigne['longitude']?>, <?=['lattitude']?>]).addTo(map);
+            <?php
+            }?>
             // marker du départ
             var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);
             // popup sur le marker
