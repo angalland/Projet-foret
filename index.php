@@ -214,5 +214,8 @@ if(isset($_GET['action'])){
         case 'viewDeleteParcoursByRandonnee' : $ctrlAdminUpdateRandonneeController->viewDeleteParcoursByRandonnee();
         break;
 
+        case 'deletePoint' : $ctrlAdminUpdateRandonneeController->deletePoint($id);
+        break;
+
     }
 }

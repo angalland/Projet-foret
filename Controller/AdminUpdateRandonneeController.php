@@ -177,8 +177,21 @@ class AdminUpdateRandonneeController {
                 $requetePointArrivee->bindparam("id", $id_randonnee);
                 $requetePointArrivee->execute(); 
                
+                $_SESSION['id_randonnee'] = $id_randonnee;
                 require "view/randonnee/supprimerParcoursParRandonnee.php";
             }   
+        }
+    }
+
+    // supprimer un point ou tous les points
+    public function deletePoint($id){
+        if (isset($_POST['submitDeletePoint'])){
+            $id_randonnee = intval(htmlspecialchars($id));
+            $longitude = (float)(htmlspecialchars($_POST['point_longitude']));
+            $lattitude = (float)(htmlspecialchars($_POST['point_lattitude']));
+            var_dump($_POST);
+            var_dump($id_randonnee);
+            die();
         }
     }
 }   

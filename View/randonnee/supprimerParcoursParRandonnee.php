@@ -1,6 +1,6 @@
 <?php
 ob_start();?>
-<!-- <div> -->
+
 <?php
 foreach ($requetePointDepart as $depart){
         foreach($requetePointArrivee as $arrivee){?>        
@@ -46,6 +46,7 @@ foreach ($requetePointDepart as $depart){
             <?php           
             for ($i=0;$i<=array_key_last($_SESSION['ligne']);$i++){?>
                 var marker<?=$_SESSION['ligne'][$i]['id_point']?>= L.marker([<?=$_SESSION['ligne'][$i]['longitude']?>, <?=$_SESSION['ligne'][$i]['lattitude']?>]).addTo(map);
+                marker<?=$_SESSION['ligne'][$i]['id_point']?>.bindPopup("Long:<?=$_SESSION['ligne'][$i]['longitude']?>, lat:<?=$_SESSION['ligne'][$i]['lattitude']?>").openPopup();
             <?php
             }?>
 
@@ -56,21 +57,21 @@ foreach ($requetePointDepart as $depart){
         }
     }?>
 
-    <form action="index.php?action=addParcours" method="POST" class="formAddRandonnee">
+    <form action="index.php?action=deletePoint&id=<?=$_SESSION['id_randonnee']?>" method="POST" class="formAddRandonnee">
     
         <div class="addPointRandonnee">
             <h4 class="formH3 addH3Foret">Supprimer un point</h4>
-            <label for="point_depart" class="addLabel">Longitude : </label>
-            <input type="number" name="point_depart_longitude" id="point_depart" class="inputPointRandonnee" placeholder="Exemple : 48.789855" step="0.000001">
-            <label for="point_depart" class="addLabel">Lattitude : </label>
-            <input type="number" name="point_depart_lattitude" id="point_depart" class="inputPointRandonnee" placeholder="Exemple : 7.568952" step="0.000001">
-            <input class="buttonPointRandonnee" type="submit" name="submitAddParcoursPointDepart" value='Supprimer un point du parcours'>
+            <label for="point_longitude" class="addLabel">Longitude : </label>
+            <input type="number" name="point_longitude" id="point_longitude" class="inputPointRandonnee" placeholder="Exemple : 48.789855" step="0.000001">
+            <label for="point_lattitude" class="addLabel">Lattitude : </label>
+            <input type="number" name="point_lattitude" id="point_lattitude" class="inputPointRandonnee" placeholder="Exemple : 7.568952" step="0.000001">
+            <input class="buttonPointRandonnee" type="submit" name="submitDeletePoint" value='Supprimer un point'>
         </div>
 
-        <input class="buttonPointRandonnee" type="submit" name="submitAddParcoursPointDepart" value='Supprimer tout le parcours'>
+        <input class="buttonPointRandonnee" type="submit" name="submitDeleteAllPoint" value='Supprimer tout le parcours'>
 
     </form>
-</div>
+
 <?php
 $titre = 'Supprimer parcours';
 $contenu = ob_get_clean();
