@@ -1,8 +1,10 @@
 <?php
-ob_start();
+ob_start();?>
+<div>
+<?php
 foreach ($requetePointDepart as $depart){
         foreach($requetePointArrivee as $arrivee){?>        
-    <div id="map" style="width:50%;height:400px;"></div>
+    <div id="map" style="width:100%;height:400px;margin:10px 0 0 0;"></div>
         
         <script>
             // initialisation de la carte leaflet et du zoom
@@ -54,20 +56,21 @@ foreach ($requetePointDepart as $depart){
         }
     }?>
 
-<form action="index.php?action=addParcours" method="POST" class="formAddRandonnee">
-   
-    <div class="addPointRandonnee">
-        <h4 class="formH3 addH3Foret">Supprimer un point du parcours</h4>
-        <label for="point_depart" class="addLabel">Longitude : </label>
-        <input type="number" name="point_depart_longitude" id="point_depart" class="inputPointRandonnee" placeholder="Exemple : 48.789855" step="0.000001">
-        <label for="point_depart" class="addLabel">Lattitude : </label>
-        <input type="number" name="point_depart_lattitude" id="point_depart" class="inputPointRandonnee" placeholder="Exemple : 7.568952" step="0.000001">
-        <input class="buttonPointRandonnee" type="submit" name="submitAddParcoursPointDepart" value='Supprimer un point du parcours'>
-    </div>
+    <form action="index.php?action=addParcours" method="POST" class="formAddRandonnee">
+    
+        <div class="addPointRandonnee">
+            <h4 class="formH3 addH3Foret">Supprimer un point du parcours</h4>
+            <label for="point_depart" class="addLabel">Longitude : </label>
+            <input type="number" name="point_depart_longitude" id="point_depart" class="inputPointRandonnee" placeholder="Exemple : 48.789855" step="0.000001">
+            <label for="point_depart" class="addLabel">Lattitude : </label>
+            <input type="number" name="point_depart_lattitude" id="point_depart" class="inputPointRandonnee" placeholder="Exemple : 7.568952" step="0.000001">
+            <input class="buttonPointRandonnee" type="submit" name="submitAddParcoursPointDepart" value='Supprimer un point du parcours'>
+        </div>
 
-    <input class="buttonPointRandonnee" type="submit" name="submitAddParcoursPointDepart" value='Supprimer tout le parcours'>
+        <input class="buttonPointRandonnee" type="submit" name="submitAddParcoursPointDepart" value='Supprimer tout le parcours'>
 
-</form>
+    </form>
+</div>
 <?php
 $titre = 'Supprimer parcours';
 $contenu = ob_get_clean();
