@@ -60,7 +60,7 @@ body {
     top: 30px;
     left: -100px;
     background-color: #0D463E;
-    z-index: 3;
+    z-index: 20;
 }
 
 .menu-deroulant:hover .sous-menu {
@@ -108,6 +108,7 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 10px;
     min-height: 60vh;
 }
