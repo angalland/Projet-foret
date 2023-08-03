@@ -171,7 +171,9 @@ class AdminUpdateRandonneeController {
                     AND etape = 'Arrivée'
                 ");
                 $requetePointArrivee->bindparam("id", $id_randonnee);
-                $requetePointArrivee->execute();           
+                $requetePointArrivee->execute(); 
+                
+                require "view/randonnee/supprimerParcoursParRandonnee.php";
             }   
         }
     }
