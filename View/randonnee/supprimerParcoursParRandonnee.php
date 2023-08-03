@@ -1,12 +1,12 @@
 <?php
 ob_start();
-$i = end($_SESSION['ligne']['size']);
-var_dump($i);
+
 die();
-// for ($i=0;$i=end($_SESSION['ligne']);$i++){
-//     var_dump($_SESSION['ligne']);
-// }
-// die();
+    for ($i=0;$i<=68;$i++){
+        var_dump($_SESSION['ligne'][$i]['longitude']);
+    }
+
+die();
 
 foreach ($requetePointDepart as $depart){
         foreach($requetePointArrivee as $arrivee){?>            ?>

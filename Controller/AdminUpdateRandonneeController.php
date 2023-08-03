@@ -166,7 +166,7 @@ class AdminUpdateRandonneeController {
                 $requetePointRandonnee->execute();
                 $res = $requetePointRandonnee->fetchAll(\PDO::FETCH_ASSOC);
 
-                $_SESSION['ligne'][] = $res;
+                $_SESSION['ligne'] = $res;
 
                 $requetePointArrivee = $pdo->prepare("
                     SELECT *
