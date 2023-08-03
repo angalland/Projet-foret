@@ -217,5 +217,32 @@ class AdminUpdateRandonneeController {
                 }
             }
         }
+
+        if (isset($_POST['submitDeleteAllPoint'])){
+
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            // filtre les données
+            $id_randonnee = intval(htmlspecialchars($id));
+
+            if (isset($id_randonnee) && !empty($id_randonnee)){
+                try{
+                    $pdo = Connect::seConnecter();
+                    $requete = $pdo->prepare("
+                        DELETE FROM point
+                        WHERE id_randonnee = :id
+                    ");
+                    $requete->bindparam("id", $id_randonnee);
+                    $requete->execute();
+
+                    $_SESSION['messageSucces'] = "Tout les points de la randonnée ont bien été suprimé !";
+                    header("Location:index.php?action=viewDeleteParcours");
+                } catch (\PDOException $ex) {
+                    header("Location:index.php?action=viewDeleteParcours");
+                }
+            }
+            
+        }
     }
 }   
