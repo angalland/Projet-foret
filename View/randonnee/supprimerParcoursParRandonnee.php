@@ -1,11 +1,13 @@
 <?php
-ob_start();?>
- 
+ob_start();
+
+foreach ($requetePointDepart as $depart){
+        foreach($requetePointArrivee as $arrivee){?>            ?>
  <div id="map" style="width:50%;height:400px;"></div>
         
         <script>
             // initialisation de la carte leaflet et du zoom
-            var map = L.map('map').setView([48.581647, 7.750522], 7);
+            var map = L.map('map').setView([<?=$depart['longitude']?>, <?=$depart['lattitude']?>], 7);
 
             // gestion des tuiles
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -25,12 +27,12 @@ ob_start();?>
             }
 
             // trace le chemin sur la carte
-            var latlngs = [
-                <?php 
-            foreach ($requetePointRandonnee as $pointRandonnee){?>
-                [<?=$pointRandonnee['longitude']?>, <?=$pointRandonnee['lattitude']?>],
+            var latlngs =[
                 <?php
-            }?>
+                foreach ($requetePointRandonnee as $point){?>
+                [<?=$point['longitude']?>, <?=$point['lattitude']?>],
+                <?php
+                }?>
             ]
             
             var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
@@ -39,25 +41,23 @@ ob_start();?>
             
             // marker sur la carte
             // marker de l'arrivée
-            <?php
-            foreach ($requetePointArrivee as $arrivee){?>
                 var marker2 = L.marker([<?=$arrivee['longitude']?>, <?=$arrivee['lattitude']?>]).addTo(map);
                 marker2.bindPopup("Arrivée").openPopup();
-             <?php   
-            }
 
+            // marker de tous les points
+            
             // marker du départ
-            foreach ($requetePointDepart as $depart){?>
             var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);
             // popup sur le marker
             marker1.bindPopup("Départ de la randonnée").openPopup();
-            <?php
-            }?>
-
         </script>
 
         <p id="coordonnee"></p>
-<?php
+        <?php
+        }
+    }
+
+
 $titre = 'Supprimer parcours';
 $contenu = ob_get_clean();
 

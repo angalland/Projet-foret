@@ -161,7 +161,6 @@ class AdminUpdateRandonneeController {
                     SELECT *
                     FROM point
                     WHERE id_randonnee = :id
-                    AND etape = 'null'
                 ");
                 $requetePointRandonnee->bindparam("id", $id_randonnee);
                 $requetePointRandonnee->execute();
@@ -174,7 +173,7 @@ class AdminUpdateRandonneeController {
                 ");
                 $requetePointArrivee->bindparam("id", $id_randonnee);
                 $requetePointArrivee->execute(); 
-                
+               
                 require "view/randonnee/supprimerParcoursParRandonnee.php";
             }   
         }
