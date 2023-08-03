@@ -1,10 +1,6 @@
 <?php
 ob_start();?>
 
-<form action="index.php?action=addParcours" method="POST" class="formAddRandonnee">
-
-    <h3 class="formH3 addH3Foret">Ajouter un parcours</h3>
-
     <div id="map" style="width:50%;height:400px;"></div>
         <script>
             // initialisation de la carte leaflet et du zoom
@@ -12,7 +8,7 @@ ob_start();?>
 
             // gestion des tuiles
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
+            maxZoom: 20,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
@@ -61,6 +57,9 @@ ob_start();?>
 
         <p id="coordonnee"></p>
 
+<form action="index.php?action=addParcours" method="POST" class="formAddRandonnee">
+
+<h3 class="formH3 addH3Foret">Ajouter un parcours</h3>
     <div class="divAddRandonnee">
         <div class="addPointRandonnee">
             <h4 class="formH3 addH3Foret">Ajouter un point de départ</h4>

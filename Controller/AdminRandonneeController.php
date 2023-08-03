@@ -129,7 +129,7 @@ class AdminRandonneeController {
             $lattitude = (float)(htmlspecialchars($_POST['point_depart_lattitude']));
 
             if (isset($id_randonnee) && !empty($id_randonnee) && isset($longitude) && !empty($longitude) && isset($lattitude) && !empty($lattitude)){
-
+                try {
                 $pdo = Connect::seConnecter();
                 $requete = $pdo->prepare("
                     INSERT INTO point
@@ -146,7 +146,10 @@ class AdminRandonneeController {
 
                 $_SESSION['messageSucces'] = "Votre point de départ a bien été ajouté !";
                 header("Location:index.php?action=viewAddParcours");
-
+                } catch (\PDOException $ex){
+                    $_SESSION['messageAlert'] [] = "Les coordonnées du point saisie sont incorrecte ! Vueillez-bien-saisir les bonnes coordonnées";
+                    header("Location:index.php?action=viewAddParcours");
+                }
             }
         }
 
@@ -162,22 +165,26 @@ class AdminRandonneeController {
             $lattitude = (float)(htmlspecialchars($_POST['point_lattitude']));
 
             if (isset($id_randonnee) && !empty($id_randonnee) && isset($longitude) && !empty($longitude) && isset($lattitude) && !empty($lattitude)){
+                try {
+                    $pdo = Connect::seConnecter();
+                    $requete = $pdo->prepare("
+                        INSERT INTO point
+                        (longitude, lattitude, id_randonnee)
+                        VALUES (:longitude,
+                                :lattitude,
+                                :id_randonnee)
+                    ");
+                    $requete->bindparam("longitude", $longitude);
+                    $requete->bindparam("lattitude", $lattitude);
+                    $requete->bindparam("id_randonnee", $id_randonnee);
+                    $requete->execute();
 
-                $pdo = Connect::seConnecter();
-                $requete = $pdo->prepare("
-                    INSERT INTO point
-                    (longitude, lattitude, id_randonnee)
-                    VALUES (:longitude,
-                            :lattitude,
-                            :id_randonnee)
-                ");
-                $requete->bindparam("longitude", $longitude);
-                $requete->bindparam("lattitude", $lattitude);
-                $requete->bindparam("id_randonnee", $id_randonnee);
-                $requete->execute();
-
-                $_SESSION['messageSucces'] = "Votre point a bien été ajouté !";
-                header("Location:index.php?action=viewAddParcours");
+                    $_SESSION['messageSucces'] = "Votre point a bien été ajouté !";
+                    header("Location:index.php?action=viewAddParcours");
+                } catch (\PDOException $ex){
+                    $_SESSION['messageAlert'] [] = "Les coordonnées du point saisie sont incorrecte ! Vueillez-bien-saisir les bonnes coordonnées";
+                    header("Location:index.php?action=viewAddParcours");
+                }
             }
         }
 
@@ -193,23 +200,27 @@ class AdminRandonneeController {
             $lattitude = (float)(htmlspecialchars($_POST['point_arrivee_lattitude']));
 
             if (isset($id_randonnee) && !empty($id_randonnee) && isset($longitude) && !empty($longitude) && isset($lattitude) && !empty($lattitude)){
+                try {
+                    $pdo = Connect::seConnecter();
+                    $requete = $pdo->prepare("
+                        INSERT INTO point
+                        (etape, longitude, lattitude, id_randonnee)
+                        VALUES ('Arrivée',
+                                :longitude,
+                                :lattitude,
+                                :id_randonnee)
+                    ");
+                    $requete->bindparam("longitude", $longitude);
+                    $requete->bindparam("lattitude", $lattitude);
+                    $requete->bindparam("id_randonnee", $id_randonnee);
+                    $requete->execute();
 
-                $pdo = Connect::seConnecter();
-                $requete = $pdo->prepare("
-                    INSERT INTO point
-                    (etape, longitude, lattitude, id_randonnee)
-                    VALUES ('Arrivée',
-                            :longitude,
-                            :lattitude,
-                            :id_randonnee)
-                ");
-                $requete->bindparam("longitude", $longitude);
-                $requete->bindparam("lattitude", $lattitude);
-                $requete->bindparam("id_randonnee", $id_randonnee);
-                $requete->execute();
-
-                $_SESSION['messageSucces'] = "Votre point d'arrivée a bien été ajouté !";
-                header("Location:index.php?action=viewAddParcours");
+                    $_SESSION['messageSucces'] = "Votre point d'arrivée a bien été ajouté !";
+                    header("Location:index.php?action=viewAddParcours");
+                } catch (\PDOException $ex){
+                    $_SESSION['messageAlert'] [] = "Les coordonnées du point saisie sont incorrecte ! Vueillez-bien-saisir les bonnes coordonnées";
+                    header("Location:index.php?action=viewAddParcours");
+                }
             }
         }
     }
