@@ -195,20 +195,27 @@ class AdminUpdateRandonneeController {
             $longitude = (float)(htmlspecialchars($_POST['point_longitude']));
             $lattitude = (float)(htmlspecialchars($_POST['point_lattitude']));
 
-            $pdo = Connect::seConnecter();
-            $requete = $pdo->prepare("
-                DELETE FROM point
-                WHERE id_randonnee = :id_randonnee
-                AND longitude = :longitude
-                AND lattitude = :lattitude
-            ");
-            $requete->bindparam("id_randonnee", $id_randonnee);
-            $requete->bindparam("longitude", $longitude);
-            $requete->bindparam("lattitude", $lattitude);
-            $requete->execute();
+            if (isset($id_randonnee) && !empty($id_randonnee) && isset($longitude) && !empty($longitude) && isset($lattitude) && !empty($lattitude)){
+                try {
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    DELETE FROM point
+                    WHERE id_randonnee = :id_randonnee
+                    AND longitude = :longitude
+                    AND lattitude = :lattitude
+                ");
+                $requete->bindparam("id_randonnee", $id_randonnee);
+                $requete->bindparam("longitude", $longitude);
+                $requete->bindparam("lattitude", $lattitude);
+                $requete->execute();
 
-            $_SESSION['messageSucces'] = "Votre point a bien été supprimer !";
-            header("Location:index.php?action=viewDeleteParcours");
+                $_SESSION['messageSucces'] = "Votre point a bien été supprimer !";
+                header("Location:index.php?action=viewDeleteParcours");
+                } catch (\PDOException $ex) {
+                    $_SESSION['messageAlert'] [] = "Les coordonnées saisies ne correspondent a aucun point de la randonnée. Veuillez-saisir des coordonnées correspondant a un point marqué par une popup";
+                    header("Location:index.php?action=viewDeleteParcours");
+                }
+            }
         }
     }
 }   
