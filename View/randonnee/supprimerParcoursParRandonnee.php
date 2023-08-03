@@ -1,5 +1,10 @@
 <?php
 ob_start();
+foreach ($_SESSION['ligne'] as $ligne){
+    // var_dump($ligne);
+    var_dump($ligne[0]['id_point']);
+    die();
+}
 
 foreach ($requetePointDepart as $depart){
         foreach($requetePointArrivee as $arrivee){?>            ?>
@@ -46,9 +51,10 @@ foreach ($requetePointDepart as $depart){
 
             // marker de tous les points
             <?php
-            foreach ($res as $pointLigne) {?>
-                var markerPoint = L.marker([<?=$pointLigne['longitude']?>, <?=['lattitude']?>]).addTo(map);
+            foreach ($_SESSION['ligne'] as $ligne){?>
+                var <?=$ligne[i]['id_point']?>= L.marker([<?=$ligne[i]['longitude']?>, <?=$ligne[i]['lattitude']?>]).addTo(map);
             <?php
+            i++
             }?>
             // marker du départ
             var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);

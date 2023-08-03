@@ -164,7 +164,9 @@ class AdminUpdateRandonneeController {
                 ");
                 $requetePointRandonnee->bindparam("id", $id_randonnee);
                 $requetePointRandonnee->execute();
-                $res = $requetePointRandonnee->fetch(\PDO::FETCH_ASSOC);
+                $res = $requetePointRandonnee->fetchAll(\PDO::FETCH_ASSOC);
+
+                $_SESSION['ligne'][] = $res;
 
                 $requetePointArrivee = $pdo->prepare("
                     SELECT *
