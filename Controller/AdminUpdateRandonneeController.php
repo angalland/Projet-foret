@@ -115,6 +115,10 @@ class AdminUpdateRandonneeController {
                     header("Location:index.php?action=viewUpdateRandonnee");
                     die;
                 }
+            } else {
+                $_SESSION['messageAlert'] [] = "Vous devez choisir une randonnée";
+                header("Location:index.php?action=viewUpdateRandonnee");
+                die();
             }
         }
     }
@@ -214,7 +218,12 @@ class AdminUpdateRandonneeController {
                 } catch (\PDOException $ex) {
                     $_SESSION['messageAlert'] [] = "Les coordonnées saisies ne correspondent a aucun point de la randonnée. Veuillez-saisir des coordonnées correspondant a un point marqué par une popup";
                     header("Location:index.php?action=viewDeleteParcours");
+                    die();
                 }
+            } else {
+                $_SESSION['messageAlert'] [] = "Tous les champs doivent être rempli";
+                header("Location:index.php?action=viewDeleteParcours");
+                die();
             }
         }
 
@@ -241,6 +250,10 @@ class AdminUpdateRandonneeController {
                 } catch (\PDOException $ex) {
                     header("Location:index.php?action=viewDeleteParcours");
                 }
+            } else {
+                $_SESSION['messageAlert'] [] = "Tous les champs doivent être rempli";
+                header("Location:index.php?action=viewDeleteParcours");
+                die();
             }
             
         }
