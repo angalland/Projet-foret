@@ -32,6 +32,14 @@ class ForetController {
         $requete->bindparam("id", $id_foret);
         $requete->execute();
 
+        $requeteNomRandonnee = $pdo->prepare("
+            SELECT *
+            FROM randonnee
+            WHERE id_foret = :id
+        ");
+        $requeteNomRandonnee->bindparam("id", $id_foret);
+        $requeteNomRandonnee->execute();
+
         $requeteRandonnee = $pdo->prepare("
             SELECT *
             FROM randonnee
@@ -39,34 +47,36 @@ class ForetController {
         ");
         $requeteRandonnee->bindparam("id", $id_foret);
         $requeteRandonnee->execute();
-        $res = $requeteRandonnee->fetchAll(\PDO::FETCH_ASSOC);
-
-            
-        $requetePointDepart = $pdo->prepare("
+        
+        foreach ($requeteRandonnee as $randonnee){
+            $id_randonnee = $randonnee['id_randonnee'];
+            $requetePointDepart = $pdo->prepare("
+                    SELECT *
+                    FROM point
+                    WHERE id_randonnee = :id
+                    AND etape = 'Départ'
+            ");
+            $requetePointDepart->bindparam("id", $id_randonnee);
+            $requetePointDepart->execute();
+                    
+            $requetePointRandonnee = $pdo->prepare("
                 SELECT *
                 FROM point
                 WHERE id_randonnee = :id
-                AND etape = 'Départ'
-        ");
-        $requetePointDepart->bindparam("id", $id_randonnee);
-        $requetePointDepart->execute();
-                
-        $requetePointRandonnee = $pdo->prepare("
-            SELECT *
-            FROM point
-            WHERE id_randonnee = :id
-        ");
-        $requetePointRandonnee->bindparam("id", $id_randonnee);
-        $requetePointRandonnee->execute();
-                
-        $requetePointArrivee = $pdo->prepare("
-            SELECT *
-            FROM point
-            WHERE id_randonnee = :id
-            AND etape = 'Arrivée'
-        ");
-        $requetePointArrivee->bindparam("id", $id_randonnee);
-        $requetePointArrivee->execute();
+            ");
+            $requetePointRandonnee->bindparam("id", $id_randonnee);
+            $requetePointRandonnee->execute();
+                    
+            $requetePointArrivee = $pdo->prepare("
+                SELECT *
+                FROM point
+                WHERE id_randonnee = :id
+                AND etape = 'Arrivée'
+            ");
+            $requetePointArrivee->bindparam("id", $id_randonnee);
+            $requetePointArrivee->execute();
+        }
+            
 
         $requeteCommentaire = $pdo->prepare("
             SELECT *

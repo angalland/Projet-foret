@@ -15,7 +15,7 @@ ob_start();?>
     <h2 id="h2detailForet">La randonnée incontournable</h2>
         <?php
         // boucle pour lire la table randonnee
-        foreach ($res as $randonnee){?>
+        foreach ($requeteNomRandonnee as $randonnee){?>
             <div id="<?=$randonnee['nom_randonnee']?>" style="width:400px;height:400px;margin:30px"></div>
         <?php
         }?>
