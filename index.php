@@ -48,7 +48,7 @@ if(isset($_GET['action'])){
         case 'listForet' : $ctrlForet->listForet();
         break;
 
-        case 'detailForet' : $ctrlForet->detailForet($id, $id_randonnee);
+        case 'detailForet' : $ctrlForet->detailForet($id);
         break;
 
         case 'posterCommentaire' : $ctrlForet->posterCommentaire($id, $id_foret);
