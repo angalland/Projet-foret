@@ -9,6 +9,9 @@
     .active #icons:before {
         content: "\2715";
     }
+    nav {
+        justify-content: space-between;
+    }
     nav ul {
         position: absolute;
         left: -200%;

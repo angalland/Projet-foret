@@ -6,14 +6,6 @@ body {
 }
 
 /* navBar */
-
-/* .navbar {
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-} */
 a {
     color: white; 
 }
@@ -36,23 +28,6 @@ nav ul {
     width: 100px;
     height: 100px;
 }
-
-/* .navbar .nav-link ul {
-    display: flex;
-    flex-direction: row;
-} */
-
-
-/* .navbar .nav-link ul li {
-    margin: 0 30px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-} */
-
-/* .navbar a {
-    color: white;
-} */
 
 .logoConnexion {
     width: 50px;
