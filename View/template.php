@@ -35,10 +35,8 @@
         </head>
 
         <body>
-            <div class="contenu">
                 <nav class="navbar active" id="navbar">
                     <a href="index.php?action=accueille" class="logo"><img src="public/logo/logoForet.jpg"/>
-                    <div class="nav-link">
                         <ul>
                             <li><a href="index.php?action=listForet">Forêt</a></li>
                             <li><a href="index.php?action=listArbre">Arbres</a></li>
@@ -78,7 +76,6 @@
                             }?>
                         </ul>
                         <div id="icons"></div>
-                    </div>
                 </nav>
 
                 <header>
@@ -90,7 +87,6 @@
                         </form>
                 </header>
                 <main><?= $contenu ?></main>
-            </div>
             <footer>
                     <ul class="list-services">
                         <li><a href="#">© 2023 - Forêst compagnie</a></li>

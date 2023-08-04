@@ -20,6 +20,11 @@ body {
     width: 100%;
 }
 
+nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
 .logo > img {
     width: 100px;
     height: 100px;
