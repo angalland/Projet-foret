@@ -86,7 +86,7 @@
                             </button>
                         </form>
                 </header>
-                <main><?= $contenu ?></main>
+                <main id="main"><?= $contenu ?></main>
             <footer>
                     <ul class="list-services">
                         <li><a href="#">© 2023 - Forêst compagnie</a></li>

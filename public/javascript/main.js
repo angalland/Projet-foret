@@ -28,6 +28,7 @@ function fermer() {
 // menue burger
 const links = document.querySelectorAll('nav li');
 const icons = document.getElementById('icons');
+const main = document.getElementById('main');
 
 icons.addEventListener("click", () => {
     nav.classList.toggle("active");
@@ -39,3 +40,6 @@ links.forEach((link) => {
     });
 });
 
+main.addEventListener("click", () => {
+    nav.classList.remove("active");
+});
