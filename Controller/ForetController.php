@@ -13,8 +13,6 @@ class ForetController {
             FROM foret
         ");
         $requete->execute();
-
-        $requeteRandonnee = $pdo->prepare()
         
         require "view/foret/listForet.php";
     }
@@ -41,6 +39,9 @@ class ForetController {
         ");
         $requeteRandonnee->bindparam("id", $id_foret);
         $requeteRandonnee->execute();
+        $res = $requeteRandonnee->fetchAll(\PDO::FETCH_ASSOC);
+
+        
 
         // $requetePointDepart = $pdo->prepare("
         //     SELECT *
