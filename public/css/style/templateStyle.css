@@ -12,17 +12,30 @@ body {
 
 /* navBar */
 
-.navbar {
+/* .navbar {
     padding: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+} */
+a {
+    color: white; 
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: calc(0.5rem + 1.5vw);
+    padding: 10px;
 }
 
 nav ul {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
 }
 
 .logo > img {
@@ -30,23 +43,22 @@ nav ul {
     height: 100px;
 }
 
-.navbar .nav-link ul {
+/* .navbar .nav-link ul {
     display: flex;
     flex-direction: row;
-}
+} */
 
 
-.navbar .nav-link ul li {
+/* .navbar .nav-link ul li {
     margin: 0 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
-}
+} */
 
-.navbar a {
+/* .navbar a {
     color: white;
-    font-size: calc(0.5rem + 1.5vw);
-}
+} */
 
 .logoConnexion {
     width: 50px;

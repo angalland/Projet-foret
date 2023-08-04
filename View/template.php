@@ -35,7 +35,7 @@
         </head>
 
         <body>
-                <nav class="navbar active" id="navbar">
+                <nav id="navbar">
                     <a href="index.php?action=accueille" class="logo"><img src="public/logo/logoForet.jpg"/>
                         <ul>
                             <li><a href="index.php?action=listForet">Forêt</a></li>
