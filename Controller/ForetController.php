@@ -21,7 +21,6 @@ class ForetController {
     public function detailForet($id) {
 
         $id_foret = intval(htmlspecialchars($id));
-        // $id_randonnee = intval(htmlspecialchars($id_randonnee));
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("
@@ -31,14 +30,6 @@ class ForetController {
         ");
         $requete->bindparam("id", $id_foret);
         $requete->execute();
-
-        $requeteNomRandonnee = $pdo->prepare("
-            SELECT *
-            FROM randonnee
-            WHERE id_foret = :id
-        ");
-        $requeteNomRandonnee->bindparam("id", $id_foret);
-        $requeteNomRandonnee->execute();
 
         $requeteRandonnee = $pdo->prepare("
             SELECT *
@@ -53,7 +44,9 @@ class ForetController {
             $requetePointDepart = $pdo->prepare("
                     SELECT *
                     FROM point
-                    WHERE id_randonnee = :id
+                    INNER JOIN randonnee
+                        ON point.id_randonnee = randonnee.id_randonnee
+                    WHERE randonnee.id_randonnee = :id
                     AND etape = 'Départ'
             ");
             $requetePointDepart->bindparam("id", $id_randonnee);
@@ -62,7 +55,9 @@ class ForetController {
             $requetePointRandonnee = $pdo->prepare("
                 SELECT *
                 FROM point
-                WHERE id_randonnee = :id
+                INNER JOIN randonnee
+                    ON point.id_randonnee = randonnee.id_randonnee
+                WHERE randonnee.id_randonnee = :id
             ");
             $requetePointRandonnee->bindparam("id", $id_randonnee);
             $requetePointRandonnee->execute();
@@ -70,7 +65,9 @@ class ForetController {
             $requetePointArrivee = $pdo->prepare("
                 SELECT *
                 FROM point
-                WHERE id_randonnee = :id
+                INNER JOIN randonnee
+                    ON point.id_randonnee = randonnee.id_randonnee
+                WHERE randonnee.id_randonnee = :id
                 AND etape = 'Arrivée'
             ");
             $requetePointArrivee->bindparam("id", $id_randonnee);

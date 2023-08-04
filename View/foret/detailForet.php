@@ -15,17 +15,16 @@ ob_start();?>
     <h2 id="h2detailForet">La randonnée incontournable</h2>
         <?php
         // boucle pour lire la table randonnee
-        foreach ($requeteNomRandonnee as $randonnee){?>
+        foreach ($requetePointDepart as $randonnee){?>
             <div id="<?=$randonnee['nom_randonnee']?>" style="width:400px;height:400px;margin:30px"></div>
-        <?php
-        }?>
+
             <script>
 
                 // initialisation de la carte leaflet et du zoom
                 var map = L.map('<?=$randonnee['nom_randonnee']?>').setView([
                     <?php
-                    foreach ($requetePointDepart as $depart){?>
-                        <?=$depart['longitude']?>, <?=$depart['lattitude']?>
+                    // foreach ($requetePointDepart as $depart){?>
+                        <?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>
                 ], 14);
 
             // gestion des tuiles
@@ -49,7 +48,7 @@ ob_start();?>
             
             // marker sur la carte
             // marker du départ
-            var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);
+            var marker1 = L.marker([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>]).addTo(map);
             // marker de l'arrivée
             <?php
             foreach ($requetePointArrivee as $arrivee){?>
