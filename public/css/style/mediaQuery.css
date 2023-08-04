@@ -1,28 +1,29 @@
 @media (max-width: 1200px){
+    /* menu burger */
     #icons {
         display: block;
     }
-    #icons::before{
+    #icons:before{
         content: "\2630";
     }
-    .active #icons::before {
+    .active #icons:before {
         content: "\2715";
     }
-    .nav-link ul {
-        position: fixed;
+    nav ul {
+        position: absolute;
         left: -200%;
-        top: 5%;
-        flex-direction: column!important;
+        top: 10%;
+        flex-direction: column;
         width: 100%;
         text-align: center;
         transition: 0.25s;
         z-index: 10;
         background-color: #28634F;
     }
-    .nav-link li {
+    nav li {
         padding: 3px 0;
     }
-    .nav-link li:hover {
+    nav li:hover {
         background: #348369;
     }
     nav.active ul {
