@@ -15,6 +15,7 @@
             <link rel="stylesheet" href="public/css/style/utilisateur.css" />
             <link rel="stylesheet" href="public/css/style/taxonomieStyle.css" />
             <link rel="stylesheet" href="public/css/style/randonneeStyle.css" />
+            <link rel="stylesheet" href="public/css/style/mediaQuery.css" />
 
             <!-- lien leaflet -->
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin=""/>
@@ -35,7 +36,7 @@
 
         <body>
             <div class="contenu">
-                <nav class="navbar">
+                <nav class="navbar active" id="navbar">
                     <a href="index.php?action=accueille" class="logo"><img src="public/logo/logoForet.jpg"/>
                     <div class="nav-link">
                         <ul>
@@ -76,6 +77,7 @@
                                 <?php
                             }?>
                         </ul>
+                        <div id="icons"></div>
                     </div>
                 </nav>
 

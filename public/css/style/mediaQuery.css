@@ -1,0 +1,31 @@
+@media (max-width: 1200px){
+    #icons {
+        display: block;
+    }
+    #icons::before{
+        content: "\2630";
+    }
+    .active #icons::before {
+        content: "\2715";
+    }
+    .nav-link ul {
+        position: fixed;
+        left: -200%;
+        top: 5%;
+        flex-direction: column!important;
+        width: 100%;
+        text-align: center;
+        transition: 0.25s;
+        z-index: 10;
+        background-color: #28634F;
+    }
+    .nav-link li {
+        padding: 3px 0;
+    }
+    .nav-link li:hover {
+        background: #348369;
+    }
+    nav.active ul {
+        left: 0;
+    }
+}
