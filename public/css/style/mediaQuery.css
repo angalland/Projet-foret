@@ -82,6 +82,12 @@
     #main{
         margin: 0px;
     }
+
+    .list-services {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 /* arbre */
