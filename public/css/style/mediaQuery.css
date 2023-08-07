@@ -71,4 +71,34 @@
         right: 25px;
         margin: 10px;
     }
+    
+    #main{
+        margin: 0px;
+    }
+}
+
+/* arbre */
+@media (max-width: 1400px){
+    .articleDetailArbre{
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+    }
+
+    .caracteristique {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .articleDetailArbre h1 {
+        font-size: 2em;
+    }
+
+    .detail{
+        width: 100%;
+        text-align: center;
+    }
+
 }
