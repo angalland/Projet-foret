@@ -16,8 +16,9 @@ ob_start();?>
         <?php
         // boucle pour lire la table randonnee
         foreach ($requetePointDepart as $randonnee){?>
-            <div id="<?=$randonnee['nom_randonnee']?>" style="width:400px;height:400px;margin:30px"></div>
-
+            <div id="map">
+            <div id="<?=$randonnee['nom_randonnee']?>" style="width:100%;height:100%;margin:30px"></div>
+            </div>
             <script>
 
                 // initialisation de la carte leaflet et du zoom

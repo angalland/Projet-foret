@@ -53,3 +53,12 @@
         text-align: justify;
     }
 }
+
+/* leaflet */
+@media (max-width: 600px){
+    #map {
+        margin: 30px;
+        width: 200px;
+        height: 200px;
+    }
+}
