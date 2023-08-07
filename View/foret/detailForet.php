@@ -17,7 +17,7 @@ ob_start();?>
         // boucle pour lire la table randonnee
         foreach ($requetePointDepart as $randonnee){?>
             <div id="map">
-            <div id="<?=$randonnee['nom_randonnee']?>" style="width:100%;height:100%;margin:30px"></div>
+            <div id="<?=$randonnee['nom_randonnee']?>" style="width:100%;height:100%;"></div>
             </div>
             <script>
 
