@@ -62,3 +62,13 @@
         height: 200px;
     }
 }
+
+/* commentaire */
+@media (max-width: 900px){
+    #commentaireConnexion button {
+        position: relative;
+        top: 25px;
+        right: 25px;
+        margin: 10px;
+    }
+}
