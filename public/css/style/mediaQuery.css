@@ -32,4 +32,21 @@
     nav.active ul {
         left: 0;
     }
+
+    /* detailforet */
+    .articleDetailForet{
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .articleDetailForet p {
+        color: white;
+        font-size: 25px;
+        text-align: justify;
+    }
 }
