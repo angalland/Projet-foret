@@ -22,7 +22,7 @@ ob_start();?>
 <div id="UserUpdate">
     <button class="btn-open modal-trigger buttonUpdateUser">Modifier adresse email</button>
 
-    <button class="btn-open modal-trigger buttonUpdateUser">Modifier mot de passe</button>
+    <button class="btn-open module-trigger buttonUpdateUser">Modifier mot de passe</button>
 
     <button class="btn-open modal-trigger  buttonUpdateUser">Supprimer compte</button>
 </div>
@@ -48,13 +48,33 @@ ob_start();?>
 </div>
 
 <!-- Modal caché mot de passe-->
-<div class="modal-container">
-    <div class="overlay modal-trigger">
+<div class="module-conteneur">
+    <div class="couverture module-trigger">
     </div>
-        <div class="modal">
-            <button class="close-modal modal-trigger">X</button>
+        <div class="module">
+            <button class="close-modal module-trigger">X</button>
             <form id="formConnexion" method="POST" action="index.php?action=inscription">
-                <h3 class="formH3"> Modifier l'email </h3>
+                <h3 class="formH3"> Modifier le mot de passe </h3>
+
+                <div>
+                    <input class="inputConnexion" type="text" placeholder="Mot de passe" name="passe">
+                </div>
+
+                <div>
+                    <input class="button" type="submit" value='Modifier'>
+                </div>
+            </form>
+        </div>
+</div>
+
+<!-- Modal caché mot de passe-->
+<div class="module-conteneur">
+    <div class="couverture module-trigger">
+    </div>
+        <div class="module">
+            <button class="close-modal module-trigger">X</button>
+            <form id="formConnexion" method="POST" action="index.php?action=inscription">
+                <h3 class="formH3"> Modifier le mot de passe </h3>
 
                 <div>
                     <input class="inputConnexion" type="text" placeholder="Mot de passe" name="passe">

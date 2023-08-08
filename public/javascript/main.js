@@ -9,6 +9,15 @@ function toggleModal() {
     modalContainer.classList.toggle("active")
 };
 
+const moduleConteneur = document.querySelector(".module-conteneur");
+const moduleTriggers = document.querySelectorAll(".module-trigger");
+// ajoute un evenement click a tous les boutons et fait la fonction toggleModal
+moduleTriggers.forEach(trigger => trigger.addEventListener("click", toggleModule));
+// ajoute et remove active a chaque click sur les boutons
+function toggleModule() {
+    moduleConteneur.classList.toggle("active")
+};
+
 // modiffier un commentaire
 const modalCommentaire = document.querySelectorAll(".formulaireModiffier");
 const modalButton = document.querySelectorAll(".modifier");
