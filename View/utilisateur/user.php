@@ -14,6 +14,16 @@ ob_start();?>
     }?>
 
 </article>
+<form action="" method="POST" id="formAddForet">
+    <div class="addButtonForet ">
+        <input class="button" type="submit" name="" value='Modifier adresse email'>
+    </div>
+
+    <div class="addButtonForet ">
+        <input class="button" type="submit" name="" value='Modifier mot de passe'>
+    </div>
+</form>
+
 <?php
 $titre = 'Mon compte';
 $contenu = ob_get_clean();
