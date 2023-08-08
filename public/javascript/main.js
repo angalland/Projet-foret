@@ -19,6 +19,16 @@ function toggleModule() {
     moduleConteneur.classList.toggle("active")
 };
 
+// modal pour supprimer un compte
+const moduleConteneurMdp = document.querySelector(".module-conteneur-mdp");
+const moduleTriggersMdp = document.querySelectorAll(".modulemdp-trigger");
+// ajoute un evenement click a tous les boutons et fait la fonction toggleModal
+moduleTriggersMdp.forEach(trigger => trigger.addEventListener("click", toggleModuleMdp));
+// ajoute et remove active a chaque click sur les boutons
+function toggleModuleMdp() {
+    moduleConteneurMdp.classList.toggle("active")
+};
+
 // modiffier un commentaire
 const modalCommentaire = document.querySelectorAll(".formulaireModiffier");
 const modalButton = document.querySelectorAll(".modifier");

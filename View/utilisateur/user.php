@@ -24,7 +24,7 @@ ob_start();?>
 
     <button class="btn-open module-trigger buttonUpdateUser">Modifier mot de passe</button>
 
-    <button class="btn-open modal-trigger  buttonUpdateUser">Supprimer compte</button>
+    <button class="btn-open modulemdp-trigger  buttonUpdateUser">Supprimer compte</button>
 </div>
 
 <!-- Modal caché email-->
@@ -33,7 +33,7 @@ ob_start();?>
     </div>
         <div class="modal">
             <button class="close-modal modal-trigger">X</button>
-            <form id="formConnexion" method="POST" action="index.php?action=inscription">
+            <form id="formConnexion" method="POST" action="">
                 <h3 class="formH3"> Modifier l'email </h3>
 
                 <div>
@@ -53,11 +53,14 @@ ob_start();?>
     </div>
         <div class="module">
             <button class="close-modal module-trigger">X</button>
-            <form id="formConnexion" method="POST" action="index.php?action=inscription">
+            <form id="formConnexion" method="POST" action="">
                 <h3 class="formH3"> Modifier le mot de passe </h3>
 
                 <div>
                     <input class="inputConnexion" type="text" placeholder="Mot de passe" name="passe">
+                </div>
+                <div>
+                    <input class="inputConnexion" type="password" placeholder="Confirmer mot de passe" name="confirmPassword">
                 </div>
 
                 <div>
@@ -67,21 +70,19 @@ ob_start();?>
         </div>
 </div>
 
-<!-- Modal caché mot de passe-->
-<div class="module-conteneur">
-    <div class="couverture module-trigger">
+<!-- Modal caché suppression de compte-->
+<div class="module-conteneur-mdp">
+    <div class="couverture modulemdp-trigger">
     </div>
-        <div class="module">
-            <button class="close-modal module-trigger">X</button>
-            <form id="formConnexion" method="POST" action="index.php?action=inscription">
-                <h3 class="formH3"> Modifier le mot de passe </h3>
-
+        <div class="module-mdp">
+            <button class="close-modal modulemdp-trigger">X</button>
+            <form id="formConnexion" method="POST" action="">
+                <h3 class="formH3"> Confirmer la suppression de votre compte, cette action est définitive </h3>
                 <div>
-                    <input class="inputConnexion" type="text" placeholder="Mot de passe" name="passe">
+                    <button class="button deconnexion" type="submit" value="true" name="deconnexion">Oui</button>
                 </div>
-
-                <div>
-                    <input class="button" type="submit" value='Modifier'>
+                <div>  
+                    <button class="button deconnexion" type="submit" value="false" name="deconnexion">Non</button>
                 </div>
             </form>
         </div>
