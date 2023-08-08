@@ -9,6 +9,7 @@ function toggleModal() {
     modalContainer.classList.toggle("active")
 };
 
+// modal pour modifier le mot de passe
 const moduleConteneur = document.querySelector(".module-conteneur");
 const moduleTriggers = document.querySelectorAll(".module-trigger");
 // ajoute un evenement click a tous les boutons et fait la fonction toggleModal
