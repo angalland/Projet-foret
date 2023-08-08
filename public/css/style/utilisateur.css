@@ -28,10 +28,11 @@
 }
 
 #formUserUpdate {
-    display: flex;
+    display: none;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     gap: 10px
 }
 

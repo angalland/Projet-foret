@@ -13,7 +13,8 @@ ob_start();?>
     <?php 
     }?>
 
-    <div id="iconsUser">&#9881</div>
+    <a href="" title="Paramètre"><div id="iconsUser">&#9881</div></a>
+
 </article>
 
 
