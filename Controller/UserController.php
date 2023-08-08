@@ -178,47 +178,14 @@ class UserController {
             $requete->bindparam("id", $id_utilisateur);
             $requete->execute();
 
-            $requeteForet = $pdo->prepare("
-                SELECT *
-                FROM commentaire_foret
-                INNER JOIN foret
-                    ON commentaire_foret.id_foret = foret.id_foret
-                WHERE id_utilisateur = :id
-            ");
-            $requeteForet->bindparam("id", $id_utilisateur);
-            $requeteForet->execute();
+           require "view/utilisateur/user.php";
+        }
+    }
 
-            $requeteArbre = $pdo->prepare("
-                SELECT *
-                FROM commentaire_arbre
-                INNER JOIN etre_vivant
-                    ON commentaire_arbre.id_etre_vivant = etre_vivant.id_etre_vivant
-                WHERE id_utilisateur = :id
-            ");
-            $requeteArbre->bindparam("id", $id_utilisateur);
-            $requeteArbre->execute();
-
-            $requetePlante = $pdo->prepare("
-                SELECT *
-                FROM commentaire_plante
-                INNER JOIN etre_vivant
-                    ON commentaire_plante.id_etre_vivant = etre_vivant.id_etre_vivant
-                WHERE id_utilisateur = :id
-            ");
-            $requetePlante->bindparam("id", $id_utilisateur);
-            $requetePlante->execute();
-
-            $requeteAnimaux = $pdo->prepare("
-                SELECT *
-                FROM commentaire_animaux
-                INNER JOIN etre_vivant
-                    ON commentaire_animaux.id_etre_vivant = etre_vivant.id_etre_vivant
-                WHERE id_utilisateur = :id
-            ");
-            $requeteAnimaux->bindparam("id", $id_utilisateur);
-            $requeteAnimaux->execute();
-
-            require "view/utilisateur/user.php";
+    // modifier email, mot de passe et supprimer compte
+    public function UpdateDeleteUser(){
+        if (isset($_POST['updateEmail'])){
+            
         }
     }
 }

@@ -18,9 +18,9 @@ ob_start();?>
 </article>
 
 
-<form action="" method="POST" id="formUserUpdate">
+<form action="index.php?action=UpdateDeleteUser" method="POST" id="formUserUpdate">
 
-    <input class="buttonUpdateUser" type="submit" name="" value='Modifier adresse email'>
+    <input class="buttonUpdateUser" type="submit" name="updateEmail" value='Modifier adresse email'>
 
     <input class="buttonUpdateUser" type="submit" name="" value='Modifier mot de passe'>
 

@@ -108,7 +108,7 @@ if(isset($_GET['action'])){
         case 'supprimerCommentaireAnimaux' : $ctrlAnimal->supprimerCommentaireAnimaux($id, $id_etre_vivant);
         break;
 
-        // controller connexion
+        // controller user
         case 'connexion' : $ctrlUser->connexion();
         break;
 
@@ -125,6 +125,9 @@ if(isset($_GET['action'])){
         break;
 
         case 'utilisateur' : $ctrlUser->user();
+        break;
+
+        case 'UpdateDeleteUser' : $ctrlUser->UpdateDeleteUser();
         break;
 
         // controller Admin foret
