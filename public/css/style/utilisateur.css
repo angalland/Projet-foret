@@ -27,11 +27,11 @@
     text-align: center;
 }
 
-#formUserUpdate {
+#UserUpdate {
     display: none;
 }
 
-#formUserUpdate.active {
+#UserUpdate.active {
     display: flex;
     flex-direction: column;
     align-items: center;

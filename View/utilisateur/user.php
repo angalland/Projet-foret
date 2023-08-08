@@ -18,15 +18,34 @@ ob_start();?>
 </article>
 
 
-<form action="index.php?action=UpdateDeleteUser" method="POST" id="formUserUpdate">
+<!-- <form action="index.php?action=UpdateDeleteUser" method="POST" id="formUserUpdate"> -->
+<div id="UserUpdate">
+    <button class="btn-open modal-trigger buttonUpdateUser">Modifier adresse email</button>
 
-    <input class="buttonUpdateUser" type="submit" name="updateEmail" value='Modifier adresse email'>
+    <button class="btn-open modal-trigger buttonUpdateUser">Modifier mot de passe</button>
 
-    <input class="buttonUpdateUser" type="submit" name="" value='Modifier mot de passe'>
+    <button class="btn-open modal-trigger  buttonUpdateUser">Supprimer compte</button>
+</div>
 
-    <input class="buttonUpdateUser" type="submit" name="" value='Supprimer compte'>
+<!-- Modal caché -->
+<div class="modal-container">
+    <div class="overlay modal-trigger">
+    </div>
+        <div class="modal">
+            <button class="close-modal modal-trigger">X</button>
+            <form id="formConnexion" method="POST" action="index.php?action=inscription">
+                <h3 class="formH3"> Modifier l'email </h3>
 
-</form>
+                <div>
+                    <input class="inputConnexion" type="email" placeholder="email" name="email">
+                </div>
+
+                <div>
+                    <input class="button" type="submit" value='Modifier'>
+                </div>
+            </form>
+        </div>
+</div>
 
 <?php
 $titre = 'Mon compte';

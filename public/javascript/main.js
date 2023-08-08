@@ -45,10 +45,10 @@ main.addEventListener("click", () => {
 });
 
 // page user fonction click sur icon parametre
-const form = document.getElementById("formUserUpdate");
+const userUpdate = document.getElementById("UserUpdate");
 const icon = document.getElementById("iconsUser");
 const parametre = document.getElementById("parametre");
 
 icon.addEventListener("click", () => {
-    form.classList.toggle("active");
+    userUpdate.classList.toggle("active");
 });
