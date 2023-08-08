@@ -20,6 +20,8 @@ ob_start();?>
 
     <input class="buttonUpdateUser" type="submit" name="" value='Modifier mot de passe'>
 
+    <input class="buttonUpdateUser" type="submit" name="" value='Supprimer compte'>
+
 </form>
 
 <?php
