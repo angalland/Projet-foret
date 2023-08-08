@@ -14,14 +14,12 @@ ob_start();?>
     }?>
 
 </article>
-<form action="" method="POST" id="formAddForet">
-    <div class="addButtonForet ">
-        <input class="button" type="submit" name="" value='Modifier adresse email'>
-    </div>
+<form action="" method="POST" id="formUserUpdate">
 
-    <div class="addButtonForet ">
-        <input class="button" type="submit" name="" value='Modifier mot de passe'>
-    </div>
+    <input class="buttonUpdateUser" type="submit" name="" value='Modifier adresse email'>
+
+    <input class="buttonUpdateUser" type="submit" name="" value='Modifier mot de passe'>
+
 </form>
 
 <?php
