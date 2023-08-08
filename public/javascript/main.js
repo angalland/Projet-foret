@@ -29,6 +29,16 @@ function toggleModuleMdp() {
     moduleConteneurMdp.classList.toggle("active")
 };
 
+// modal pour modifier pseudo
+const moduleConteneurPseudo = document.querySelector(".module-conteneur-pseudo");
+const moduleTriggersPseudo = document.querySelectorAll(".modulepseudo-trigger");
+// ajoute un evenement click a tous les boutons et fait la fonction toggleModal
+moduleTriggersPseudo.forEach(trigger => trigger.addEventListener("click", toggleModulePseudo));
+// ajoute et remove active a chaque click sur les boutons
+function toggleModulePseudo() {
+    moduleConteneurPseudo.classList.toggle("active")
+};
+
 // modiffier un commentaire
 const modalCommentaire = document.querySelectorAll(".formulaireModiffier");
 const modalButton = document.querySelectorAll(".modifier");

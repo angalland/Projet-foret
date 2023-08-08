@@ -20,11 +20,29 @@ ob_start();?>
 
 <!-- <form action="index.php?action=UpdateDeleteUser" method="POST" id="formUserUpdate"> -->
 <div id="UserUpdate">
+
+    <button class="btn-open modulepseudo-trigger buttonUpdateUser">Modifier pseudo</button>
+
     <button class="btn-open modal-trigger buttonUpdateUser">Modifier adresse email</button>
 
     <button class="btn-open module-trigger buttonUpdateUser">Modifier mot de passe</button>
 
     <button class="btn-open modulemdp-trigger  buttonUpdateUser">Supprimer compte</button>
+</div>
+
+<!-- Modal caché modifie pseudo-->
+<div class="module-conteneur-pseudo">
+    <div class="couverture modulepseudo-trigger">
+    </div>
+        <div class="module-pseudo">
+            <button class="close-modal modulepseudo-trigger">X</button>
+            <form id="formConnexion" method="POST" action="">
+                <h3 class="formH3"> Modifier pseudo </h3>
+                <div>
+                    <input class="inputConnexion" type="text" placeholder="Pseudo" name="passe">
+                </div>
+            </form>
+        </div>
 </div>
 
 <!-- Modal caché email-->
@@ -55,7 +73,6 @@ ob_start();?>
             <button class="close-modal module-trigger">X</button>
             <form id="formConnexion" method="POST" action="">
                 <h3 class="formH3"> Modifier le mot de passe </h3>
-
                 <div>
                     <input class="inputConnexion" type="text" placeholder="Mot de passe" name="passe">
                 </div>
