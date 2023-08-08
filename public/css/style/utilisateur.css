@@ -29,10 +29,13 @@
 
 #formUserUpdate {
     display: none;
-    /* display: flex;
+}
+
+#formUserUpdate.active {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    flex-wrap: wrap; */
+    flex-wrap: wrap;
     gap: 10px
 }
 

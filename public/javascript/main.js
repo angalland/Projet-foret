@@ -43,3 +43,12 @@ links.forEach((link) => {
 main.addEventListener("click", () => {
     nav.classList.remove("active");
 });
+
+// page user fonction click sur icon parametre
+const form = document.getElementById("formUserUpdate");
+const icon = document.getElementById("iconsUser");
+const parametre = document.getElementById("parametre");
+
+icon.addEventListener("click", () => {
+    form.classList.toggle("active");
+});
