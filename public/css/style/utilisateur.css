@@ -1,6 +1,7 @@
 #user {
     margin: 10px;
     width: 100%;
+    position: relative;
 }
 
 #user p {
@@ -32,4 +33,13 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px
- }
+}
+
+#iconsUser {
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top:0;
+    right:0;
+}

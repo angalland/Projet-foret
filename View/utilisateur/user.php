@@ -13,7 +13,10 @@ ob_start();?>
     <?php 
     }?>
 
+    <div id="iconsUser">&#9881</div>
 </article>
+
+
 <form action="" method="POST" id="formUserUpdate">
 
     <input class="buttonUpdateUser" type="submit" name="" value='Modifier adresse email'>
