@@ -376,11 +376,14 @@ class UserController {
                         $pdo = connect::seConnecter();
                         $requete = $pdo->prepare("
                             DELETE FROM utilisateur
-                            WHERE id_utilisateur = id
+                            WHERE id_utilisateur = :id
                         ");
                         $requete->bindparam("id", $id_utilisateur);
                         $requete->execute();
 
+                        // on supprime la session user 
+                        unset($_SESSION['user']);
+                        
                         $_SESSION['messageSucces'] = "Votre compte a bien été supprimer !"; 
                         header("Location:index.php?action=connexion");
                         die();
