@@ -211,8 +211,14 @@ class UserController {
                     header("Location:index.php?action=utilisateur");
                     die();
                 }
-
-                if ($pseudo != $pseudoUtilise){
+                var_dump(isset($pseudoUtilise));
+                var_dump(!empty($pseudoUtilise));
+                die();
+                if (isset($pseudoUtilise) && !empty($pseudoUtilise)){
+                    $_SESSION["messageAlert"] [] = "Ceux pseudo est déjà utilisé, veuillez-en-saisir un autre";
+                    header("Location:index.php?action=utilisateur");
+                    die(); 
+                } else {
                     try {
                         $pdo = Connect::seConnecter();
                         $requete = $pdo->prepare("
@@ -233,10 +239,6 @@ class UserController {
                         header("Location:index.php?action=utilisateur");
                         die();
                     }
-                } else {
-                    $_SESSION["messageAlert"] [] = "Ceux pseudo est déjà utilisé, veuillez-en-saisir un autre";
-                    header("Location:index.php?action=utilisateur");
-                    die(); 
                 }
             } else {
                 $_SESSION["messageAlert"] [] = "Tous les champs doivent être rempli !";
