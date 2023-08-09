@@ -194,8 +194,16 @@ class UserController {
                 try {
                 $pdo = Connect::seConnecter();
                 $requete = $pdo->prepare("
-                    
-                ")
+                    UPDATE utilisateur
+                        SET pseudo = :pseudo
+                    WHERE id_utilisateur = :id
+                ");
+                $requete->bindparam("pseudo", $pseudo);
+                $requete->bindparam("id", $id_utilisateur);
+                $requete->execute();
+
+                $_SESSION['messageSucces'] = "Votre pseudo a bien été modifié";
+                header("Location:index.php?action=utilisateur");
                 }
             }
         }
