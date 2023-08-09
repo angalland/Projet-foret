@@ -129,6 +129,9 @@ if(isset($_GET['action'])){
 
         case 'updatePseudo' : $ctrlUser->updatePseudo();
         break;
+        
+        case 'updateEmail' : $ctrlUser->updateEmail();
+        break;
 
         // controller Admin foret
         case'viewAddForet' : $ctrlAdminforet->viewAddForet();

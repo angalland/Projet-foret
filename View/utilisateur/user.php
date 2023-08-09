@@ -54,7 +54,7 @@ ob_start();?>
     </div>
         <div class="modal">
             <button class="close-modal modal-trigger">X</button>
-            <form id="formConnexion" method="POST" action="">
+            <form id="formConnexion" method="POST" action="index.php?action=updateEmail">
                 <h3 class="formH3"> Modifier l'email </h3>
 
                 <div>
@@ -62,7 +62,7 @@ ob_start();?>
                 </div>
 
                 <div>
-                    <input class="button" type="submit" value='Modifier'>
+                    <input class="button" type="submit" value='Modifier' name="updateEmail">
                 </div>
             </form>
         </div>

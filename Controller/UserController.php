@@ -248,4 +248,18 @@ class UserController {
             }
         }
     }
+
+    // modifier email
+    public function updateEmail(){
+        if (isset($_POST['updateEmail'])){
+
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            // filtre les données
+            $id_utilisateur = intval(htmlspecialchars($_SESSION['user']['id_utilisateur']));
+            $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+            
+        }
+    }
 }
