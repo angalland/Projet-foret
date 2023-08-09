@@ -309,4 +309,54 @@ class UserController {
             }
         }
     }
+
+    // modifier mot de passe
+    public function updatePassword(){
+        if (isset($_POST['updatePassword'])){
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            // filtre les données
+            $id_utilisateur = intval(htmlspecialchars($_SESSION['user']['id_utilisateur']));
+            $password = htmlspecialchars($_POST['password'], ENT_QUOTES);
+            $confirmPassword = htmlspecialchars($_POST['confirmPassword'], ENT_QUOTES);
+            
+            if (isset($id_utilisateur) && !empty($id_utilisateur) && isset($password) && !empty($password) && isset($confirmPassword) && !empty($confirmPassword)){
+                if ($password == $confirmPassword){
+                    // crypte le mot de passe pour qu'il n'apparaissent pas dans la bbd
+                    $passwordProtected = password_hash($password, PASSWORD_DEFAULT);
+
+                    try{
+                        $pdo = connect::seConnecter();
+                        $requete = $pdo->prepare("
+                            UPDATE utilisateur
+                                SET password = :password
+                            WHERE id_utilisateur = :id
+                        ");
+                        $requete->bindparam("password", $passwordProtected);
+                        $requete->bindparam("id", $id_utilisateur);
+                        $requete->execute();
+
+                        $_SESSION['messageSucces'] = "Votre mot de passe  a bien été modifié";
+                        header("Location:index.php?action=utilisateur");
+                        die();
+                    } catch (PDOExecption $ex){
+                        $_SESSION["messageAlert"] [] = "Erreure 500: Serveur";
+                        header("Location:index.php?action=utilisateur");
+                        die();                        
+                    }
+                } else {
+                    // message d'erreure si les mots de passes ne sont pas identiques
+                    $_SESSION["messageAlert"] [] = "Vos deux mots de passe ne sont pas identiques !";
+                    header("Location:index.php?action=utilisateur");
+                    die();                     
+                }
+            } else {
+                // envoie un message d'erreure si le champ n'est pas rempli
+                $_SESSION["messageAlert"] [] = "Tous les champs doivent être rempli !";
+                header("Location:index.php?action=utilisateur");
+                die();                
+            }
+        }       
+    }
 }

@@ -74,17 +74,17 @@ ob_start();?>
     </div>
         <div class="module">
             <button class="close-modal module-trigger">X</button>
-            <form id="formConnexion" method="POST" action="">
+            <form id="formConnexion" method="POST" action="index.php?action=updatePassword">
                 <h3 class="formH3"> Modifier le mot de passe </h3>
                 <div>
-                    <input class="inputConnexion" type="text" placeholder="Mot de passe" name="passe">
+                    <input class="inputConnexion" type="text" placeholder="Mot de passe" name="password">
                 </div>
                 <div>
                     <input class="inputConnexion" type="password" placeholder="Confirmer mot de passe" name="confirmPassword">
                 </div>
 
                 <div>
-                    <input class="button" type="submit" value='Modifier'>
+                    <input class="button" type="submit" value='Modifier' name="updatePassword">
                 </div>
             </form>
         </div>
