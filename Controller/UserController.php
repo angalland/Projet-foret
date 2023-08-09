@@ -362,15 +362,32 @@ class UserController {
 
     // supprimer un compte
     public function deleteCompte(){
-        if (isset($_POST['deconnexion'])){
+        if (isset($_POST['suppression'])){
             // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
             $_SESSION["messageAlert"] = [];
 
             // filtre les données
             $id_utilisateur = intval(htmlspecialchars($_SESSION['user']['id_utilisateur']));
             $suppression = htmlspecialchars($_POST['suppression'], ENT_QUOTES);
-            var_dump($suppression);
-            die();
+
+            if (isset($id_utilisateur) && !empty($id_utilisateur) && isset($suppression) && !empty($suppression)){
+                if ($suppression == "true"){
+                    $pdo = connect::seConnecter();
+                    $requete = $pdo->prepare("
+                        DELETE FROM utilisateur
+                        WHERE id_utilisateur = id
+                    ");
+                    $requete->bindparam("id", $id_utilisateur);
+                    $requete->execute();
+
+                    $_SESSION['messageSucces'] = "Votre compte a bien été supprimer !"; 
+                    header("Location:index.php?action=connexion");
+                    die();             
+                } elseif ($suppression == "false"){
+                    header("Location:index.php?action=utilisateur");
+                    die();                 
+                }
+            }
         }
     }
 }
