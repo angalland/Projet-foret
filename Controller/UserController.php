@@ -196,24 +196,47 @@ class UserController {
             // verifie que les données soit présente
             if (isset($id_utilisateur) && !empty($id_utilisateur) && isset($pseudo) && !empty($pseudo)){
                 try {
-                $pdo = Connect::seConnecter();
-                $requete = $pdo->prepare("
-                    UPDATE utilisateur
-                        SET pseudo = :pseudo
-                    WHERE id_utilisateur = :id
-                ");
-                $requete->bindparam("pseudo", $pseudo);
-                $requete->bindparam("id", $id_utilisateur);
-                $requete->execute();
-
-                $_SESSION['messageSucces'] = "Votre pseudo a bien été modifié";
-                header("Location:index.php?action=utilisateur");
-                die();
+                    $pdo = Connect::seConnecter();
+                    $requetePseudo = $pdo->prepare("
+                        SELECT pseudo
+                        FROM utilisateur
+                        WHERE pseudo = :pseudo
+                    ");
+                    $requetePseudo->bindparam("pseudo", $pseudo);
+                    $requetePseudo->execute();
+                    $pseudoUtilise = $requetePseudo->fetchAll();
 
                 } catch (\PDOException $ex) {
                     $_SESSION["messageAlert"] [] = "donnée incorecte !";
                     header("Location:index.php?action=utilisateur");
                     die();
+                }
+
+                if ($pseudo != $pseudoUtilise){
+                    try {
+                        $pdo = Connect::seConnecter();
+                        $requete = $pdo->prepare("
+                            UPDATE utilisateur
+                                SET pseudo = :pseudo
+                            WHERE id_utilisateur = :id
+                        ");
+                        $requete->bindparam("pseudo", $pseudo);
+                        $requete->bindparam("id", $id_utilisateur);
+                        $requete->execute();
+
+                        $_SESSION['messageSucces'] = "Votre pseudo a bien été modifié";
+                        header("Location:index.php?action=utilisateur");
+                        die();
+
+                    } catch (\PDOException $ex) {
+                        $_SESSION["messageAlert"] [] = "donnée incorecte !";
+                        header("Location:index.php?action=utilisateur");
+                        die();
+                    }
+                } else {
+                    $_SESSION["messageAlert"] [] = "Ceux pseudo est déjà utilisé, veuillez-en-saisir un autre";
+                    header("Location:index.php?action=utilisateur");
+                    die(); 
                 }
             } else {
                 $_SESSION["messageAlert"] [] = "Tous les champs doivent être rempli !";
