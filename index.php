@@ -136,6 +136,9 @@ if(isset($_GET['action'])){
         case 'updatePassword' : $ctrlUser->updatePassword();
         break;
 
+        case 'deleteCompte' : $ctrlUser->deleteCompte();
+        break;
+
         // controller Admin foret
         case'viewAddForet' : $ctrlAdminforet->viewAddForet();
         break;

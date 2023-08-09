@@ -359,4 +359,18 @@ class UserController {
             }
         }       
     }
+
+    // supprimer un compte
+    public function deleteCompte(){
+        if (isset($_POST['deconnexion'])){
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            // filtre les données
+            $id_utilisateur = intval(htmlspecialchars($_SESSION['user']['id_utilisateur']));
+            $suppression = htmlspecialchars($_POST['suppression'], ENT_QUOTES);
+            var_dump($suppression);
+            die();
+        }
+    }
 }

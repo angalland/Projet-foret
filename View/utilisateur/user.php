@@ -96,13 +96,13 @@ ob_start();?>
     </div>
         <div class="module-mdp">
             <button class="close-modal modulemdp-trigger">X</button>
-            <form id="formConnexion" method="POST" action="">
+            <form id="formConnexion" method="POST" action="index.php?action=deleteCompte">
                 <h3 class="formH3"> Confirmer la suppression de votre compte, cette action est définitive </h3>
                 <div>
-                    <button class="button deconnexion" type="submit" value="true" name="deconnexion">Oui</button>
+                    <button class="button deconnexion" type="submit" value="true" name="suppression">Oui</button>
                 </div>
                 <div>  
-                    <button class="button deconnexion" type="submit" value="false" name="deconnexion">Non</button>
+                    <button class="button deconnexion" type="submit" value="false" name="suppression">Non</button>
                 </div>
             </form>
         </div>
