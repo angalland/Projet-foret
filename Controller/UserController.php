@@ -195,6 +195,7 @@ class UserController {
 
             // verifie que les données soit présente
             if (isset($id_utilisateur) && !empty($id_utilisateur) && isset($pseudo) && !empty($pseudo)){
+                // requete sql pour determiner si le pseudo est déjà utiliser
                 try {
                     $pdo = Connect::seConnecter();
                     $requetePseudo = $pdo->prepare("
@@ -217,6 +218,7 @@ class UserController {
                     header("Location:index.php?action=utilisateur");
                     die(); 
                 } else {
+                    // sinon fait la requete de modification du pseudo
                     try {
                         $pdo = Connect::seConnecter();
                         $requete = $pdo->prepare("
@@ -239,6 +241,7 @@ class UserController {
                     }
                 }
             } else {
+                // envoie un message d'erreure si le champ n'est pas rempli
                 $_SESSION["messageAlert"] [] = "Tous les champs doivent être rempli !";
                 header("Location:index.php?action=utilisateur");
                 die();
