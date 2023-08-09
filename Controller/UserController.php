@@ -372,17 +372,23 @@ class UserController {
 
             if (isset($id_utilisateur) && !empty($id_utilisateur) && isset($suppression) && !empty($suppression)){
                 if ($suppression == "true"){
-                    $pdo = connect::seConnecter();
-                    $requete = $pdo->prepare("
-                        DELETE FROM utilisateur
-                        WHERE id_utilisateur = id
-                    ");
-                    $requete->bindparam("id", $id_utilisateur);
-                    $requete->execute();
+                    try {
+                        $pdo = connect::seConnecter();
+                        $requete = $pdo->prepare("
+                            DELETE FROM utilisateur
+                            WHERE id_utilisateur = id
+                        ");
+                        $requete->bindparam("id", $id_utilisateur);
+                        $requete->execute();
 
-                    $_SESSION['messageSucces'] = "Votre compte a bien été supprimer !"; 
-                    header("Location:index.php?action=connexion");
-                    die();             
+                        $_SESSION['messageSucces'] = "Votre compte a bien été supprimer !"; 
+                        header("Location:index.php?action=connexion");
+                        die();
+                    } catch (PDOExecption $ex){
+                        $_SESSION["messageAlert"] [] = "Erreure 500: Serveur";
+                        header("Location:index.php?action=utilisateur");
+                        die();                         
+                    }             
                 } elseif ($suppression == "false"){
                     header("Location:index.php?action=utilisateur");
                     die();                 
