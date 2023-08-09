@@ -36,10 +36,10 @@ ob_start();?>
     </div>
         <div class="module-pseudo">
             <button class="close-modal modulepseudo-trigger">X</button>
-            <form id="formConnexion" method="POST" action="">
+            <form id="formConnexion" method="POST" action="index.php?action=updatePseudo">
                 <h3 class="formH3"> Modifier pseudo </h3>
                 <div>
-                    <input class="inputConnexion" type="text" placeholder="Pseudo" name="passe">
+                    <input class="inputConnexion" type="text" placeholder="Pseudo" name="pseudo">
                 </div>
             </form>
         </div>

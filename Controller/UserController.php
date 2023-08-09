@@ -182,10 +182,8 @@ class UserController {
         }
     }
 
-    // modifier email, mot de passe et supprimer compte
-    public function UpdateDeleteUser(){
-        if (isset($_POST['updateEmail'])){
-            
-        }
+    // modifier le pseudo
+    public function updatePseudo(){
+        
     }
 }
