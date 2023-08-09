@@ -276,6 +276,36 @@ class UserController {
                     header("Location:index.php?action=utilisateur");
                     die();
                 }
+
+                if (isset($emailUtilise) && !empty($emailUtilise)){
+                    $_SESSION["messageAlert"] [] = "Cette email est déjà utilisé, veuillez-en-saisir un autre";
+                    header("Location:index.php?action=utilisateur");
+                    die();                    
+                } else {
+                    try {
+                        $requete = $pdo->prepare("
+                            UPDATE utilisateur
+                                SET email = :email
+                            WHERE id_utilisateur = :id
+                        ");
+                        $requete->bindparam("email", $email);
+                        $requete->bindparam("id", $id_utilisateur);
+                        $requete->execute();
+
+                        $_SESSION['messageSucces'] = "Votre email a bien été modifié";
+                        header("Location:index.php?action=utilisateur");
+                        die();
+                    } catch (PDOExecption $ex){
+                        $_SESSION["messageAlert"] [] = "Erreure 500: Serveur";
+                        header("Location:index.php?action=utilisateur");
+                        die();                       
+                    }
+                }
+            } else {
+                // envoie un message d'erreure si le champ n'est pas rempli
+                $_SESSION["messageAlert"] [] = "Tous les champs doivent être rempli !";
+                header("Location:index.php?action=utilisateur");
+                die();
             }
         }
     }
