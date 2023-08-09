@@ -184,6 +184,20 @@ class UserController {
 
     // modifier le pseudo
     public function updatePseudo(){
-        
+        if (isset($_POST['updatePseudo'])) {
+            // filtre les données
+            $id_utilisateur = intval(htmlspecialchars($_SESSION['user']['id_utilisateur']));
+            $pseudo = htmlspecialchars($_POST['pseudo']);
+
+            // verifie que les données soit présente
+            if (isset($id_utilisateur) && !empty($id_utilisateur) && isset($pseudo) && !empty($pseudo)){
+                try {
+                $pdo = Connect::seConnecter();
+                $requete = $pdo->prepare("
+                    
+                ")
+                }
+            }
+        }
     }
 }

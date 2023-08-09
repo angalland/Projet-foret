@@ -41,6 +41,9 @@ ob_start();?>
                 <div>
                     <input class="inputConnexion" type="text" placeholder="Pseudo" name="pseudo">
                 </div>
+                <div>
+                    <input class="button" type="submit" value='Modifier' name="updatePseudo">
+                </div>
             </form>
         </div>
 </div>
