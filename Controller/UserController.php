@@ -185,6 +185,10 @@ class UserController {
     // modifier le pseudo
     public function updatePseudo(){
         if (isset($_POST['updatePseudo'])) {
+
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
             // filtre les données
             $id_utilisateur = intval(htmlspecialchars($_SESSION['user']['id_utilisateur']));
             $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -204,7 +208,17 @@ class UserController {
 
                 $_SESSION['messageSucces'] = "Votre pseudo a bien été modifié";
                 header("Location:index.php?action=utilisateur");
+                die();
+
+                } catch (\PDOException $ex) {
+                    $_SESSION["messageAlert"] [] = "donnée incorecte !";
+                    header("Location:index.php?action=utilisateur");
+                    die();
                 }
+            } else {
+                $_SESSION["messageAlert"] [] = "Tous les champs doivent être rempli !";
+                header("Location:index.php?action=utilisateur");
+                die();
             }
         }
     }
