@@ -260,6 +260,23 @@ class UserController {
             $id_utilisateur = intval(htmlspecialchars($_SESSION['user']['id_utilisateur']));
             $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
             
+            if (isset($id_utilisateur) && !empty($id_utilisateur) && isset($email) && !empty($email)){
+                try {
+                    $pdo = connect::seConnecter();
+                    $requeteEmail = $pdo->prepare("
+                        SELECT email
+                        FROM utilisateur
+                        WHERE email = :email
+                    ");
+                    $requeteEmail->bindparam("email", $email);
+                    $requeteEmail->execute();
+                    $emailUtilise = $requeteEmail->fetchAll();
+                } catch (PDOExecption $ex) {
+                    $_SESSION["messageAlert"] [] = "Erreure 500: Serveur";
+                    header("Location:index.php?action=utilisateur");
+                    die();
+                }
+            }
         }
     }
 }
