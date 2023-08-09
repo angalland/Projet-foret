@@ -211,9 +211,7 @@ class UserController {
                     header("Location:index.php?action=utilisateur");
                     die();
                 }
-                var_dump(isset($pseudoUtilise));
-                var_dump(!empty($pseudoUtilise));
-                die();
+
                 if (isset($pseudoUtilise) && !empty($pseudoUtilise)){
                     $_SESSION["messageAlert"] [] = "Ceux pseudo est déjà utilisé, veuillez-en-saisir un autre";
                     header("Location:index.php?action=utilisateur");
