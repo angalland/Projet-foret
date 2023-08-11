@@ -5,18 +5,18 @@ ob_start();
 
 <div id="login">
     <?php
-    // affiche un message de succes si il y en a un 
-    if (isset($_SESSION['messageSucces'])) {?>
-        <p><?= $_SESSION['messageSucces'];?></p><?php
-        unset($_SESSION['messageSucces']);
-    };
-    // affiche un message d'alerte si il y en a un
-    if (isset($_SESSION['messageAlert'])) {
-        foreach ($_SESSION['messageAlert'] as $alert){?>
-            <p><?= $alert ?></p><?php
-            unset($_SESSION['messageAlert']);
-        }
-    };?>
+// affiche un message succes si il y en a un 
+if (isset($_SESSION['messageSucces'])) {?>
+    <p class="uk-alert-success"><?= $_SESSION['messageSucces'];?></p><?php
+    unset($_SESSION['messageSucces']);
+};
+// affiche un message alert si il y en a un 
+if (isset($_SESSION['messageAlert'])) {
+    foreach ($_SESSION['messageAlert'] as $alert){?>
+        <div class='alert'><?= $alert ?></div><?php
+        unset($_SESSION['messageAlert']);
+    }
+};?>
 <!-- Modal caché d'inscription -->
 <div class="modal-container">
     <div class="overlay modal-trigger">
