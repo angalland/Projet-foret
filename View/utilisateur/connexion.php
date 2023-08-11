@@ -50,7 +50,7 @@ ob_start();
     </div>
         <div class="module-mdpOublier">
             <button class="close-modal moduleMdpOublier-trigger">X</button>
-            <form id="formConnexion" method="POST" action="index.php?action=inscription">
+            <form id="formConnexion" method="POST" action="index.php?action=viewMdpOublier">
                 <h3 class="formH3">Veuillez-saisir votre email et votre pseudo </h3>
                 <div>
                     <input class="inputConnexion" type="text" placeholder="Pseudo" name="pseudo">
@@ -59,7 +59,7 @@ ob_start();
                     <input class="inputConnexion" type="email" placeholder="email" name="email">
                 </div>
                 <div>
-                    <input class="button" type="submit" value='inscription'>
+                    <input class="button" type="submit" value='Envoyer'>
                 </div>
             </form>
         </div>

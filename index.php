@@ -139,6 +139,9 @@ if(isset($_GET['action'])){
         case 'deleteCompte' : $ctrlUser->deleteCompte();
         break;
 
+        case 'viewMdpOublier' : $ctrlUser->viewMdpOublier();
+        break;
+
         // controller Admin foret
         case'viewAddForet' : $ctrlAdminforet->viewAddForet();
         break;

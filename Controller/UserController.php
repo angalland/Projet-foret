@@ -399,4 +399,9 @@ class UserController {
             }
         }
     }
+
+    // affiche la page vue lorsqu'on a oublier son mot de passe
+    public function viewMdpOublier(){
+        
+    }
 }
