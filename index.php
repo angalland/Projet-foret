@@ -142,6 +142,8 @@ if(isset($_GET['action'])){
         case 'viewMdpOublier' : $ctrlUser->viewMdpOublier();
         break;
 
+        case 'forgetPassword' : $ctrlUser->forgetPassword($id);
+
         // controller Admin foret
         case'viewAddForet' : $ctrlAdminforet->viewAddForet();
         break;

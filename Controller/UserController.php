@@ -427,7 +427,7 @@ class UserController {
                     $result = $requete->fetch();
 
                     if (isset($result) && !empty($result)){
-                        $_SESSION['user'] = $result;
+                        $_SESSION['mdp'] = $result;
                         require "view/utilisateur/motDePasseOublier.php";
                     } else {
                         $_SESSION["messageAlert"] [] = "Le pseudo ou l'email n'existe pas";
@@ -444,6 +444,21 @@ class UserController {
                 header("Location:index.php?action=connexion");
                 die();   
             }
+        }
+    }
+
+    // modifier mot de passe action mot de passe oublier
+    public function forgetPassword($id) {
+
+        if (isset($_POST['mdpOublier'])){
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            // filtre les données
+            $id_utilisateur = intval(filter_var($id));            
+            $password = htmlspecialchars($_POST['password'], ENT_QUOTES);
+            $confirmPassword = htmlspecialchars($_POST['confirmPassword'], ENT_QUOTES);
+
         }
     }
 }
