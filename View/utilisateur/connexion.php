@@ -45,24 +45,18 @@ ob_start();
 </div>
 
 <!-- modal caché mot de passe oublier -->
-<div class="modal-container">
-    <div class="overlay modal-trigger">
+<div class="module-conteneur-mdpOublier">
+    <div class="couverture moduleMdpOublier-trigger">
     </div>
-        <div class="modal">
-            <button class="close-modal modal-trigger">X</button>
+        <div class="module-mdpOublier">
+            <button class="close-modal moduleMdpOublier-trigger">X</button>
             <form id="formConnexion" method="POST" action="index.php?action=inscription">
-                <h3 class="formH3"> Inscription </h3>
+                <h3 class="formH3">Veuillez-saisir votre email et votre pseudo </h3>
                 <div>
                     <input class="inputConnexion" type="text" placeholder="Pseudo" name="pseudo">
                 </div>
                 <div>
                     <input class="inputConnexion" type="email" placeholder="email" name="email">
-                </div>
-                <div>
-                    <input class="inputConnexion" type="password" placeholder="Mot de passe" name="password">
-                </div>
-                <div>
-                    <input class="inputConnexion" type="password" placeholder="Confirmer mot de passe" name="confirmPassword">
                 </div>
                 <div>
                     <input class="button" type="submit" value='inscription'>
@@ -88,7 +82,7 @@ ob_start();
 </form>
 
 <button class="btn-open modal-trigger button">S'inscrire</button>
-<button class="btn-open modal-trigger button">Mot de passe oublier ?</button>
+<button class="btn-open moduleMdpOublier-trigger button">Mot de passe oublier ?</button>
 </div>
 
 <?php

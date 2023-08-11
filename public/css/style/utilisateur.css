@@ -180,3 +180,44 @@
     transition: opacity 0.4s 0.2s ease-out,
     transform 0.4s 0.2s ease-out;
 }
+
+/* parametre mot de passe oublier */
+.module-conteneur-mdpOublier {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    transition: visibility 0.4s;
+}
+
+.module-conteneur-mdpOublier.active {
+    visibility: visible;
+}
+
+.module-conteneur-mdpOublier.active .couverture{
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+
+.module-mdpOublier {
+    opacity: 0;
+    width: 95%;
+    max-width: 500px;
+    background-color: #28634F;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 50px));
+    z-index: 3;
+    transition: opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+
+.module-conteneur-mdpOublier.active .module-mdpOublier {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}

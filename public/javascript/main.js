@@ -39,6 +39,16 @@ function toggleModulePseudo() {
     moduleConteneurPseudo.classList.toggle("active")
 };
 
+// modal pour mot de passe oublier
+const moduleConteneurMdpOublier = document.querySelector(".module-conteneur-mdpOublier");
+const moduleTriggersMdpOublier = document.querySelectorAll(".moduleMdpOublier-trigger");
+// ajoute un evenement click a tous les boutons et fait la fonction toggleModal
+moduleTriggersMdpOublier.forEach(trigger => trigger.addEventListener("click", toggleModuleMdpOublier));
+// ajoute et remove active a chaque click sur les boutons
+function toggleModuleMdpOublier() {
+    moduleConteneurMdpOublier.classList.toggle("active")
+};
+
 // modiffier un commentaire
 const modalCommentaire = document.querySelectorAll(".formulaireModiffier");
 const modalButton = document.querySelectorAll(".modifier");
