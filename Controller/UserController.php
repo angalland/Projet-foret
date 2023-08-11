@@ -435,12 +435,12 @@ class UserController {
                     }
                 }catch (PDOExecption $ex){
                     $_SESSION["messageAlert"] [] = "Erreure 500: Serveur";
-                    header("Location:index.php?action=utilisateur");
+                    header("Location:index.php?action=connexion");
                     die();                     
                 }
             } else {
                 $_SESSION["messageAlert"] [] = "tous les champs doivent être rempli !";
-                header("Location:index.php?action=utilisateur");
+                header("Location:index.php?action=connexion");
                 die();   
             }
         }
