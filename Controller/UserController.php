@@ -402,6 +402,47 @@ class UserController {
 
     // affiche la page vue lorsqu'on a oublier son mot de passe
     public function viewMdpOublier(){
-        
+        if (isset($_POST['mdpOublier'])){
+
+            // créer un tableau de $_SESSION["errors"] qui servira a traiter tous les erreures
+            $_SESSION["messageAlert"] = [];
+
+            // filtre les données
+            $pseudo = htmlspecialchars($_POST['pseudo'], ENT_QUOTES);
+            $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+
+            // verifie que les données sont vrai
+            if (isset($pseudo) && !empty($pseudo) && isset($email) && !empty($email)){
+                try{
+                    $pdo = connect::seConnecter();
+                    $requete = $pdo->prepare("
+                        SELECT *
+                        FROM utilisateur
+                        WHERE pseudo = :pseudo
+                        AND email = :email
+                    ");
+                    $requete->bindparam("pseudo", $pseudo);
+                    $requete->bindparam("email", $email);
+                    $requete->execute();
+                    $result = $requete->fetchAll();
+
+                    if (isset($result) && !empty($result)){
+                        require "view/utilisateur/motDePasseOublier.php";
+                    } else {
+                        $_SESSION["messageAlert"] [] = "Le pseudo ou l'email n'existe pas";
+                        header("Location:index.php?action=connexion");
+                        die();                         
+                    }
+                }catch (PDOExecption $ex){
+                    $_SESSION["messageAlert"] [] = "Erreure 500: Serveur";
+                    header("Location:index.php?action=utilisateur");
+                    die();                     
+                }
+            } else {
+                $_SESSION["messageAlert"] [] = "tous les champs doivent être rempli !";
+                header("Location:index.php?action=utilisateur");
+                die();   
+            }
+        }
     }
 }

@@ -59,7 +59,7 @@ ob_start();
                     <input class="inputConnexion" type="email" placeholder="email" name="email">
                 </div>
                 <div>
-                    <input class="button" type="submit" value='Envoyer'>
+                    <input class="button" type="submit" value='Envoyer' name='mdpOublier'>
                 </div>
             </form>
         </div>
