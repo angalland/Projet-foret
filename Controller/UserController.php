@@ -424,9 +424,10 @@ class UserController {
                     $requete->bindparam("pseudo", $pseudo);
                     $requete->bindparam("email", $email);
                     $requete->execute();
-                    $result = $requete->fetchAll();
+                    $result = $requete->fetch();
 
                     if (isset($result) && !empty($result)){
+                        $_SESSION['user'] = $result;
                         require "view/utilisateur/motDePasseOublier.php";
                     } else {
                         $_SESSION["messageAlert"] [] = "Le pseudo ou l'email n'existe pas";

@@ -1,6 +1,7 @@
 <?php
-ob_start();?>
-<form id="formConnexion" method="POST" action="index.php?action=updatePassword">
+ob_start();
+?>
+<form id="formConnexion" method="POST" action="index.php?action=forgetPassword&id=<?=$_SESSION['user']['id_utilisateur']?>">
     <h3 class="formH3"> Modifier le mot de passe </h3>
     <div>
         <input class="inputConnexion" type="password" placeholder="Mot de passe" name="password">
