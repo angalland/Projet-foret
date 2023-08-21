@@ -11,7 +11,7 @@ ob_start();?>
         ?>
     </article>
 
-    <!-- <!-- carte randonnee -->
+    <!-- carte randonnee -->
     <h2 id="h2detailForet">La randonnée incontournable</h2>
         <?php
         // boucle pour lire la table randonnee
@@ -23,8 +23,6 @@ ob_start();?>
 
                 // initialisation de la carte leaflet et du zoom
                 var map = L.map('<?=$randonnee['nom_randonnee']?>').setView([
-                    <?php
-                    // foreach ($requetePointDepart as $depart){?>
                         <?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>
                 ], 14);
 
