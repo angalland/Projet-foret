@@ -5,13 +5,16 @@ foreach ($res as $randonnee){?>
     <div class="leafletRandonne">
         <div id="<?=$randonnee['id_randonnee']?>" style="width:400px;height:400px;margin:30px">
     </div>
-<?php
-}?>
+
     <script>
-<?php
-foreach ($requetePointDepart as $randonnee){?>
+
     // initialisation de la carte leaflet et du zoom
-    var map = L.map('<?=$randonnee['id_randonnee']?>').setView([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>], 14);
+    var map = L.map('<?=$randonnee['id_randonnee']?>').setView([
+        <?php
+        foreach ($requetePointDepart as $randonnee){?>
+            <?=$randonnee['longitude']?>, <?=$randonnee['lattitude'];
+        }?> 
+    ], 14);
 
     // gestion des tuiles
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -32,17 +35,11 @@ foreach ($requetePointDepart as $randonnee){?>
             
             map.fitBounds(polyline.getBounds());
             
-
-            <?php
-            }?>
-
-
-
             </script> 
                     <button class='buttonRandonnee'><a href="index.php?action=detailRandonne&id=<?=$randonnee['id_randonnee']?>">Détail de la <?=$randonnee['nom_randonnee']?></a></button>
                 </div>
 <?php
-
+}
 
 $titre = 'Liste des randonnées';
 $contenu = ob_get_clean();
