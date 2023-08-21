@@ -8,15 +8,15 @@ foreach ($res as $randonnee){?>
         <script>
 
         // initialisation de la carte leaflet et du zoom
+        <?php
+        foreach ($requetePointDepart as $depart){?>
         var map = L.map('<?=$randonnee['id_randonnee']?>').setView([
-            <?php
-            foreach ($requetePointDepart as $depart){?>
                 <?=$depart['longitude']?>, <?=$depart['lattitude']?> 
                 ], 14);
                 // marker du départ
                 var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);
             <?php
-            }?>
+        }?>
         // gestion des tuiles
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
