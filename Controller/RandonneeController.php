@@ -14,7 +14,7 @@ class RandonneeController {
         ");
         $requeteRandonnee->execute();
         $res = $requeteRandonnee->fetchAll();
-        
+
         foreach ($res as $randonnee){
             $id_randonnee = $randonnee['id_randonnee'];
         
