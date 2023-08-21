@@ -40,7 +40,12 @@ class ForetController {
         ");
         $requeteRandonnee->bindparam("id", $id_foret);
         $requeteRandonnee->execute();
-        $res = $requeteRandonnee->fetchAll();
+        foreach($requeteRandonnee as $randonnee){
+            // var_dump($randonnee);
+            var_dump($randonnee['nom_randonnee']);
+        }
+        die();
+        // $res = $requeteRandonnee->fetchAll();
 
         // foreach ($res as $randonnee){
         //     $id_randonnee = $randonnee['id_randonnee'];

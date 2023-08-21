@@ -83,7 +83,8 @@ ob_start();?>
     <h2 id="h2detailForet">La randonnée incontournable</h2>
     <?php
         // boucle pour lire la table randonnee
-        foreach ($requeteRandonnee as $randonnee){?>
+        foreach ($requeteRandonnee as $randonnee){
+            ?>
             <div id="map">
             <div id="<?=$randonnee['nom_randonnee']?>" style="width:100%;height:100%;"></div>
             </div>
@@ -131,17 +132,6 @@ ob_start();?>
 
             <?php
             }?>
-
-            // affiche la longitude et la latitude du point sur lequel ou on clique
-            var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-            var osmAttrib='Map data © OpenStreetMap contributors';
-            var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
-            map.addLayer(osm);
-            map.on('click',clicSurCarte);
-            function clicSurCarte(event){
-                var latlong=event.latlng
-                alert("Longitude - Latitude : "+latlong);
-            }
             </script>
 
 
