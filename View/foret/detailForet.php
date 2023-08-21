@@ -11,7 +11,7 @@ ob_start();?>
         ?>
     </article>
 
-    <!-- carte randonnee
+    <!-- <!-- carte randonnee -->
     <h2 id="h2detailForet">La randonnée incontournable</h2>
         <?php
         // boucle pour lire la table randonnee
@@ -74,48 +74,7 @@ ob_start();?>
                 var latlong=event.latlng
                 alert("Longitude - Latitude : "+latlong);
             }
-            </script> -->
-
-
-
-<!-- test leaflet -->
-    <!-- carte randonnee -->
-    <h2 id="h2detailForet">La randonnée incontournable</h2>
-    <?php
-        // boucle pour lire la table randonnee
-        foreach ($requeteRandonnee as $randonnee){
-            ?>
-            <div id="map">
-            <div id="<?=$randonnee['nom_randonnee']?>" style="width:100%;height:100%;"></div>
-            </div>
-            <script>
-
-                // initialisation de la carte leaflet et du zoom
-                var map = L.map('<?=$randonnee['nom_randonnee']?>').setView([
-                    <?php
-                    // foreach ($requetePointDepart as $depart){?>
-                        <?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>
-                ], 14);
-
-            // gestion des tuiles
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
-            
-            // trace le chemin sur la carte
-            var latlngs = [
-                [<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>],
-            ]
-            
-            var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
-            
-            map.fitBounds(polyline.getBounds());
-            
-            <?php
-            }?>
-            </script>
-
+            </script> 
 
 
     <article  class="commentaire">
