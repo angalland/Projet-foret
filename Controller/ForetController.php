@@ -42,9 +42,7 @@ class ForetController {
 
         foreach ($res as $randonnee){
             $id_randonnee = $randonnee['id_randonnee'];
-        }
-        var_dump($id_randonnee);
-        die();
+        
             $requetePointDepart = $pdo->prepare("
                     SELECT *
                     FROM point
@@ -76,7 +74,7 @@ class ForetController {
             ");
             $requetePointArrivee->bindparam("id", $id_randonnee);
             $requetePointArrivee->execute();
-        // }
+        }
            
         $requeteCommentaire = $pdo->prepare("
             SELECT *
