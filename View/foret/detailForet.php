@@ -105,31 +105,13 @@ ob_start();?>
             
             // trace le chemin sur la carte
             var latlngs = [
-                <?php 
-            foreach ($requetePointRandonnee as $pointRandonnee){?>
-                [<?=$pointRandonnee['longitude']?>, <?=$pointRandonnee['lattitude']?>],
-                <?php
-            }?>
+                [<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>],
             ]
             
             var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
             
             map.fitBounds(polyline.getBounds());
             
-            // marker sur la carte
-            // marker du départ
-            var marker1 = L.marker([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>]).addTo(map);
-            // marker de l'arrivée
-            <?php
-            foreach ($requetePointArrivee as $arrivee){?>
-               var marker2 = L.marker([<?=$arrivee['longitude']?>, <?=$arrivee['lattitude']?>]).addTo(map);
-            <?php
-            }?>
-
-            // popup sur le marker
-            marker2.bindPopup("Arrivée").openPopup();
-            marker1.bindPopup("Départ de la randonnée").openPopup();
-
             <?php
             }?>
             </script>
