@@ -13,6 +13,7 @@ foreach ($requeteRandonnee as $randonnee){?>
                     <?php 
                     }?>
                     <p>Difficulté : <?=$randonnee['difficulte']?></p>
+                    <p><?=$randonnee['descriptif']?></p>
                     <div id="<?=$randonnee['id_randonnee']?>" style="width:400px;height:400px;margin:30px"></div>
                     <script>
                         // initialisation de la carte leaflet et du zoom
@@ -40,7 +41,7 @@ foreach ($requeteRandonnee as $randonnee){?>
                         ]            
                         var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);           
                         map.fitBounds(polyline.getBounds());
-                        
+
                         // marker sur la carte
                         // marker du départ
                         var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);
