@@ -13,8 +13,6 @@ foreach ($res as $randonnee){?>
         var map = L.map('<?=$randonnee['id_randonnee']?>').setView([
                 <?=$depart['longitude']?>, <?=$depart['lattitude']?> 
                 ], 14);
-                // marker du départ
-                var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);
             <?php
         }?>
         // gestion des tuiles

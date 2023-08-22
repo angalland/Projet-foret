@@ -65,6 +65,38 @@ class RandonneeController {
         $requeteRandonnee->bindparam("id_randonnee", $id_randonnee);
         $requeteRandonnee->execute();
 
+        $requetePointDepart = $pdo->prepare("
+            SELECT *
+            FROM point
+            INNER JOIN randonnee
+                ON point.id_randonnee = randonnee.id_randonnee
+            WHERE randonnee.id_randonnee = :id
+            AND etape = 'Départ'
+        ");
+        $requetePointDepart->bindparam("id", $id_randonnee);
+        $requetePointDepart->execute();
+        
+        $requetePointRandonnee = $pdo->prepare("
+            SELECT *
+            FROM point
+            INNER JOIN randonnee
+                ON point.id_randonnee = randonnee.id_randonnee
+            WHERE randonnee.id_randonnee = :id
+            ");
+        $requetePointRandonnee->bindparam("id", $id_randonnee);
+        $requetePointRandonnee->execute();
+        
+        $requetePointArrivee = $pdo->prepare("
+            SELECT *
+            FROM point
+            INNER JOIN randonnee
+                ON point.id_randonnee = randonnee.id_randonnee
+            WHERE randonnee.id_randonnee = :id
+            AND etape = 'Arrivée'
+        ");
+        $requetePointArrivee->bindparam("id", $id_randonnee);
+        $requetePointArrivee->execute();        
+
         require "view/randonnee/detailRandonnee.php";
     }
 }
