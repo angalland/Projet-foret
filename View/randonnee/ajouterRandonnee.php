@@ -20,6 +20,11 @@ ob_start();?>
         <input type="number" name="difficulte" id="difficulte" class="inputConnexion" min="0">
     </div>
 
+    <div class="addDiv">
+        <label for="descriptif" class="addLabel">Description  : </label>
+        <input type="text" name="descriptif" id="descriptif" class="inputConnexion">
+    </div>
+
     <div class="addDivForetRandonnee">
         <label class="addLabel" for="nom_foret">Forêt : </label>
         <select name="foret" id="nom_foret" class="inputConnexion">
