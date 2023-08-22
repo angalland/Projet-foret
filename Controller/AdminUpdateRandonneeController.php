@@ -50,6 +50,7 @@ class AdminUpdateRandonneeController {
             $nom_randonnee = htmlspecialchars($_POST['nom_randonnee']);
             $duree = intval(htmlspecialchars($_POST['duree']));
             $difficulte = intval(htmlspecialchars($_POST['difficulte']));
+            $descriptif = htmlspecialchars($_POST['descriptif']);
             $id_foret = intval(htmlspecialchars($_POST['foret']));
 
             if ($duree <= 0){
@@ -60,6 +61,10 @@ class AdminUpdateRandonneeController {
                 $difficulte = null;
             }
 
+            if (empty($descriptif)){
+                $descriptif = null;
+            }
+
             if (isset($nom_randonnee) && !empty($nom_randonnee) && isset($id_foret) && !empty($id_foret)){
                 $pdo = Connect::seConnecter();
                 $requete = $pdo->prepare("
@@ -67,12 +72,14 @@ class AdminUpdateRandonneeController {
                     SET nom_randonnee = :nom_randonnee,
                         duree = :duree,
                         difficulte = :difficulte,
+                        descriptif = :descriptif,
                         id_foret = :id_foret
                     WHERE id_randonnee = :id_randonnee
                 ");
                 $requete->bindparam("nom_randonnee", $nom_randonnee);
                 $requete->bindparam("duree", $duree);
                 $requete->bindparam("difficulte", $difficulte);
+                $requete->bindparam("descriptif", $descriptif);
                 $requete->bindparam("id_foret", $id_foret);
                 $requete->bindparam("id_randonnee", $id_randonnee);
                 $requete->execute();
