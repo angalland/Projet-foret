@@ -40,6 +40,8 @@ class ForetController {
         $requeteRandonnee->execute();
         $res = $requeteRandonnee->fetchAll();
 
+        $randonneeForet = [];
+
         foreach ($res as $randonnee){
             $id_randonnee = $randonnee['id_randonnee'];
         
@@ -53,7 +55,8 @@ class ForetController {
             ");
             $requetePointDepart->bindparam("id", $id_randonnee);
             $requetePointDepart->execute();
-                    
+            
+            $randonneeForet[$id_randonnee]['pointDepart']=$requetePointDepart->fetchAll();     
             $requetePointRandonnee = $pdo->prepare("
                 SELECT *
                 FROM point
@@ -63,7 +66,7 @@ class ForetController {
             ");
             $requetePointRandonnee->bindparam("id", $id_randonnee);
             $requetePointRandonnee->execute();
-                    
+            $randonneeForet[$id_randonnee]['pointRandonnee']=$requetePointRandonnee->fetchAll();       
             $requetePointArrivee = $pdo->prepare("
                 SELECT *
                 FROM point
@@ -74,8 +77,9 @@ class ForetController {
             ");
             $requetePointArrivee->bindparam("id", $id_randonnee);
             $requetePointArrivee->execute();
+            $randonneeForet[$id_randonnee]['pointArrivee']=$requetePointArrivee->fetchAll();
         }
-           
+
         $requeteCommentaire = $pdo->prepare("
             SELECT *
             FROM commentaire_foret
