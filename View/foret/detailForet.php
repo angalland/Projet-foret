@@ -13,18 +13,17 @@ ob_start();?>
 
     <!-- carte randonnee -->
     <h2 id="h2detailForet">La randonnée incontournable</h2>
-        <!-- <?php
+        <?php
         // boucle pour lire la table randonnee
-        // foreach ($requetePointDepart as $randonnee){
+        foreach ($randonneeForet as $randonnee){
             // ?>
-            <div id="map">
-            <div id="<?=$randonnee['nom_randonnee']?>" style="width:100%;height:100%;"></div>
+            <div id='map<?=$randonnee['id_randonnee']?>' style="width:400px;height:400px;margin:30px;">
+                <!-- <div id=""></div> -->
             </div>
             <script>
 
-                // initialisation de la carte leaflet et du zoom
-                var map = L.map('<?=$randonnee['nom_randonnee']?>').setView([
-                        <?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>
+            // initialisation de la carte leaflet et du zoom
+            var map = L.map('map<?=$randonnee['id_randonnee']?>').setView([<?=$randonnee['pointDepart'][0]['longitude']?>, <?=$randonnee['pointDepart'][0]['lattitude']?>
                 ], 14);
 
             // gestion des tuiles
@@ -36,7 +35,7 @@ ob_start();?>
             // trace le chemin sur la carte
             var latlngs = [
                 <?php 
-            foreach ($requetePointRandonnee as $pointRandonnee){?>
+            foreach ($randonnee['pointRandonnee'] as $pointRandonnee){?>
                 [<?=$pointRandonnee['longitude']?>, <?=$pointRandonnee['lattitude']?>],
                 <?php
             }?>
@@ -48,21 +47,16 @@ ob_start();?>
             
             // marker sur la carte
             // marker du départ
-            var marker1 = L.marker([<?=$randonnee['longitude']?>, <?=$randonnee['lattitude']?>]).addTo(map);
+            var marker1 = L.marker([<?=$randonnee['pointDepart'][0]['longitude']?>, <?=$randonnee['pointDepart'][0]['lattitude']?>]).addTo(map);
             // marker de l'arrivée
-            <?php
-            foreach ($requetePointArrivee as $arrivee){?>
-               var marker2 = L.marker([<?=$arrivee['longitude']?>, <?=$arrivee['lattitude']?>]).addTo(map);
-            <?php
-            }?>
+               var marker2 = L.marker([<?=$randonnee['pointArrivee'][0]['longitude']?>, <?=$randonnee['pointArrivee'][0]['lattitude']?>]).addTo(map);
+
 
             // popup sur le marker
             marker2.bindPopup("Arrivée").openPopup();
             marker1.bindPopup("Départ de la randonnée").openPopup();
 
-            <?php
-            }?> 
-<!-- 
+
             // affiche la longitude et la latitude du point sur lequel ou on clique
             var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
             var osmAttrib='Map data © OpenStreetMap contributors';
@@ -73,7 +67,9 @@ ob_start();?>
                 var latlong=event.latlng
                 alert("Longitude - Latitude : "+latlong);
             }
-            </script>  -->
+            </script> 
+            <?php
+            }?> 
 
 
     <article  class="commentaire">

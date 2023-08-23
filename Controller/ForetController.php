@@ -44,7 +44,7 @@ class ForetController {
 
         foreach ($res as $randonnee){
             $id_randonnee = $randonnee['id_randonnee'];
-        
+            $randonneeForet[$id_randonnee]['id_randonnee'] = $id_randonnee;
             $requetePointDepart = $pdo->prepare("
                     SELECT *
                     FROM point
