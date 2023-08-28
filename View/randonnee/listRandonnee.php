@@ -3,7 +3,7 @@ ob_start();?>
 <?php
 foreach ($randonneeForet as $randonnee){?>
     <div class="leafletRandonne">
-        <div id="<?=$randonnee['id_randonnee']?>" style="width:400px;height:400px;margin:30px"></div>
+        <div id="<?=$randonnee['id_randonnee']?>" style="width:350px;height:400px;margin:30px"></div>
 
         <script>
 
