@@ -44,7 +44,7 @@ foreach ($randonneeForet as $randonnee){?>
 
         </script>
 
-        <button class='buttonRandonnee'><a href="index.php?action=detailRandonne&id=<?=$randonnee['id_randonnee']?>">Détail de la <?=$randonnee[$id_randonnee]['pointDepart']['nom_randonnee']?></a></button>
+        <button class='buttonRandonnee'><a href="index.php?action=detailRandonne&id=<?=$randonnee['id_randonnee']?>">Détail de la <?=$randonnee['pointDepart'][0]['nom_randonnee']?></a></button>
 
     </div>
 <?php

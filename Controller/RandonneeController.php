@@ -56,6 +56,7 @@ class RandonneeController {
             $requetePointArrivee->execute();
             $randonneeForet[$id_randonnee]['pointArrivee']=$requetePointArrivee->fetchAll();
         }
+        
         require "view/randonnee/listRandonnee.php";
     }
 
