@@ -1,20 +1,19 @@
 <?php
 ob_start();?>
 <?php
-foreach ($res as $randonnee){?>
+foreach ($randonneeForet as $randonnee){?>
     <div class="leafletRandonne">
         <div id="<?=$randonnee['id_randonnee']?>" style="width:400px;height:400px;margin:30px"></div>
 
         <script>
 
         // initialisation de la carte leaflet et du zoom
-        <?php
-        foreach ($requetePointDepart as $depart){?>
+
+
         var map = L.map('<?=$randonnee['id_randonnee']?>').setView([
-                <?=$depart['longitude']?>, <?=$depart['lattitude']?> 
+                <?=$randonnee['pointDepart'][0]['longitude']?>, <?=$randonnee['pointDepart'][0]['lattitude']?>
                 ], 14);
-            <?php
-        }?>
+
         // gestion des tuiles
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -24,7 +23,7 @@ foreach ($res as $randonnee){?>
         // trace le chemin sur la carte
         var latlngs = [
             <?php 
-            foreach ($requetePointRandonnee as $pointRandonnee){?>
+            foreach ($randonnee['pointRandonnee'] as $pointRandonnee){?>
                 [<?=$pointRandonnee['longitude']?>, <?=$pointRandonnee['lattitude']?>],
                 <?php
             }?>
@@ -35,14 +34,9 @@ foreach ($res as $randonnee){?>
         map.fitBounds(polyline.getBounds());
 
         // marker sur la carte
-        // marker du départ
-        var marker1 = L.marker([<?=$depart['longitude']?>, <?=$depart['lattitude']?>]).addTo(map);
-        // marker de l'arrivée
-        <?php
-        foreach ($requetePointArrivee as $arrivee){?>
-            var marker2 = L.marker([<?=$arrivee['longitude']?>, <?=$arrivee['lattitude']?>]).addTo(map);
-            <?php
-        }?>
+        var marker1 = L.marker([<?=$randonnee['pointDepart'][0]['longitude']?>, <?=$randonnee['pointDepart'][0]['lattitude']?>]).addTo(map);
+            // marker de l'arrivée
+               var marker2 = L.marker([<?=$randonnee['pointArrivee'][0]['longitude']?>, <?=$randonnee['pointArrivee'][0]['lattitude']?>]).addTo(map);
 
         // popup sur le marker
         marker2.bindPopup("Arrivée").openPopup();
@@ -50,7 +44,7 @@ foreach ($res as $randonnee){?>
 
         </script>
 
-        <button class='buttonRandonnee'><a href="index.php?action=detailRandonne&id=<?=$randonnee['id_randonnee']?>">Détail de la <?=$randonnee['nom_randonnee']?></a></button>
+        <button class='buttonRandonnee'><a href="index.php?action=detailRandonne&id=<?=$randonnee['id_randonnee']?>">Détail de la <?=$randonnee[$id_randonnee]['pointDepart']['nom_randonnee']?></a></button>
 
     </div>
 <?php

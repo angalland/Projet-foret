@@ -15,8 +15,11 @@ class RandonneeController {
         $requeteRandonnee->execute();
         $res = $requeteRandonnee->fetchAll();
 
+        $randonneeForet = [];
+
         foreach ($res as $randonnee){
             $id_randonnee = $randonnee['id_randonnee'];
+            $randonneeForet[$id_randonnee]['id_randonnee'] = $id_randonnee;
         
             $requetePointDepart = $pdo->prepare("
                     SELECT *
@@ -28,7 +31,8 @@ class RandonneeController {
             ");
             $requetePointDepart->bindparam("id", $id_randonnee);
             $requetePointDepart->execute();
-                    
+            $randonneeForet[$id_randonnee]['pointDepart']=$requetePointDepart->fetchAll();
+
             $requetePointRandonnee = $pdo->prepare("
                 SELECT *
                 FROM point
@@ -38,7 +42,8 @@ class RandonneeController {
             ");
             $requetePointRandonnee->bindparam("id", $id_randonnee);
             $requetePointRandonnee->execute();
-                    
+            $randonneeForet[$id_randonnee]['pointRandonnee']=$requetePointRandonnee->fetchAll();
+
             $requetePointArrivee = $pdo->prepare("
                 SELECT *
                 FROM point
@@ -49,6 +54,7 @@ class RandonneeController {
             ");
             $requetePointArrivee->bindparam("id", $id_randonnee);
             $requetePointArrivee->execute();
+            $randonneeForet[$id_randonnee]['pointArrivee']=$requetePointArrivee->fetchAll();
         }
         require "view/randonnee/listRandonnee.php";
     }
