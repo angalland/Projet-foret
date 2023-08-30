@@ -13,10 +13,12 @@ ob_start();?>
 
     <!-- carte randonnee -->
     <h2 id="h2detailForet">La randonnée incontournable</h2>
+        <div class="r">
         <?php
         // boucle pour lire la table randonnee
         foreach ($randonneeForet as $randonnee){
             // ?>
+            <div class="Ra">
             <div id='map<?=$randonnee['id_randonnee']?>' style="width:350px;height:400px;margin:30px;">
                 <!-- <div id=""></div> -->
             </div>
@@ -70,9 +72,10 @@ ob_start();?>
             </script>
 
         <button class='buttonRandonnee'><a href="index.php?action=detailRandonne&id=<?=$randonnee['id_randonnee']?>">Détail de la <?=$randonnee['pointDepart'][0]['nom_randonnee']?></a></button>
+        </div>
             <?php
             }?> 
-
+    </div>
 
     <article  class="commentaire">
         <h2>Commentaire :</h2>
