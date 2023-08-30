@@ -64,6 +64,10 @@
         width: 200px;
         height: 200px;
     }
+
+    .buttonRandonnee > a{
+        font-size: 15px!important;
+    }
 }
 
 /* commentaire + main */
