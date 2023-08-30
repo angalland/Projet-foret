@@ -17,7 +17,7 @@ ob_start();?>
         // boucle pour lire la table randonnee
         foreach ($randonneeForet as $randonnee){
             // ?>
-            <div id='map<?=$randonnee['id_randonnee']?>' style="width:400px;height:400px;margin:30px;">
+            <div id='map<?=$randonnee['id_randonnee']?>' style="width:350px;height:400px;margin:30px;">
                 <!-- <div id=""></div> -->
             </div>
             <script>
@@ -58,16 +58,18 @@ ob_start();?>
 
 
             // affiche la longitude et la latitude du point sur lequel ou on clique
-            var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-            var osmAttrib='Map data © OpenStreetMap contributors';
-            var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
-            map.addLayer(osm);
-            map.on('click',clicSurCarte);
-            function clicSurCarte(event){
-                var latlong=event.latlng
-                alert("Longitude - Latitude : "+latlong);
-            }
-            </script> 
+            // var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+            // var osmAttrib='Map data © OpenStreetMap contributors';
+            // var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
+            // map.addLayer(osm);
+            // map.on('click',clicSurCarte);
+            // function clicSurCarte(event){
+            //     var latlong=event.latlng
+            //     alert("Longitude - Latitude : "+latlong);
+            // }
+            </script>
+
+        <button class='buttonRandonnee'><a href="index.php?action=detailRandonne&id=<?=$randonnee['id_randonnee']?>">Détail de la <?=$randonnee['pointDepart'][0]['nom_randonnee']?></a></button>
             <?php
             }?> 
 
